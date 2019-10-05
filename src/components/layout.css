@@ -620,3 +620,394 @@ pre tt:after {
     font-size: 100%;
   }
 }
+
+:root {
+  --colorPrimary: #3B5E8C;
+  --colorSecondary: #BFB39B;
+  --colorTertiary: #BF755A;
+  --colorPrimarySecond: #517EA6;
+  --colorTertiarySecond: #59332A;    
+  --gutter: 20px;
+  --tileImgMinHeight: 300px;
+  --gridWrapperWidth: 940px;
+  --gridGap: 20px;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Rubik', sans-serif;
+  letter-spacing: 0.01em;
+  height: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Trirong', serif;
+  letter-spacing: 0.05em;
+  line-height: 1.2em;
+  color: var(--colorPrimary);
+}
+
+/*****************************************************************
+* COMMON ELEMENTS ***********************************************
+*****************************************************************/
+
+a button {
+  margin: 30px;
+}
+
+button {
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  background: none;
+  cursor: pointer;
+  padding: 15px 40px;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  outline: none;
+  position: relative;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  border: 3px solid var(--colorPrimary);
+  color: var(--colorPrimary);
+  overflow: hidden;
+  z-index: 1;
+}
+
+button:hover, button:active {
+  color: #fff;
+  background-color: var(--colorPrimary);
+}
+
+/*****************************************************************
+* GRID **********************************************************
+*****************************************************************/
+.grid {
+  /* Flex - fallback for browsers that do not support grid yet. */
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.grid-panel {
+  /* Flex - fallback for browsers that do not support grid yet. */
+  margin-left: 5px;
+  margin-right: 5px;
+  flex: 1 1 200px;
+}
+
+.grid {
+  margin: 0 auto;
+  display: grid;
+  grid-gap: var(--gridGap);
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+.grid.not-full-width {
+  max-width: var(--gridWrapperWidth);
+}
+
+@supports (display: grid) {
+  .grid>* {
+      /* We need to set the margin used on flex items to 0 as we have gaps in grid. */
+      margin: 0;
+  }
+}
+
+/*****************************************************************
+* HORIZONTAL SCROLL *********************************************
+*****************************************************************/
+
+.horizontalScroll {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.horizontalScroll::-webkit-scrollbar {
+  display: none;
+}
+
+.horizontalScroll:before, .horizontalScroll:after {
+  content: '';
+  padding: 0 1px;
+}
+
+.horizontalScroll .hsItem {
+  flex: 0 0 auto;
+  margin: 20px;
+  width: 70%;
+  max-width: 300px;
+}
+
+.horizontalScroll .hsItem:first-child {
+  margin-left: calc(var(--gutter) * 2);
+}
+
+.horizontalScroll .hsItem:last-child {
+  margin-right: calc(var(--gutter) * 2);
+}
+
+.horizontalScroll .hsItem img {
+  max-width: 100%;
+}
+
+/*****************************************************************
+* HERO CONTENT **************************************************
+*****************************************************************/
+
+#heroWrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: grey;
+  background-image: url(../images/homeBanner.jpg);
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
+
+.hero {
+  margin-top: 30px;
+}
+
+.content {
+  color: #e2e2e2;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  text-align: center;
+  display: block;
+}
+
+.content h1 {
+  font-size: 2.5em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.content h2 {
+  color: var(--colorSecondary);
+  margin: 0;
+  font-size: 1.45em;
+  text-transform: uppercase;
+}
+
+.arrow-down {
+  margin: 70vh auto 0;
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid rgba(0, 0, 0, 0.6);
+  /* animation-duration: 0.5s;
+  animation-name: growAndShrink;
+  animation-iteration-count: infinite;
+  animation-direction: alternate; */
+}
+
+@keyframes growAndShrink {
+  from {
+      border-left: 20px solid transparent;
+      border-right: 20px solid transparent;
+      border-top: 20px solid rgba(0, 0, 0, 0.6);
+  }
+  to {
+      border-left: 30px solid transparent;
+      border-right: 30px solid transparent;
+      border-top: 30px solid rgba(0, 0, 0, 0.6);
+  }
+}
+
+/*****************************************************************
+* PROJECTS WRAPPER **********************************************
+*****************************************************************/
+
+#projectsWrapper {
+  background-color: white;
+  padding: 20px 0;
+}
+
+#projectsWrapper h2 {
+  text-align: center;
+}
+
+#projectsWrapper .horizontalScroll .hsItem {
+  text-align: center;
+}
+
+#projectsWrapper .horizontalScroll .hsItem h3 {
+  text-transform: capitalize;
+  padding: 0 20px;
+  font-size: 1em;
+  letter-spacing: 0.03em;
+}
+
+/*****************************************************************
+* EXPERIENCE WRAPPER ********************************************
+*****************************************************************/
+
+#experienceWrapper {
+  background-color: #f0f8ff;
+  position: relative;
+  z-index: 0;
+}
+
+#experienceWrapper h2 {
+  text-align: center;
+  padding-top: 20px;
+}
+
+#experienceWrapper h3 {
+  color: #000000;
+}
+
+#experienceWrapper .grid {
+  grid-template-columns: 1fr;
+  grid-gap: 0
+}
+
+#experienceWrapper .grid-panel {
+  padding: 0 20px;
+}
+
+#experienceWrapper .grid-panel:nth-child(1n) {
+  background-color: var(--colorSecondary);
+}
+
+#experienceWrapper .grid-panel:nth-child(4n) {
+  background-color: var(--colorPrimarySecond);
+}
+
+#experienceWrapper .grid-panel:nth-child(5n) {
+  background-color: var(--colorSecondary);
+}
+
+#experienceWrapper .grid-panel:nth-child(8n) {
+  background-color: var(--colorPrimarySecond);
+}
+
+#experienceWrapper .grid-panel:nth-child(2n),
+#experienceWrapper .grid-panel:nth-child(3n),
+#experienceWrapper .grid-panel:nth-child(6n),
+#experienceWrapper .grid-panel:nth-child(7n) {
+  background-image: url(../images/webdesign.jpg);
+  background-position: center;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
+#experienceWrapper .grid-panel:nth-child(3n) {
+  background-image: url(../images/typingatmacbook.jpg);
+}
+#experienceWrapper .grid-panel:nth-child(6n) {
+  background-image: url(../images/mobiledesign.jpg);
+}
+#experienceWrapper .grid-panel:nth-child(7n) {
+  background-image: url(../images/ian.jpg);
+}
+
+#experienceWrapper .grid-panel:nth-child(4n),
+#experienceWrapper .grid-panel:nth-child(8n) {
+  background-image: none;
+}
+#experienceWrapper .grid-panel:nth-child(1n) .experience-content {
+  text-align: center;
+  margin: 10px 0 40px 0;
+}
+
+/*****************************************************************
+* CONTACT WRAPPER ***********************************************
+*****************************************************************/
+
+#contactWrapper {
+  padding: 20px;
+  text-align: center;
+}
+
+#contactWrapper p {
+  max-width: 40em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*****************************************************************
+* FOOTER ********************************************************
+*****************************************************************/
+
+footer {
+  padding: 0 20px;
+  background-color: var(--colorPrimary);
+  color: #ffffff;
+}
+
+footer div.grid {
+  grid-template-columns: 200px auto;
+}
+
+footer p, footer ul {
+  margin: 20px 0;
+}
+
+footer ul {
+  padding: 0;
+  text-align: right;
+  margin-bottom: 0;
+}
+
+footer ul li {
+  display: inline-block;
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+
+footer a {
+  color: #ffffff;
+}
+
+/*****************************************************************
+******************************************************************
+* MEDIA QUERIES **************************************************
+******************************************************************
+******************************************************************/
+
+@media (min-width: 700px) {
+  #experienceWrapper .grid {
+      grid-template-columns: 1fr 1fr;
+  }
+
+  #experienceWrapper .grid-panel:nth-child(1n) .experience-content {
+      display: flex;
+      align-items: center;
+      margin: 40px 0;
+      text-align: left;
+  }
+
+  #experienceWrapper .grid-panel:nth-child(1n) .experience-content .text {
+      margin-left: 20px;
+  }
+  
+  #experienceWrapper .grid-panel:nth-child(2n) .experience-content .text {
+      margin-right: 20px;
+  }
+}
+
+@media (min-width: 1000px) {
+  #experienceWrapper .grid-panel:nth-child(1n) .experience-content {
+      margin-left: calc(100% - (var(--gridWrapperWidth) / 2));
+      margin-right: 0;
+  }
+
+  #experienceWrapper .grid-panel:nth-child(2n) .experience-content {
+      margin-left: 0;
+      margin-right: calc(100% - (var(--gridWrapperWidth) / 2));
+      flex-direction: row-reverse;
+  }
+}

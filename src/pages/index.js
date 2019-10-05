@@ -1,12 +1,13 @@
 import React from "react"
-import { Link } from "gatsby"
+// import { Link } from "gatsby"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
+// import Image from "../components/image"
 import SEO from "../components/seo"
 import HeroComponent from "../components/hero"
 import ProjectWrapperComponent from "../components/projects/projectWrapper"
 import ExperienceWrapperComponent from "../components/experience/experience"
+import ContactWrapperComponent from "../components/contact"
 
 const IndexPage = () => (
   <Layout>
@@ -17,6 +18,7 @@ const IndexPage = () => (
     <HeroComponent />
     <ProjectWrapperComponent />
     <ExperienceWrapperComponent />
+    <ContactWrapperComponent />
   </Layout>
 )
 

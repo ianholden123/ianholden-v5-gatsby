@@ -7,7 +7,7 @@ const ProjectComponent = ({
   imageAlt,
   imageSrc
 }) => (
-    <div class="hsItem">
+    <div className="hsItem">
       <a href={projectLink} rel="noreferrer noopener">
         <img src={imageSrc} alt={imageAlt} />
         <h3>{projectName}</h3>

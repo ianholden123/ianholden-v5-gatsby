@@ -1,14 +1,18 @@
 import React from "react"
 
+import webDesignImage from '../../images/webDesign.png'
+import wordpressImage from '../../images/wordpress.png'
+import appDevImage from '../../images/appDev.png'
+import seoImage from '../../images/seo.png'
 import ExperiencePanelComponent from "./experiencePanel"
 
 const ExperienceWrapperComponent = () => (
     <div id="experienceWrapper">
         <h2>Experience</h2>
-        <div class="grid">
+        <div className="grid">
             <ExperiencePanelComponent
                 isImagePanel={false}
-                thumbImageSrc="assets/webDesign.png"
+                thumbImageSrc={webDesignImage}
                 thumbImageAlt="Web Design icon"
                 panelTitle="Website Design"
                 panelParagraph="I have built many stunning websites using the latest web technologies that deliver on speed and accessibility."
@@ -17,14 +21,14 @@ const ExperienceWrapperComponent = () => (
             <ExperiencePanelComponent isImagePanel={true} />
             <ExperiencePanelComponent
                 isImagePanel={false}
-                thumbImageSrc="assets/wordpress.png"
+                thumbImageSrc={wordpressImage}
                 thumbImageAlt="WordPress icon"
                 panelTitle="WordPress Development"
                 panelParagraph="I love creating websites with WordPress, the content management system that allows you to control your content."
             />
             <ExperiencePanelComponent
                 isImagePanel={false}
-                thumbImageSrc="assets/appDev.png"
+                thumbImageSrc={appDevImage}
                 thumbImageAlt="App Development icon"
                 panelTitle="Mobile App Development"
                 panelParagraph="I am capable of building outstanding Mobile applications suitable for both Android and iOS."
@@ -33,7 +37,7 @@ const ExperienceWrapperComponent = () => (
             <ExperiencePanelComponent isImagePanel={true} />
             <ExperiencePanelComponent
                 isImagePanel={false}
-                thumbImageSrc="assets/seo.png"
+                thumbImageSrc={seoImage}
                 thumbImageAlt="SEO icon"
                 panelTitle="Search Engine Optimisation (SEO)"
                 panelParagraph="I have a wealth of experience in optimising websites for search engines so that your users can find you on the web."

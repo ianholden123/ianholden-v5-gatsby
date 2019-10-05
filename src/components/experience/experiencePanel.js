@@ -8,20 +8,20 @@ const ExperiencePanelComponent = ({
     panelTitle,
     panelParagraph
 }) => (
-        isImagePanel ? (
-            <div class="grid-panel">
-                <div class="experience-content">
-                    <img src={thumbImageSrc} alt={thumbImageAlt} aria-hidden="true" />
-                    <div class="text">
-                        <h3>{panelTitle}</h3>
-                        <p>{panelParagraph}</p>
-                    </div>
+    !isImagePanel ? (
+        <div className="grid-panel">
+            <div className="experience-content">
+                <img src={thumbImageSrc} alt={thumbImageAlt} aria-hidden="true" />
+                <div className="text">
+                    <h3>{panelTitle}</h3>
+                    <p>{panelParagraph}</p>
                 </div>
             </div>
-        ) : (
-            <div class="grid-panel image-tile"></div>
-        )
+        </div>
+    ) : (
+        <div className="grid-panel image-tile"></div>
     )
+)
 
 ExperiencePanelComponent.propTypes = {
     projectName: PropTypes.string,
