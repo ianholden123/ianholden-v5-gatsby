@@ -9,7 +9,7 @@ import ProjectComponent from "./project"
 const ProjectWrapperComponent = () => (
     <div id="projectsWrapper">
         <h2>Web Projects</h2>
-        <div class="horizontalScroll">
+        <div className="horizontalScroll">
             <ProjectComponent 
                 projectLink="https://www.philippines-schools-project.org/"
                 projectName="Philippines Schools Project"
