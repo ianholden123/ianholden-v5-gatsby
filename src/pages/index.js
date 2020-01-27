@@ -4,10 +4,10 @@ import React from "react"
 import Layout from "../components/layout"
 // import Image from "../components/image"
 import SEO from "../components/seo"
-import HeroComponent from "../components/hero"
-import ProjectWrapperComponent from "../components/projects/projectWrapper"
-import ExperienceWrapperComponent from "../components/experience/experience"
-import ContactWrapperComponent from "../components/contact"
+import HeroComponent from "../components/homePage/hero"
+import ProjectWrapperComponent from "../components/homePage/projects/projectWrapper"
+import ExperienceWrapperComponent from "../components/homePage/experience/experience"
+import ContactWrapperComponent from "../components/homePage/contact"
 
 const IndexPage = () => (
   <Layout>
