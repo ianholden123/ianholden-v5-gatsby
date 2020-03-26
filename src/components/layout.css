@@ -623,9 +623,9 @@ pre tt:after {
 
 :root {
   --colorPrimary: #3B5E8C;
+  --colorPrimarySecond: #517EA6;
   --colorSecondary: #BFB39B;
   --colorTertiary: #BF755A;
-  --colorPrimarySecond: #517EA6;
   --colorTertiarySecond: #59332A;    
   --gutter: 20px;
   --tileImgMinHeight: 300px;
@@ -634,11 +634,13 @@ pre tt:after {
 }
 
 html, body {
-  margin: 0;
-  padding: 0;
   font-family: 'Rubik', sans-serif;
   letter-spacing: 0.01em;
   height: 100%;
+}
+
+main {
+  margin-top: 55px;
 }
 
 h1, h2, h3, h4, h5, h6 {

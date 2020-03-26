@@ -1,8 +1,5 @@
 import React from "react"
-// import { Link } from "gatsby"
-
 import Layout from "../components/layout"
-// import Image from "../components/image"
 import SEO from "../components/seo"
 import HeroComponent from "../components/hero"
 import ProjectWrapperComponent from "../components/projects/projectWrapper"
@@ -12,8 +9,8 @@ import ContactWrapperComponent from "../components/contact"
 const IndexPage = () => (
   <Layout>
     <SEO
-      title="Ian Holden | Software Engineer | I build websites"
-      description="Ian Holden is a software engineer from the south east, UK. He builds stunning websites and has experience in SEO &amp; hybrid app development."
+      title="Ian Holden | Software Engineer | I Build Websites"
+      description="Ian Holden is a software Engineer based in Kent, UK. Get in touch to see how Ian can help you build your next web project."
     />
     <HeroComponent />
     <ProjectWrapperComponent />
