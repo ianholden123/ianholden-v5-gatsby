@@ -14,7 +14,11 @@ const CategoryTemplate = props => {
     return (
         <Layout>
             <SEO title={`Category: ${name} | Ian Holden`} />
-            <h1>Category: {name}</h1>
+            <article>
+                <div className='not-full-width block-center'>
+                    <h1>Category: {name}</h1>
+                </div>
+            </article>
         </Layout>
     )
 }

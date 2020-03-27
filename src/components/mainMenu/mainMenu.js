@@ -54,9 +54,11 @@ const MainMenu = props => {
             }) => {
                 return (
                     <nav className='primary-navigation'>
-                        <ul>
-                            {menu.map(item => renderMenuItem(item))}
-                        </ul>
+                        <div className='not-full-width block-center'>
+                            <ul>
+                                {menu.map(item => renderMenuItem(item))}
+                            </ul>
+                        </div>
                     </nav>
                 )
             }}

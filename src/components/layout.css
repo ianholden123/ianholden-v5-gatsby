@@ -433,15 +433,37 @@ fieldset {
   padding-top: 0;
   margin-bottom: 1.45rem;
 }
-blockquote {
-  margin-left: 1.45rem;
-  margin-right: 1.45rem;
-  margin-top: 0;
-  padding-bottom: 0;
-  padding-left: 0;
-  padding-right: 0;
-  padding-top: 0;
-  margin-bottom: 1.45rem;
+blockquote{
+  margin:50px auto;
+  font-style:italic;
+  color: #555555;
+  padding:1.2em 30px 1.2em 75px;
+  border-left:8px solid var(--colorPrimary);
+  line-height:1.6;
+  position: relative;
+  background:#EDEDED;
+}
+
+blockquote::before{
+  font-family:Arial;
+  content: "\201C";
+  color: var(--colorPrimary);
+  font-size:4em;
+  position: absolute;
+  left: 10px;
+  top:-10px;
+}
+
+blockquote::after{
+  content: '';
+}
+
+blockquote span{
+  display:block;
+  color:#333333;
+  font-style: normal;
+  font-weight: bold;
+  margin-top:1em;
 }
 form {
   margin-left: 0;
@@ -708,8 +730,12 @@ button:hover, button:active {
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 }
 
-.grid.not-full-width {
+.not-full-width {
   max-width: var(--gridWrapperWidth);
+}
+
+.block-center {
+  margin: auto;
 }
 
 @supports (display: grid) {
