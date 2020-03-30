@@ -1,10 +1,10 @@
 import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import HeroComponent from "../components/hero"
+import HeroComponent from "../components/hero/hero"
 import ProjectWrapperComponent from "../components/projects/projectWrapper"
 import ExperienceWrapperComponent from "../components/experience/experience"
-import ContactWrapperComponent from "../components/contact"
+import ContactWrapperComponent from "../components/contact/contact"
 
 const IndexPage = () => (
   <Layout>

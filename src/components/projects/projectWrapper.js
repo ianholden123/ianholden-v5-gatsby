@@ -1,4 +1,5 @@
 import React from "react"
+import './project.css'
 
 import philippinesImage from '../../images/philippines.png'
 import snakesAndLaddersImage from '../../images/snakesAndLadders.png'
@@ -7,7 +8,7 @@ import FitnessImage from '../../images/3DFitness.png'
 import ProjectComponent from "./project"
 
 const ProjectWrapperComponent = () => (
-    <div id="projectsWrapper">
+    <article id="projectsWrapper">
         <h2>Web Projects</h2>
         <div class="horizontalScroll">
             <ProjectComponent 
@@ -34,7 +35,7 @@ const ProjectWrapperComponent = () => (
                 imageAlt="Three dimensional fitness logo"
             />
         </div>
-    </div>
+    </article>
 )
 
 export default ProjectWrapperComponent

@@ -1,0 +1,10 @@
+#contactWrapper {
+  padding: 20px;
+  text-align: center;
+}
+
+#contactWrapper p {
+  max-width: 40em;
+  margin-left: auto;
+  margin-right: auto;
+}

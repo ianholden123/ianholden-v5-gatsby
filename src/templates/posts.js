@@ -25,6 +25,11 @@ const Posts = props => {
                             <h2 key={post.id}>
                                 <Link to={createLocalLink(`/blog/${post.uri}`)}>{post.title}</Link>
                             </h2>
+                            <ul className='meta'>
+                                <li>Author</li>
+                                <li>Published</li>
+                                <li>Updated</li>
+                            </ul>
                             <div className="excerpt" dangerouslySetInnerHTML={{__html: post.excerpt}} />
                         </>
                     ))}

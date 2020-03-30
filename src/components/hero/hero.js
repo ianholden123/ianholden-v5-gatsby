@@ -1,7 +1,8 @@
 import React from "react"
+import './hero.css'
 
 const HeroComponent = () => (
-    <div id="heroWrapper">
+    <article id="heroWrapper">
         <div className="hero">
             <div className="content">
                 <h1>IAN HOLDEN</h1>
@@ -9,7 +10,7 @@ const HeroComponent = () => (
             </div>
         </div>
         <div className="arrow-down"></div>
-    </div>
+    </article>
 )
 
 export default HeroComponent
