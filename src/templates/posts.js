@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
 import Pagination from '../components/pagination'
-import Layout from '../components/layout'
+import Layout from '../components/layout/layout'
 import SEO from '../components/seo'
 import { createLocalLink } from '../utils'
 
