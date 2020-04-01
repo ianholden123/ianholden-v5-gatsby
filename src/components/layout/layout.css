@@ -648,7 +648,8 @@ pre tt:after {
   --colorPrimarySecond: #517EA6;
   --colorSecondary: #BFB39B;
   --colorTertiary: #BF755A;
-  --colorTertiarySecond: #59332A;    
+  --colorTertiarySecond: #59332A;
+  --colorGrey: grey;
   --gutter: 20px;
   --tileImgMinHeight: 300px;
   --gridWrapperWidth: 940px;
@@ -709,8 +710,21 @@ button:hover, button:active {
 
 article {
   margin: 0;
-  padding: 40px 0;
+  padding: 40px 20px;
 }
+
+/*****************************************************************
+* UTILITY ********************************************************
+*****************************************************************/
+.p-0 { padding: 0; }
+.px-0 { padding-left: 0; padding-right: 0; }
+.py-0 { padding-top: 0; padding-bottom: 0; }
+.m-0 { margin: 0; }
+.mx-0 { margin-left: 0; margin-right: 0; }
+.my-0 { margin-top: 0; margin-bottom: 0; }
+.text-center { text-align: center; }
+.block-center { margin: auto; }
+.not-full-width { max-width: var(--gridWrapperWidth); }
 
 /*****************************************************************
 * GRID **********************************************************
@@ -733,14 +747,6 @@ article {
   display: grid;
   grid-gap: var(--gridGap);
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-}
-
-.not-full-width {
-  max-width: var(--gridWrapperWidth);
-}
-
-.block-center {
-  margin: auto;
 }
 
 @supports (display: grid) {
@@ -787,4 +793,27 @@ article {
 
 .horizontalScroll .hsItem img {
   max-width: 100%;
+}
+
+ul.meta, ul.meta li {
+  margin: 0;
+  color: var(--colorGrey)
+}
+
+ul.meta {
+  margin-bottom: 0.5rem;
+  display: inline-block;
+}
+
+ul.meta li {
+  list-style: none;
+  display: inline;
+}
+
+ul.meta li:after {
+  content: ' | ';
+}
+
+ul.meta li:last-child:after {
+  content: '';
 }
