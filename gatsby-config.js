@@ -1,11 +1,19 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Ian Holden`,
+    description: `Ian Holden is a software Engineer based in Kent, UK. Get in touch to see how Ian can help you build your next web project.`,
+    author: `Ian Holden`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-source-graphql`,
+      options: {
+        typeName: `WPGraphQL`,
+        fieldName: `wpgraphql`,
+        url: `http://ianholdenv5wordpress.local/graphql`
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

@@ -1,0 +1,28 @@
+.primary-navigation {
+    background-color: lightgrey;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.primary-navigation ul,
+.primary-navigation ul li {
+    margin: 0;
+    list-style: none;
+}
+
+.primary-navigation ul li {
+    display: inline-block;
+    padding: 15px;
+}
+
+.primary-navigation ul li > ul {
+    display: none;
+}
+
+.primary-navigation ul li:hover > ul {
+    display: block;
+    position: absolute;
+    background-color: lightgrey;
+}

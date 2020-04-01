@@ -1,0 +1,47 @@
+#heroWrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: grey;
+  background-image: url(../../images/homeBanner.jpg);
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
+
+.hero {
+  margin-top: 30px;
+}
+
+.content {
+  color: #e2e2e2;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  text-align: center;
+  display: block;
+}
+
+.content h1 {
+  font-size: 2.5em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.content h2 {
+  color: var(--colorSecondary);
+  margin: 0;
+  font-size: 1.45em;
+  text-transform: uppercase;
+}
+
+.arrow-down {
+  margin: 70vh auto 0;
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid rgba(0, 0, 0, 0.6);
+}

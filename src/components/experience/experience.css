@@ -1,0 +1,97 @@
+#experienceWrapper {
+  position: relative;
+  z-index: 0;
+}
+
+#experienceWrapper h2 {
+  text-align: center;
+}
+
+#experienceWrapper h3 {
+  color: #000000;
+}
+
+#experienceWrapper .grid {
+  grid-template-columns: 1fr;
+  grid-gap: 0
+}
+
+#experienceWrapper .grid-panel {
+  padding: 0 20px;
+}
+
+#experienceWrapper .grid-panel.image-tile {
+  padding: 0;
+}
+
+#experienceWrapper .grid-panel.image-tile:before {
+  background-color: rgba(255,255,255,0.3);
+  content: ' ';
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+#experienceWrapper .grid-panel:nth-child(2n),
+#experienceWrapper .grid-panel:nth-child(3n),
+#experienceWrapper .grid-panel:nth-child(6n),
+#experienceWrapper .grid-panel:nth-child(7n) {
+  background-image: url(../../images/webdesign.jpg);
+  background-position: center;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
+#experienceWrapper .grid-panel:nth-child(3n) {
+  background-image: url(../../images/typingatmacbook.jpg);
+}
+#experienceWrapper .grid-panel:nth-child(6n) {
+  background-image: url(../../images/mobiledesign.jpg);
+}
+#experienceWrapper .grid-panel:nth-child(7n) {
+  background-image: url(../../images/ian.jpg);
+}
+
+#experienceWrapper .grid-panel:nth-child(4n),
+#experienceWrapper .grid-panel:nth-child(8n) {
+  background-image: none;
+}
+#experienceWrapper .grid-panel:nth-child(1n) .experience-content {
+  text-align: center;
+  margin: 10px 0 40px 0;
+}
+
+@media (min-width: 700px) {
+  #experienceWrapper .grid {
+      grid-template-columns: 1fr 1fr;
+  }
+
+  #experienceWrapper .grid-panel:nth-child(1n) .experience-content {
+      display: flex;
+      align-items: center;
+      margin: 40px 0;
+      text-align: left;
+  }
+
+  #experienceWrapper .grid-panel:nth-child(1n) .experience-content .text {
+      margin-left: 20px;
+  }
+  
+  #experienceWrapper .grid-panel:nth-child(2n) .experience-content .text {
+      margin-right: 20px;
+  }
+}
+
+@media (min-width: 1000px) {
+  #experienceWrapper .grid-panel:nth-child(1n) .experience-content {
+      margin-left: calc(100% - (var(--gridWrapperWidth) / 2));
+      margin-right: 0;
+  }
+
+  #experienceWrapper .grid-panel:nth-child(2n) .experience-content {
+      margin-left: 0;
+      margin-right: calc(100% - (var(--gridWrapperWidth) / 2));
+      flex-direction: row-reverse;
+  }
+}
