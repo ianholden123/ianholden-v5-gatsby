@@ -8,7 +8,7 @@ import seoImage from '../../images/seo.png'
 import ExperiencePanelComponent from './experiencePanel'
 
 const ExperienceWrapperComponent = () => (
-  <article id='experienceWrapper' className='p-0'>
+  <article id='experienceWrapper' className='px-0'>
     <h2>Experience</h2>
     <div className='grid'>
       <ExperiencePanelComponent

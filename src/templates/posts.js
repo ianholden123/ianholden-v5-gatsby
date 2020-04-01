@@ -14,7 +14,6 @@ const Posts = props => {
     pageContext: { pageNumber, hasNextPage }
   } = props
 
-  console.log('THESE ARE THE POSTS', posts)
   return (
     <Layout>
       <SEO title={'Blog Posts | Ian Holden'} />
@@ -29,6 +28,7 @@ const Posts = props => {
             uri={post.uri}
             excerpt={post.excerpt}
             categories={post.categories}
+            tags={post.tags}
             title={post.title}
           />
         ))}
@@ -67,17 +67,9 @@ export const pageQuery = graphql`
           }
           author {
             firstName
-            id
             lastName
-            slug
-            uri
           }
           excerpt(format: RENDERED)
-          featuredImage {
-            altText
-            title(format: RENDERED)
-            uri
-          }
           title
           uri
           date
@@ -98,6 +90,7 @@ export const pageQuery = graphql`
           uri
           name
           description
+          count
         }
       }
     }

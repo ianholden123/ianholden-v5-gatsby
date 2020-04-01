@@ -7,7 +7,7 @@ import FitnessImage from '../../images/3DFitness.png'
 import ProjectComponent from './project'
 
 const ProjectWrapperComponent = () => (
-  <article id='projectsWrapper' className='p-0'>
+  <article id='projectsWrapper' className='px-0'>
     <h2>Web Projects</h2>
     <div className='horizontalScroll'>
       <ProjectComponent

@@ -794,26 +794,3 @@ article {
 .horizontalScroll .hsItem img {
   max-width: 100%;
 }
-
-ul.meta, ul.meta li {
-  margin: 0;
-  color: var(--colorGrey)
-}
-
-ul.meta {
-  margin-bottom: 0.5rem;
-  display: inline-block;
-}
-
-ul.meta li {
-  list-style: none;
-  display: inline;
-}
-
-ul.meta li:after {
-  content: ' | ';
-}
-
-ul.meta li:last-child:after {
-  content: '';
-}
