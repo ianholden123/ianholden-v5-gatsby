@@ -43,12 +43,14 @@ export default Posts
 Posts.propTypes = {
   data: PropTypes.shape({
     wpgraphql: PropTypes.shape({
-      posts: PropTypes.array
+      posts: PropTypes.shape({
+        nodes: PropTypes.array
+      })
     })
   }),
   pageContext: PropTypes.shape({
-    pageNumber: PropTypes.string,
-    hasNextPage: PropTypes.boolean
+    pageNumber: PropTypes.number,
+    hasNextPage: PropTypes.bool
   })
 }
 
@@ -62,6 +64,7 @@ export const pageQuery = graphql`
               node {
                 name
                 uri
+                id
               }
             }
           }
@@ -75,6 +78,15 @@ export const pageQuery = graphql`
           date
           modified
           id
+          tags {
+            edges {
+              node {
+                name
+                uri
+                id
+              }
+            }
+          }
         }
       }
       categories {

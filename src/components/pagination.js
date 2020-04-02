@@ -34,8 +34,8 @@ const Pagination = ({ pageNumber, hasNextPage }) => {
 }
 
 Pagination.propTypes = {
-  pageNumber: PropTypes.string,
-  hasNextPage: PropTypes.boolean
+  pageNumber: PropTypes.number,
+  hasNextPage: PropTypes.bool
 }
 
 export default Pagination

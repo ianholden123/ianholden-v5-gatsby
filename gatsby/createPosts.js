@@ -40,8 +40,8 @@ module.exports = async ({ actions, graphql }) => {
       } = data
 
       const nodeIds = nodes.map(node => node.postId)
-      const postsTemplate = path.resolve(`./src/templates/posts.js`)
-      const postsPath = !variables.after ? `/blog/` : `/blog/page/${pageNumber}`
+      const postsTemplate = path.resolve('./src/templates/posts.js')
+      const postsPath = !variables.after ? '/blog/' : `/blog/page/${pageNumber}`
 
       blogPages[pageNumber] = {
         path: postsPath,

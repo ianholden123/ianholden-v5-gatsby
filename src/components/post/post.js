@@ -26,14 +26,19 @@ const renderMeta = ({ author, date, modified }) => {
 }
 
 const renderCategories = (categories, type = 'category') => {
-  if (!categories || categories.length === 0) return ''
+  const fetchedCategories = categories.nodes || categories.edges || []
+  if (fetchedCategories.length === 0) return ''
   return (
     <ul className={type}>
-      {categories.nodes.map(({ name, uri, id }) => (
-        <li key={id}>
-          <Link to={`/blog/${createLocalLink(uri)}`}>{name}</Link>
-        </li>
-      ))}
+      {fetchedCategories.map((category) => {
+        const fetchedCategory = category.node || category
+        const { name, uri, id } = fetchedCategory
+        return (
+          <li key={id}>
+            <Link to={`/blog/${createLocalLink(uri)}`}>{name}</Link>
+          </li>
+        )
+      })}
     </ul>
   )
 }

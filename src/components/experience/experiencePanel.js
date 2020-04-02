@@ -23,7 +23,7 @@ const ExperiencePanelComponent = ({
   )
 
 ExperiencePanelComponent.propTypes = {
-  isImagePanel: PropTypes.boolean,
+  isImagePanel: PropTypes.bool,
   thumbImageSrc: PropTypes.string,
   thumbImageAlt: PropTypes.string,
   panelTitle: PropTypes.string,
