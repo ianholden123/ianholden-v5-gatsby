@@ -2,7 +2,7 @@ import React from 'react'
 import './hero.css'
 
 const HeroComponent = () => (
-  <article id='heroWrapper' className='px-0'>
+  <article id='heroWrapper' className='px-0 m-0 py-5'>
     <div className='hero'>
       <div className='content'>
         <h1>IAN HOLDEN</h1>

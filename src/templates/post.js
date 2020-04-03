@@ -15,11 +15,9 @@ const Post = props => {
   return (
     <Layout>
       <SEO title={`${title} | Ian Holden`} />
-      <article>
-        <div className='not-full-width block-center'>
-          <h1>{title}</h1>
-          <div dangerouslySetInnerHTML={{ __html: content }}></div>
-        </div>
+      <article className='not-full-width block-center px-4 py-5'>
+        <h1>{title}</h1>
+        <div dangerouslySetInnerHTML={{ __html: content }}></div>
       </article>
     </Layout>
   )

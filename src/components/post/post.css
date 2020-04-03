@@ -1,15 +1,5 @@
-div.meta ul, div.meta ul li {
-  margin: 0;
-  color: var(--colorGrey)
-}
-
 div.meta ul {
-  margin-bottom: 0.5rem;
   display: inline-block;
-}
-
-div.meta ul:nth-child(n+2) {
-  margin-left: 20px;
 }
 
 div.meta ul li {
@@ -18,7 +8,7 @@ div.meta ul li {
 }
 
 div.meta ul li:after {
-  content: ' | ';
+  content: ', ';
 }
 
 div.meta ul li:last-child:after {

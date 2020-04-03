@@ -32,16 +32,18 @@ const renderMenuItem = item => {
     hasChild = true
   }
   return (
-    <li key={item.id}>
+    <li className="my-3 mx-4" key={item.id}>
       <Link to={createLocalLink(item.url)}>{item.label}</Link>
       {hasChild && renderChildMenu(item)}
     </li>
   )
 }
 
-const renderChildMenu = item => {
-  return <ul>{item.childItems.nodes.map(child => renderMenuItem(child))}</ul>
-}
+const renderChildMenu = item => (
+  <ul className="bg-light-grey m-0">
+    {item.childItems.nodes.map(child => renderMenuItem(child))}
+  </ul>
+)
 
 const MainMenu = () => {
   return (
@@ -53,9 +55,11 @@ const MainMenu = () => {
         }
       }) => {
         return (
-          <nav className='primary-navigation'>
+          <nav className='primary-navigation bg-light-grey'>
             <div className='not-full-width block-center'>
-              <ul>{menu.map(item => renderMenuItem(item))}</ul>
+              <ul className="m-0">
+                {menu.map(item => renderMenuItem(item))}
+              </ul>
             </div>
           </nav>
         )

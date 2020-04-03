@@ -3,25 +3,9 @@
   z-index: 0;
 }
 
-#experienceWrapper h2 {
-  text-align: center;
-}
-
-#experienceWrapper h3 {
-  color: #000000;
-}
-
 #experienceWrapper .grid {
   grid-template-columns: 1fr;
   grid-gap: 0
-}
-
-#experienceWrapper .grid-panel {
-  padding: 0 20px;
-}
-
-#experienceWrapper .grid-panel.image-tile {
-  padding: 0;
 }
 
 #experienceWrapper .grid-panel.image-tile:before {

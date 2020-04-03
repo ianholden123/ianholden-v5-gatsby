@@ -2,5 +2,7 @@ import config from '../config'
 
 export const createLocalLink = url => {
   if (url === '#') return null
-  return url ? url.replace(config.wordPressURL, '') : url
+
+  const urlWithoutDomain = url.replace(config.wordPressURL, '')
+  return url ? urlWithoutDomain : url
 }

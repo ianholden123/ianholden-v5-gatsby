@@ -2,10 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const ProjectComponent = ({ projectName, projectLink, imageAlt, imageSrc }) => (
-  <div className='hsItem'>
+  <div className='hsItem text-center'>
     <a href={projectLink} rel='noreferrer noopener'>
       <img src={imageSrc} alt={imageAlt} />
-      <h3>{projectName}</h3>
+      <h3 className='f5 capitalize px-4'>{projectName}</h3>
     </a>
   </div>
 )
