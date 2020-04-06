@@ -658,9 +658,11 @@ pre tt:after {
   --colorBlack: black;
 
   --gutter: 20px;
+  --gridGap: 20px;
+
   --tileImgMinHeight: 300px;
   --gridWrapperWidth: 940px;
-  --gridGap: 20px;
+  --articleContentWidth: 640px;
 }
 
 html, body {
@@ -793,19 +795,6 @@ h1, h2, h3, h4, h5, h6 {
 .uppercase { text-transform: uppercase; }
 .text-center { text-align: center; }
 
-/* TYPEFACES ****************************************/
-/* .sans-serif {
-  font-family: -apple-system, BlinkMacSystemFont,
-               'avenir next', avenir,
-               helvetica, 'helvetica neue',
-               ubuntu,
-               roboto, noto,
-               'segoe ui', arial,
-               sans-serif;
-}
-.serif { font-family: georgia, times, serif; }
-.code { font-family: Consolas, monaco, monospace; } */
-
 /* BACKGROUND COLOURS *******************************/
 .bg-white { background-color: var(--colorWhite); }
 .bg-grey { background-color: var(--colorGrey); }
@@ -823,6 +812,7 @@ h1, h2, h3, h4, h5, h6 {
 /* BLOCKS *******************************************/
 .block-center { margin: auto; }
 .not-full-width { max-width: var(--gridWrapperWidth); }
+.article-content { max-width: var(--articleContentWidth); }
 
 /* BORDER RADIUS ************************************/
 .br-0 { border-radius: 0; }

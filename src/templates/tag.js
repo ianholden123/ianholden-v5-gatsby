@@ -31,6 +31,7 @@ const TagTemplate = props => {
             categories={post.categories}
             tags={post.tags}
             title={post.title}
+            isPostArchive
           />
         ))}
         <hr/>

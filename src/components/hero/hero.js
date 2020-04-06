@@ -6,15 +6,15 @@ const HeroComponent = () => (
     <div className='hero'>
       <div className='content'>
         <div className='name p-4'>
-          <h1 className='color-white'>
-            <span className='line1'>IAN</span>
+          <h1 className='color-white uppercase'>
+            <span className='line1'>Ian</span>
             <br/>
-            <span className='line2'>HOLDEN</span>
+            <span className='line2'>Holden</span>
           </h1>
-          <h2 className='color-light-grey'>
-            <span className='line3'>SOFTWARE</span>
+          <h2 className='color-light-grey uppercase'>
+            <span className='line3'>Software</span>
             <br/>
-            <span className='line4'>ENGINEER</span>
+            <span className='line4'>Engineer</span>
           </h2>
         </div>
         <div className='arrow-down'></div>

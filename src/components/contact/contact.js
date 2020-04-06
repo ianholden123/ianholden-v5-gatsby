@@ -11,7 +11,7 @@ const ContactWrapperComponent = () => (
     id='contactWrapper'
     className='text-center p-4 not-full-width block-center m-0 px-4 py-5'
   >
-    <h2>Contact Me</h2>
+    <h2 className='uppercase'>Contact Me</h2>
     <p>
       If you would like to work with me on a project, I would be more than happy
       to help! Get in touch by using one of the following channels below:

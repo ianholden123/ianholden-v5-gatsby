@@ -22,6 +22,7 @@ const Posts = props => {
         {posts.nodes.map(post => (
           <PostComponent
             key={post.id}
+            isPostArchive
             author={post.author}
             date={post.date}
             modified={post.modified}
