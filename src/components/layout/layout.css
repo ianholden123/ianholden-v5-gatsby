@@ -655,7 +655,7 @@ pre tt:after {
   --colorLightGrey: lightgrey;
   --colorGrey: grey;
   --colorDarkGrey: darkgrey;
-  --colorBlack: black; 
+  --colorBlack: black;
 
   --gutter: 20px;
   --tileImgMinHeight: 300px;
@@ -664,15 +664,12 @@ pre tt:after {
 }
 
 html, body {
-  font-family: 'Rubik', sans-serif;
-  letter-spacing: 0.01em;
+  font-family: 'Overpass', sans-serif;
   height: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Trirong', serif;
-  letter-spacing: 0.05em;
-  line-height: 1.2em;
+  font-family: 'Chivo', sans-serif;
 }
 
 /*****************************************************************
