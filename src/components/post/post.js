@@ -32,6 +32,7 @@ const PostComponent = ({
       modified={modified}
       categories={categories}
       tags={tags}
+      isPostArchive={isPostArchive}
     />
     { excerpt &&
       <div className="excerpt pb-4 article-content" dangerouslySetInnerHTML={{ __html: excerpt }} />

@@ -6,15 +6,16 @@ import config from '../../config'
 import CategoryIcon from '../icons/category'
 import TagIcon from '../icons/tag'
 import { createLocalLink } from '../../utils'
+import classNames from 'classnames'
 
-const MetaComponent = ({ author, date, modified, categories, tags }) => {
+const MetaComponent = ({ author, date, modified, categories, tags, isPostArchive }) => {
   const renderMeta = ({ author, date, modified }) => {
     const fullName = author && `${author.firstName} ${author.lastName}`
     const hasBeenModified = moment(date).diff(moment(modified)) < -24 // Only deem as modified if modification has happened more than 24 hours of publish date
 
     if (author || date || modified) {
       return (
-        <ul className="meta m-0 mb-3 mr-4 ml-0">
+        <ul className={classNames('meta m-0 mb-3 mr-4 ml-0', !isPostArchive && 'mb-5')}>
           {fullName && config.postsShowAuthor && (
             <li className="m-0">Written by {fullName}</li>
           )}
@@ -84,6 +85,7 @@ const MetaComponent = ({ author, date, modified, categories, tags }) => {
 }
 
 MetaComponent.propTypes = {
+  isPostArchive: PropTypes.bool,
   author: PropTypes.shape({
     firstName: PropTypes.string,
     lastName: PropTypes.string
