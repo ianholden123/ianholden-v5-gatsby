@@ -73,25 +73,27 @@ class MainMenu extends React.Component {
             menuItems: { nodes: menu }
           }
         }) => {
-          return (
-            <nav className={classNames('primary-navigation', this.state.isMenuOpen ? 'show' : '')}>
-              <div className='main-bar m-3'>
-                <Link to={createLocalLink('/')}>
-                  <button className='brand bg-white uppercase'>Ian Holden</button>
-                </Link>
-                <button className='bg-white' onClick={this.toggleMenu}>
-                  <div className='nav-icon'><div></div></div>
-                </button>
-              </div>
-              <div className='menu-items bg-white text-center'>
-                <div className='not-full-width block-center'>
-                  <ul className="m-0">
-                    {menu.map(item => this.renderMenuItem(item))}
-                  </ul>
+          if (menu && menu.length > 0) {
+            return (
+              <nav className={classNames('primary-navigation', this.state.isMenuOpen ? 'show' : '')}>
+                <div className='main-bar m-3'>
+                  <Link to={createLocalLink('/')}>
+                    <button className='brand bg-white uppercase'>Ian Holden</button>
+                  </Link>
+                  <button className='bg-white' onClick={this.toggleMenu}>
+                    <div className='nav-icon'><div></div></div>
+                  </button>
                 </div>
-              </div>
-            </nav>
-          )
+                <div className='menu-items bg-white text-center'>
+                  <div className='not-full-width block-center'>
+                    <ul className="m-0">
+                      {menu.map(item => this.renderMenuItem(item))}
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+            )
+          }
         }}
       />
     )
