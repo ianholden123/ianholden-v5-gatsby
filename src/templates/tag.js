@@ -6,20 +6,20 @@ import SEO from '../components/seo'
 import PostComponent from '../components/post/post'
 import Pagination from '../components/pagination'
 
-const CategoryTemplate = props => {
+const TagTemplate = props => {
   const {
     data: {
-      wpgraphql: { category }
+      wpgraphql: { tag }
     },
     pageContext: { pageNumber, hasNextPage }
   } = props
-  const { name, posts } = category
+  const { name, posts } = tag
 
   return (
     <Layout>
-      <SEO title={`Posts in category '${name}' | Ian Holden`} />
+      <SEO title={`Posts tagged '${name}' | Ian Holden`} />
       <article className='not-full-width block-center px-4 pb-5 pt-6'>
-        <h1>{`Posts in category '${name}'`}</h1>
+        <h1>{`Posts tagged '${name}'`}</h1>
         {posts.nodes.map(post => (
           <PostComponent
             key={post.postId}
@@ -41,10 +41,10 @@ const CategoryTemplate = props => {
   )
 }
 
-CategoryTemplate.propTypes = {
+TagTemplate.propTypes = {
   data: PropTypes.shape({
     wpgraphql: PropTypes.shape({
-      category: PropTypes.shape({
+      tag: PropTypes.shape({
         name: PropTypes.string,
         posts: PropTypes.shape({
           nodes: PropTypes.array
@@ -58,12 +58,12 @@ CategoryTemplate.propTypes = {
   })
 }
 
-export default CategoryTemplate
+export default TagTemplate
 
 export const pageQuery = graphql`
-  query GET_Category($id: ID!) {
+  query GET_TAG($id: ID!) {
     wpgraphql {
-      category(id: $id) {
+      tag(id: $id) {
         id
         name
         slug

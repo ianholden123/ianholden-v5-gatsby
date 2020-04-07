@@ -17,25 +17,23 @@ const Pagination = ({ pageNumber, hasNextPage }) => {
 
   return (
     <nav>
-      <ul>
-        {prevLink && (
-          <li>
-            <Link to={prevLink}>Previous Posts</Link>
-          </li>
-        )}
-        {nextLink && (
-          <li>
-            <Link to={nextLink}>Next Posts</Link>
-          </li>
-        )}
-      </ul>
+      {prevLink && (
+        <button className='mr-4'>
+          <Link to={prevLink}>&larr; Previous Posts</Link>
+        </button>
+      )}
+      {nextLink && (
+        <button>
+          <Link to={nextLink}>Next Posts &rarr;</Link>
+        </button>
+      )}
     </nav>
   )
 }
 
 Pagination.propTypes = {
-  pageNumber: PropTypes.string,
-  hasNextPage: PropTypes.boolean
+  pageNumber: PropTypes.number,
+  hasNextPage: PropTypes.bool
 }
 
 export default Pagination

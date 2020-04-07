@@ -1,8 +1,8 @@
-#heroWrapper {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  background-color: grey;
+.hero {
+  display: table;
+  height: 100vh;
+  text-align: center;
+  width: 100%;
   background-image: url(../../images/homeBanner.jpg);
   background-attachment: fixed;
   background-position: center;
@@ -12,36 +12,37 @@
   -o-background-size: cover;
 }
 
-.hero {
-  margin-top: 30px;
+.hero .content {
+  background-color: rgba(0, 0, 0, 0.7);
+  vertical-align: middle;
+  display: table-cell;
 }
 
-.content {
-  color: #e2e2e2;
-  background-color: rgba(0, 0, 0, 0.6);
-  padding: 20px;
-  text-align: center;
-  display: block;
+.hero .content .name {
+  display: inline-block;
+  border: 8px double var(--colorWhite);
 }
 
-.content h1 {
+.hero .content h1 {
   font-size: 2.5em;
   margin: 0;
-  text-transform: uppercase;
 }
 
-.content h2 {
-  color: var(--colorSecondary);
+.hero .content h2 {
   margin: 0;
   font-size: 1.45em;
-  text-transform: uppercase;
 }
 
-.arrow-down {
-  margin: 70vh auto 0;
+.hero .content h1 .line1 { font-size: 6.4rem; line-height: 0.8; }
+.hero .content h1 .line2 { font-size: 2.78rem; line-height: 0; }
+.hero .content h2 .line3 { font-size: 2rem; line-height: 0.9; }
+.hero .content h2 .line4 { font-size: 2.2rem; line-height: 1; }
+
+.hero .arrow-down {
+  margin: 0 auto;
   width: 0;
   height: 0;
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
-  border-top: 20px solid rgba(0, 0, 0, 0.6);
+  border-top: 20px solid var(--colorWhite);
 }

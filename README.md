@@ -19,6 +19,12 @@
     npm install
     ```
 
+1. Ensure that the site is configured to point to a WordPress site  with GraphQL API enabled. You can do this by opening the _src/config.js_ file and changing the `wordPressURL` variable to point to your WordPress site that is providing the content for the site.
+
+    Secondly, in the _gatsby-config.js_ file, you should change the option for the _gatsby-source-graphql_ plugin and specify the GraphQL endpoint of your WordPress site in the `options.url` part of the config object.
+
+    _(For more information on setting up a WordPress site with a GraphQL endpoint available, visit this repositories corresponding [repository](https://github.com/ianholden123/ianholden-v5-wordpress).)_
+
 1.  **Start developing.**
 
     Navigate into your new site’s directory and start it up.

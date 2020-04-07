@@ -14,24 +14,26 @@ const Posts = props => {
     pageContext: { pageNumber, hasNextPage }
   } = props
 
-  console.log('THESE ARE THE POSTS', posts)
   return (
     <Layout>
       <SEO title={'Blog Posts | Ian Holden'} />
-      <article className='not-full-width block-center'>
+      <article className='not-full-width block-center px-4 pb-5 pt-6'>
         <h1>Blog Posts</h1>
         {posts.nodes.map(post => (
           <PostComponent
             key={post.id}
+            isPostArchive
             author={post.author}
             date={post.date}
             modified={post.modified}
             uri={post.uri}
             excerpt={post.excerpt}
             categories={post.categories}
+            tags={post.tags}
             title={post.title}
           />
         ))}
+        <hr/>
         <Pagination pageNumber={pageNumber} hasNextPage={hasNextPage} />
       </article>
     </Layout>
@@ -43,12 +45,14 @@ export default Posts
 Posts.propTypes = {
   data: PropTypes.shape({
     wpgraphql: PropTypes.shape({
-      posts: PropTypes.array
+      posts: PropTypes.shape({
+        nodes: PropTypes.array
+      })
     })
   }),
   pageContext: PropTypes.shape({
-    pageNumber: PropTypes.string,
-    hasNextPage: PropTypes.boolean
+    pageNumber: PropTypes.number,
+    hasNextPage: PropTypes.bool
   })
 }
 
@@ -62,27 +66,29 @@ export const pageQuery = graphql`
               node {
                 name
                 uri
+                id
               }
             }
           }
           author {
             firstName
-            id
             lastName
-            slug
-            uri
           }
           excerpt(format: RENDERED)
-          featuredImage {
-            altText
-            title(format: RENDERED)
-            uri
-          }
           title
           uri
           date
           modified
           id
+          tags {
+            edges {
+              node {
+                name
+                uri
+                id
+              }
+            }
+          }
         }
       }
       categories {
@@ -98,6 +104,7 @@ export const pageQuery = graphql`
           uri
           name
           description
+          count
         }
       }
     }

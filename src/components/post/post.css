@@ -1,0 +1,26 @@
+div.meta ul {
+  display: inline-block;
+}
+
+div.meta ul li {
+  list-style: none;
+  display: inline;
+}
+
+div.meta ul li:after {
+  content: ', ';
+}
+
+div.meta ul li:last-child:after {
+  content: '';
+}
+
+.icon {
+  display: inline-block;
+}
+
+#category-icon,
+#tag-icon {
+  height: 13px;
+  width: 13px;
+}

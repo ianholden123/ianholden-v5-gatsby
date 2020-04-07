@@ -1,32 +1,45 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
-import moment from 'moment'
 import './post.css'
 import { createLocalLink } from '../../utils'
+import MetaComponent from './meta'
 
-const renderMeta = ({ author, date, modified }) => {
-  const fullName = author && `${author.firstName} ${author.lastName}`
-
-  if (author || date || modified) {
-    return (
-      <ul className='meta'>
-        {fullName && <li>Written by {fullName}</li>}
-        {date && <li>Published {moment(date).format('MMMM Do YYYY')}</li>}
-        {modified && <li>Updated {moment(modified).format('MMMM Do YYYY')}</li>}
-      </ul>
-    )
-  }
-  return ''
-}
-
-const PostComponent = ({ author, uri, title, excerpt, date, modified }) => (
+const PostComponent = ({
+  author,
+  uri,
+  title,
+  excerpt,
+  date,
+  modified,
+  categories,
+  tags,
+  content,
+  isPostArchive
+}) => (
   <>
-    <h2>
-      <Link to={createLocalLink(`/blog/${uri}`)}>{title}</Link>
-    </h2>
-    {renderMeta({ author, date, modified })}
-    <div className='excerpt' dangerouslySetInnerHTML={{ __html: excerpt }} />
+    { title && !isPostArchive &&
+      <h1 className='mb-2'>{title}</h1>
+    }
+    { title && isPostArchive &&
+      <h2 className="mb-2">
+        <Link to={createLocalLink(`/blog/${uri}`)}>{title}</Link>
+      </h2>
+    }
+    <MetaComponent
+      author={author}
+      date={date}
+      modified={modified}
+      categories={categories}
+      tags={tags}
+      isPostArchive={isPostArchive}
+    />
+    { excerpt &&
+      <div className="excerpt pb-4 article-content" dangerouslySetInnerHTML={{ __html: excerpt }} />
+    }
+    { content && !isPostArchive &&
+      <div className='content pb-4' dangerouslySetInnerHTML={{ __html: content }} />
+    }
   </>
 )
 
@@ -39,7 +52,11 @@ PostComponent.propTypes = {
   title: PropTypes.string,
   excerpt: PropTypes.string,
   date: PropTypes.string,
-  modified: PropTypes.string
+  modified: PropTypes.string,
+  categories: PropTypes.shape(),
+  tags: PropTypes.shape(),
+  content: PropTypes.string,
+  isPostArchive: PropTypes.bool
 }
 
 export default PostComponent

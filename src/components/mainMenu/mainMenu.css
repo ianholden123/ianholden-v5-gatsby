@@ -1,28 +1,72 @@
 .primary-navigation {
-    background-color: lightgrey;
-    position: fixed;
-    top: 0;
     width: 100%;
     z-index: 100;
+    position: fixed;
+    top: 0;
+}
+
+.primary-navigation.show {
+    background-color: var(--colorWhite);
+    border-bottom: 1px solid var(--colorDarkGrey);
+    -webkit-box-shadow: 0 10px 6px -6px var(--colorGrey);
+    -moz-box-shadow: 0 10px 6px -6px var(--colorGrey);
+    box-shadow: 0 10px 6px -6px var(--colorDarkGrey);
+}
+
+.primary-navigation .main-bar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.primary-navigation .menu-items {
+    display: none;
+}
+
+.primary-navigation.show .menu-items {
+    display: block;
 }
 
 .primary-navigation ul,
 .primary-navigation ul li {
-    margin: 0;
     list-style: none;
 }
 
-.primary-navigation ul li {
-    display: inline-block;
-    padding: 15px;
+/*****************************************************************
+* MENU ICON ******************************************************
+*****************************************************************/
+.nav-icon {
+    width: 20px;
 }
 
-.primary-navigation ul li > ul {
-    display: none;
-}
-
-.primary-navigation ul li:hover > ul {
+.primary-navigation button .nav-icon:after,
+.primary-navigation button .nav-icon:before,
+.primary-navigation button .nav-icon div {
+    background-color: var(--colorBlue);
+    border-radius: 3px;
+    content: '';
     display: block;
-    position: absolute;
-    background-color: lightgrey;
+    height: 3px;
+    margin: 4px 0;
+    transition: all .2s ease-in-out;
+}
+
+.primary-navigation.show .nav-icon:before {
+    transform: translateY(7px) rotate(135deg);
+}
+
+.primary-navigation.show .nav-icon:after {
+    transform: translateY(-7px) rotate(-135deg);
+}
+
+.primary-navigation.show .nav-icon div {
+    transform: scale(0);
+}
+
+.primary-navigation button:hover .nav-icon:after,
+.primary-navigation button:active .nav-icon:after,
+.primary-navigation button:hover .nav-icon:before,
+.primary-navigation button:active .nav-icon:before,
+.primary-navigation button:hover .nav-icon div,
+.primary-navigation button:active .nav-icon div {
+    background-color: var(--colorWhite);
 }

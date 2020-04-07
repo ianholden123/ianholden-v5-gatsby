@@ -3,25 +3,9 @@
   z-index: 0;
 }
 
-#experienceWrapper h2 {
-  text-align: center;
-}
-
-#experienceWrapper h3 {
-  color: #000000;
-}
-
 #experienceWrapper .grid {
   grid-template-columns: 1fr;
   grid-gap: 0
-}
-
-#experienceWrapper .grid-panel {
-  padding: 0 20px;
-}
-
-#experienceWrapper .grid-panel.image-tile {
-  padding: 0;
 }
 
 #experienceWrapper .grid-panel.image-tile:before {
@@ -30,6 +14,33 @@
   display: block;
   width: 100%;
   height: 100%;
+}
+
+#experienceWrapper .grid-panel:nth-child(2n):after {
+  content: ' ';
+  display: block;
+  height: 100%;
+  width: 10%;
+  background-color: var(--colorWhite);
+}
+
+#experienceWrapper .grid-panel:nth-child(3n):after,
+#experienceWrapper .grid-panel:nth-child(7n):after {
+  content: ' ';
+  display: block;
+  height: 100%;
+  width: 10%;
+  float: right;
+  background-color: var(--colorWhite);
+}
+
+#experienceWrapper .grid-panel:nth-child(6n):after {
+  content: ' ';
+  display: block;
+  float: left;
+  height: 100%;
+  width: 10%;
+  background-color: var(--colorWhite);
 }
 
 #experienceWrapper .grid-panel:nth-child(2n),
@@ -62,24 +73,44 @@
   margin: 10px 0 40px 0;
 }
 
+#experienceWrapper .grid-panel .experience-content img {
+  width: 20%;
+}
+
+#experienceWrapper .grid-panel .experience-content .text h3 {
+  margin-bottom: 10px;
+}
+
+#experienceWrapper .grid-panel:nth-child(1n) .experience-content {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    text-align: left;
+}
+
+#experienceWrapper .grid-panel:nth-child(1n) .experience-content .text {
+    margin-left: 20px;
+}
+
+#experienceWrapper .grid-panel:nth-child(2n) .experience-content .text {
+    margin-right: 20px;
+}
+
 @media (min-width: 700px) {
   #experienceWrapper .grid {
-      grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 
   #experienceWrapper .grid-panel:nth-child(1n) .experience-content {
-      display: flex;
-      align-items: center;
-      margin: 40px 0;
-      text-align: left;
+    margin: 40px 0;
   }
 
-  #experienceWrapper .grid-panel:nth-child(1n) .experience-content .text {
-      margin-left: 20px;
+  #experienceWrapper .grid-panel:nth-child(1n) .experience-content img {
+    width: 50%;
   }
-  
-  #experienceWrapper .grid-panel:nth-child(2n) .experience-content .text {
-      margin-right: 20px;
+
+  #experienceWrapper .grid-panel:nth-child(2n) .experience-content {
+    flex-direction: row-reverse;
   }
 }
 
@@ -92,6 +123,5 @@
   #experienceWrapper .grid-panel:nth-child(2n) .experience-content {
       margin-left: 0;
       margin-right: calc(100% - (var(--gridWrapperWidth) / 2));
-      flex-direction: row-reverse;
   }
 }

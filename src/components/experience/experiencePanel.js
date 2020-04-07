@@ -9,7 +9,7 @@ const ExperiencePanelComponent = ({
   panelParagraph
 }) =>
   !isImagePanel ? (
-    <div className='grid-panel'>
+    <div className='grid-panel px-4'>
       <div className='experience-content'>
         <img src={thumbImageSrc} alt={thumbImageAlt} aria-hidden='true' />
         <div className='text'>
@@ -19,11 +19,11 @@ const ExperiencePanelComponent = ({
       </div>
     </div>
   ) : (
-    <div className='grid-panel image-tile'></div>
+    <div className='grid-panel p-0'></div>
   )
 
 ExperiencePanelComponent.propTypes = {
-  isImagePanel: PropTypes.boolean,
+  isImagePanel: PropTypes.bool,
   thumbImageSrc: PropTypes.string,
   thumbImageAlt: PropTypes.string,
   panelTitle: PropTypes.string,

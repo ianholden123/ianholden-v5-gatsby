@@ -1,35 +1,26 @@
 import React from 'react'
 import './footer.css'
+import config from '../../config'
+
+const footerLinks = [
+  { name: 'Email', url: config.email },
+  { name: 'LinkedIn', url: config.linkedInUrl },
+  { name: 'GitHub', url: config.githubUrl }
+]
 
 const FooterComponent = () => (
-  <footer>
+  <footer className='p-4 bg-light-grey mt-5'>
     <div className='grid not-full-width'>
       <div className='grid-panel'>
-        <p>© Ian Holden {new Date().getFullYear()}</p>
+        <p className='m-0 py-2'>© Ian Holden {new Date().getFullYear()}</p>
       </div>
       <div className='grid-panel'>
-        <ul>
-          <li>
-            <a href='mailto:ianholdendev@outlook.com'>Email</a>
-          </li>
-          <li>
-            <a
-              href='https://www.linkedin.com/in/ianlewisholden'
-              target='_blank'
-              rel='noreferrer noopener'
-            >
-              LinkedIn
-            </a>
-          </li>
-          <li>
-            <a
-              href='https://github.com/ianholden123'
-              target='_blank'
-              rel='noreferrer noopener'
-            >
-              Github
-            </a>
-          </li>
+        <ul className='m-0'>
+          {footerLinks.map((link, i) => (
+            <li className='m-0 pl-4 py-2' key={i}>
+              <a href={link.url} target='_blank' rel='noreferrer noopener'>{link.name}</a>
+            </li>
+          ))}
         </ul>
       </div>
     </div>

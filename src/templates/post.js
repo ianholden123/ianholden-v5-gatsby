@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Layout from '../components/layout/layout'
 import SEO from '../components/seo'
+import PostComponent from '../components/post/post'
 
 const Post = props => {
   const {
@@ -10,16 +11,22 @@ const Post = props => {
       wpgraphql: { post }
     }
   } = props
-  const { title, content } = post
+  const { title, content, date, modified, categories, tags, author } = post
 
   return (
     <Layout>
       <SEO title={`${title} | Ian Holden`} />
-      <article>
-        <div className='not-full-width block-center'>
-          <h1>{title}</h1>
-          <div dangerouslySetInnerHTML={{ __html: content }}></div>
-        </div>
+      <article className='not-full-width block-center px-4 pb-5 pt-6'>
+        <PostComponent
+          title={title}
+          content={content}
+          date={date}
+          modified={modified}
+          author={author}
+          categories={categories}
+          tags={tags}
+        />
+        <hr/>
       </article>
     </Layout>
   )
@@ -31,7 +38,15 @@ Post.propTypes = {
   data: PropTypes.shape({
     wpgraphql: PropTypes.shape({
       post: PropTypes.shape({
+        author: PropTypes.shape({
+          firstName: PropTypes.string,
+          lastName: PropTypes.string
+        }),
         title: PropTypes.string,
+        date: PropTypes.string,
+        modified: PropTypes.string,
+        categories: PropTypes.shape(),
+        tags: PropTypes.shape(),
         content: PropTypes.string
       })
     })
@@ -43,8 +58,31 @@ export const pageQuery = graphql`
     wpgraphql {
       post(id: $id) {
         title
-        content
-        uri
+        content(format: RENDERED)
+        categories {
+          edges {
+            node {
+              name
+              uri
+              id
+            }
+          }
+        }
+        tags {
+          edges {
+            node {
+              name
+              uri
+              id
+            }
+          }
+        }
+        author {
+          firstName
+          lastName
+        }
+        date
+        modified
       }
     }
   }

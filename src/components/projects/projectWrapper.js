@@ -1,5 +1,4 @@
 import React from 'react'
-import './project.css'
 import philippinesImage from '../../images/philippines.png'
 import snakesAndLaddersImage from '../../images/snakesAndLadders.png'
 import netdirectorVisionImage from '../../images/netdirectorVision.png'
@@ -7,8 +6,8 @@ import FitnessImage from '../../images/3DFitness.png'
 import ProjectComponent from './project'
 
 const ProjectWrapperComponent = () => (
-  <article id='projectsWrapper' className='p-0'>
-    <h2>Web Projects</h2>
+  <article id='projectsWrapper' className='px-0 m-0 py-5'>
+    <h2 className='text-center uppercase'>Web Projects</h2>
     <div className='horizontalScroll'>
       <ProjectComponent
         projectLink='https://www.philippines-schools-project.org/'
