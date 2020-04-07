@@ -1,11 +1,13 @@
 import React from 'react'
 import './hero.css'
+import background from '../../images/homeBanner.jpg'
+import { createRelativeLink } from '../../utils'
 
 const HeroComponent = () => (
   <article id='heroWrapper' className=''>
-    <div className='hero'>
+    <div className='hero' style={{ backgroundImage: `url(${createRelativeLink(background)})` }}>
       <div className='content'>
-        <div className='name p-4'>
+        <div className='name px-4 py-3'>
           <h1 className='color-white uppercase'>
             <span className='line1'>Ian</span>
             <br/>

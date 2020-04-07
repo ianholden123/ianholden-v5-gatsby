@@ -9,7 +9,7 @@ const buttons = [
 const ContactWrapperComponent = () => (
   <article
     id='contactWrapper'
-    className='text-center p-4 not-full-width block-center m-0 px-4 py-5'
+    className='text-center p-4 not-full-width block-center px-4 py-5'
   >
     <h2 className='uppercase'>Contact Me</h2>
     <p>

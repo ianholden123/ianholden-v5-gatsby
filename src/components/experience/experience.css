@@ -47,21 +47,11 @@
 #experienceWrapper .grid-panel:nth-child(3n),
 #experienceWrapper .grid-panel:nth-child(6n),
 #experienceWrapper .grid-panel:nth-child(7n) {
-  background-image: url(../../images/webdesign.jpg);
   background-position: center;
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-}
-#experienceWrapper .grid-panel:nth-child(3n) {
-  background-image: url(../../images/typingatmacbook.jpg);
-}
-#experienceWrapper .grid-panel:nth-child(6n) {
-  background-image: url(../../images/mobiledesign.jpg);
-}
-#experienceWrapper .grid-panel:nth-child(7n) {
-  background-image: url(../../images/ian.jpg);
 }
 
 #experienceWrapper .grid-panel:nth-child(4n),
