@@ -16,7 +16,7 @@ const Post = props => {
   return (
     <Layout>
       <SEO title={`${title} | Ian Holden`} />
-      <article className='not-full-width block-center px-4 py-5'>
+      <article className='not-full-width block-center px-4 pb-5 pt-6'>
         <PostComponent
           title={title}
           content={content}

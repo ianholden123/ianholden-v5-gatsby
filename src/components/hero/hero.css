@@ -1,6 +1,6 @@
 .hero {
   display: table;
-  height: calc(100vh - 30px);
+  height: 100vh;
   text-align: center;
   width: 100%;
   background-image: url(../../images/homeBanner.jpg);
