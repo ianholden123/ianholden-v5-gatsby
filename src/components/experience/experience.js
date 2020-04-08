@@ -6,7 +6,7 @@ import wordpressImage from '../../images/wordpress.png'
 import appDevImage from '../../images/appDev.png'
 import seoImage from '../../images/seo.png'
 import mobileDesign from '../../images/mobileDesign.jpg'
-import webDesign from '../../images/webdesign.jpg'
+import webDesign from '../../images/webDesign.jpg'
 import ianImage from '../../images/ian.jpg'
 import typingAtMacbook from '../../images/typingAtMacbook.jpg'
 
