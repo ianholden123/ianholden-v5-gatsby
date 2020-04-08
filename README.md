@@ -44,9 +44,9 @@
 
     Open the `ianholden-v5-gatsby` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
 
-## 🔧 Build
+## 🔧 Building for hosting on a custom directory
 
-This project is currently deployed to an S3 bucket which means that it does not sit at the root of it's domain. We need to use a `pathPrefix` variable in the `gatsby-config.js` to specify where our resources can be found when we are ready to build the project. To build this project for production, do the following:
+If you would like to build and host this project on a custom S3 bucket that does not sit at the root of it's domain, you would need to use a `pathPrefix` variable in the `gatsby-config.js` to specify where our resources can be found when we are ready to build the project. To do this, do the following:
 
 1. **Configure path prefix**
     
@@ -62,6 +62,8 @@ This project is currently deployed to an S3 bucket which means that it does not 
 3. **Publish build files**
 
     Upload the generated files from your `/build/` directory to your chosen hosting solution (S3, GCS, private web host, etc...)
+
+_Note:_ Generally, when this gets uploaded to a website, you will not need to make these changes. In my experience, I have only used this when uploading to a custom S3 bucket.
 
 <!-- ## 💫 Deploy
 
