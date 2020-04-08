@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { createRelativeLink } from '../../utils'
 
 const ExperiencePanelComponent = ({
   isImagePanel,
@@ -13,7 +12,7 @@ const ExperiencePanelComponent = ({
   !isImagePanel ? (
     <div className='grid-panel px-4'>
       <div className='experience-content'>
-        <img src={createRelativeLink(thumbImageSrc)} alt={thumbImageAlt} aria-hidden='true' />
+        <img src={thumbImageSrc} alt={thumbImageAlt} aria-hidden='true' />
         <div className='text'>
           <h3>{panelTitle}</h3>
           <p>{panelParagraph}</p>
@@ -21,7 +20,7 @@ const ExperiencePanelComponent = ({
       </div>
     </div>
   ) : (
-    <div className='grid-panel p-0' style={{ backgroundImage: `url(${createRelativeLink(imagePanelImage)})` }}></div>
+    <div className='grid-panel p-0' style={{ backgroundImage: `url(${imagePanelImage})` }}></div>
   )
 
 ExperiencePanelComponent.propTypes = {

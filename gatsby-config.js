@@ -5,6 +5,7 @@ module.exports = {
       'Ian Holden is a software Engineer based in Kent, UK. Get in touch to see how Ian can help you build your next web project.',
     author: 'Ian Holden'
   },
+  pathPrefix: '/ianholden.co.uk-v5-gatsby',
   plugins: [
     'gatsby-plugin-react-helmet',
     {
