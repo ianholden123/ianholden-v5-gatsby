@@ -76,7 +76,7 @@ class MainMenu extends React.Component {
           if (menu && menu.length > 0) {
             return (
               <nav className={classNames('primary-navigation', this.state.isMenuOpen ? 'show' : '')}>
-                <div className='main-bar m-3'>
+                <div className='main-bar p-4 not-full-width block-center'>
                   <Link to={createLocalLink('/')}>
                     <button className='brand bg-white uppercase'>Ian Holden</button>
                   </Link>

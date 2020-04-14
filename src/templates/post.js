@@ -11,12 +11,12 @@ const Post = props => {
       wpgraphql: { post }
     }
   } = props
-  const { title, content, date, modified, categories, tags, author } = post
+  const { title, content, date, modified, categories, tags, author, featuredImage } = post
 
   return (
     <Layout>
       <SEO title={`${title} | Ian Holden`} />
-      <article className='not-full-width block-center px-4 pb-5 pt-6'>
+      <article className='post not-full-width block-center px-4 pb-5 pt-6'>
         <PostComponent
           title={title}
           content={content}
@@ -25,6 +25,7 @@ const Post = props => {
           author={author}
           categories={categories}
           tags={tags}
+          featuredImage={featuredImage}
         />
         <hr/>
       </article>
@@ -47,7 +48,12 @@ Post.propTypes = {
         modified: PropTypes.string,
         categories: PropTypes.shape(),
         tags: PropTypes.shape(),
-        content: PropTypes.string
+        content: PropTypes.string,
+        featuredImage: PropTypes.shape({
+          altText: PropTypes.string,
+          sourceUrl: PropTypes.string,
+          srcSet: PropTypes.string
+        })
       })
     })
   })
@@ -83,6 +89,11 @@ export const pageQuery = graphql`
         }
         date
         modified
+        featuredImage {
+          altText
+          sourceUrl
+          srcSet
+        }
       }
     }
   }

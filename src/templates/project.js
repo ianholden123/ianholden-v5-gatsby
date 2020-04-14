@@ -11,15 +11,25 @@ const Project = props => {
       wpgraphql: { project }
     }
   } = props
-  const { title, content } = project
 
   return (
     <Layout>
-      <SEO title={`${title} | Projects | Ian Holden`} />
-      <article className='not-full-width block-center px-4 pb-5 pt-6'>
+      <SEO title={`${project.title} | Projects | Ian Holden`} />
+      <article className='post not-full-width block-center px-4 pb-5 pt-6'>
         <ProjectComponent
-          title={title}
-          content={content}
+          title={project.title}
+          content={project.content}
+          excerpt={project.excerpt}
+          featuredImage={project.featuredImage}
+          contributors={project.customFields.contributors || null}
+          link={project.customFields.linkToProject || null}
+          state={project.customFields.state || null}
+          toolsUsed={project.customFields.toolsUsed || null}
+          colours={{
+            primary: project.customFields.colourSchemePrimary,
+            secondary: project.customFields.colourSchemeSecondary,
+            tertiary: project.customFields.colourSchemeTertiary
+          }}
         />
         <hr/>
       </article>
@@ -33,8 +43,24 @@ Project.propTypes = {
   data: PropTypes.shape({
     wpgraphql: PropTypes.shape({
       project: PropTypes.shape({
+        id: PropTypes.string,
         title: PropTypes.string,
-        content: PropTypes.string
+        excerpt: PropTypes.string,
+        content: PropTypes.string,
+        featuredImage: PropTypes.shape({
+          altText: PropTypes.string,
+          srcSet: PropTypes.string,
+          sourceUrl: PropTypes.string
+        }),
+        customFields: PropTypes.shape({
+          state: PropTypes.string,
+          contributors: PropTypes.string,
+          linkToProject: PropTypes.string,
+          toolsUsed: PropTypes.string,
+          colourSchemePrimary: PropTypes.string,
+          colourSchemeSecondary: PropTypes.string,
+          colourSchemeTertiary: PropTypes.string
+        })
       })
     })
   })
@@ -44,8 +70,24 @@ export const pageQuery = graphql`
   query GET_PROJECT($id: ID!) {
     wpgraphql {
       project(id: $id) {
+        id
         title
+        excerpt(format: RENDERED)
         content(format: RENDERED)
+        featuredImage {
+          altText
+          srcSet
+          sourceUrl
+        }
+        customFields {
+          contributors
+          linkToProject
+          state
+          toolsUsed
+          colourSchemePrimary,
+          colourSchemeSecondary,
+          colourSchemeTertiary
+        }
       }
     }
   }

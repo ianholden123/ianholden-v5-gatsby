@@ -17,7 +17,7 @@ const FooterComponent = () => (
       <div className='grid-panel'>
         <ul className='m-0'>
           {footerLinks.map((link, i) => (
-            <li className='m-0 pl-4 py-2' key={i}>
+            <li className='m-0 pl-4 py-2 inline-block' key={i}>
               <a href={link.url} target='_blank' rel='noreferrer noopener'>{link.name}</a>
             </li>
           ))}

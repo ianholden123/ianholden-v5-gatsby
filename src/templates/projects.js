@@ -15,17 +15,28 @@ const Projects = props => {
 
   return (
     <Layout>
-      <SEO title={'Projects | Ian Holden'} />
-      <article id='projects' className='px-4 pb-5 pt-6'>
-        <h1 className='not-full-width block-center text-center'>Projects</h1>
+      <SEO title={'Projects | What have I worked on | Ian Holden'} />
+      <article id='projects' className='pb-5 pt-6'>
+        <h1 className='px-4 not-full-width block-center'>Projects</h1>
         <div className='grid'>
           {projects.nodes.map(project => (
-            <div className='grid-panel' key={project.id}>
+            <div className='grid-panel p-4' key={project.id}>
               <ProjectComponent
                 isPostArchive
                 uri={project.uri}
                 excerpt={project.excerpt}
                 title={project.title}
+                featuredImage={project.featuredImage}
+                contributors={project.customFields.contributors || null}
+                link={project.customFields.linkToProject || null}
+                state={project.customFields.state || null}
+                toolsUsed={project.customFields.toolsUsed || null}
+                colours={{
+                  primary: project.customFields.colourSchemePrimary,
+                  secondary: project.customFields.colourSchemeSecondary,
+                  tertiary: project.customFields.colourSchemeTertiary
+                }}
+                projectType={project.customFields.typeOfProject}
               />
             </div>
           ))}
@@ -41,7 +52,29 @@ Projects.propTypes = {
   data: PropTypes.shape({
     wpgraphql: PropTypes.shape({
       projects: PropTypes.shape({
-        nodes: PropTypes.array
+        nodes: PropTypes.arrayOf(
+          PropTypes.shape({
+            id: PropTypes.string,
+            excerpt: PropTypes.string,
+            title: PropTypes.string,
+            uri: PropTypes.string,
+            featuredImage: PropTypes.shape({
+              uri: PropTypes.string,
+              slug: PropTypes.string,
+              sourceUrl: PropTypes.string
+            }),
+            customFields: PropTypes.shape({
+              state: PropTypes.string,
+              contributors: PropTypes.string,
+              linkToProject: PropTypes.string,
+              toolsUsed: PropTypes.string,
+              colourSchemePrimary: PropTypes.string,
+              colourSchemeSecondary: PropTypes.string,
+              colourSchemeTertiary: PropTypes.string,
+              typeOfProject: PropTypes.string
+            })
+          })
+        )
       })
     })
   })
@@ -56,6 +89,22 @@ export const pageQuery = graphql`
           excerpt(format: RENDERED)
           title
           uri
+          featuredImage {
+            uri
+            slug
+            sourceUrl(size: LARGE)
+          }
+          customFields {
+            contributors
+            linkToProject
+            state
+            toolsUsed
+            colourSchemePrimary,
+            colourSchemeSecondary,
+            colourSchemeTertiary,
+            typeOfProject
+          }
+
         }
       }
     }

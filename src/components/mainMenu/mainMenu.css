@@ -18,6 +18,10 @@
     justify-content: space-between;
 }
 
+.primary-navigation .brand {
+    letter-spacing: 0;
+}
+
 .primary-navigation .menu-items {
     display: none;
 }

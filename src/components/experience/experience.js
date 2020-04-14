@@ -5,10 +5,6 @@ import webDesignImage from '../../images/webDesign.png'
 import wordpressImage from '../../images/wordpress.png'
 import appDevImage from '../../images/appDev.png'
 import seoImage from '../../images/seo.png'
-import mobileDesign from '../../images/mobileDesign.jpg'
-import webDesign from '../../images/webDesign.jpg'
-import ianImage from '../../images/ian.jpg'
-import typingAtMacbook from '../../images/typingAtMacbook.jpg'
 
 const ExperienceWrapperComponent = () => (
   <article id='experienceWrapper' className='px-0 m-0 py-5'>
@@ -20,14 +16,8 @@ const ExperienceWrapperComponent = () => (
         panelTitle='Website Design'
         panelParagraph='I have built many stunning websites using the latest web technologies that deliver on speed and accessibility.'
       />
-      <ExperiencePanelComponent
-        isImagePanel
-        imagePanelImage={webDesign}
-      />
-      <ExperiencePanelComponent
-        isImagePanel
-        imagePanelImage={typingAtMacbook}
-      />
+      <ExperiencePanelComponent isImagePanel />
+      <ExperiencePanelComponent isImagePanel />
       <ExperiencePanelComponent
         thumbImageSrc={wordpressImage}
         thumbImageAlt='WordPress icon'
@@ -40,14 +30,8 @@ const ExperienceWrapperComponent = () => (
         panelTitle='Mobile App Development'
         panelParagraph='I am capable of building outstanding Mobile applications suitable for both Android and iOS.'
       />
-      <ExperiencePanelComponent
-        isImagePanel
-        imagePanelImage={mobileDesign}
-      />
-      <ExperiencePanelComponent
-        isImagePanel
-        imagePanelImage={ianImage}
-      />
+      <ExperiencePanelComponent isImagePanel />
+      <ExperiencePanelComponent isImagePanel />
       <ExperiencePanelComponent
         thumbImageSrc={seoImage}
         thumbImageAlt='SEO icon'

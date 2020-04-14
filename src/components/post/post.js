@@ -35,7 +35,7 @@ const PostComponent = ({
       isPostArchive={isPostArchive}
     />
     { excerpt &&
-      <div className="excerpt pb-4 article-content" dangerouslySetInnerHTML={{ __html: excerpt }} />
+      <div className="excerpt pb-4 reading-content" dangerouslySetInnerHTML={{ __html: excerpt }} />
     }
     { content && !isPostArchive &&
       <div className='content pb-4' dangerouslySetInnerHTML={{ __html: content }} />

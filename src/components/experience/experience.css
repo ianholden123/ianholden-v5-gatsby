@@ -8,6 +8,10 @@
   grid-gap: 0
 }
 
+#experienceWrapper .image-panel {
+  background-color: var(--colorLightGrey);
+}
+
 #experienceWrapper .grid-panel:nth-child(2n):before {
   content: ' ';
   display: block;
@@ -98,12 +102,12 @@
 
 @media (min-width: 1000px) {
   #experienceWrapper .grid-panel:nth-child(1n) .experience-content {
-      margin-left: calc(100% - (var(--gridWrapperWidth) / 2));
+      margin-left: calc(100% + 30px - (var(--gridWrapperWidth) / 2));
       margin-right: 0;
   }
 
   #experienceWrapper .grid-panel:nth-child(2n) .experience-content {
       margin-left: 0;
-      margin-right: calc(100% - (var(--gridWrapperWidth) / 2));
+      margin-right: calc(100% + 30px - (var(--gridWrapperWidth) / 2));
   }
 }

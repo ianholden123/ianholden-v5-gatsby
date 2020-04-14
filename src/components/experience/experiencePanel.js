@@ -10,8 +10,8 @@ const ExperiencePanelComponent = ({
   panelParagraph
 }) =>
   !isImagePanel ? (
-    <div className='grid-panel px-4'>
-      <div className='experience-content'>
+    <div className='grid-panel p-4'>
+      <div className='experience-content m-5'>
         <img src={thumbImageSrc} alt={thumbImageAlt} aria-hidden='true' />
         <div className='text'>
           <h3>{panelTitle}</h3>
@@ -20,7 +20,10 @@ const ExperiencePanelComponent = ({
       </div>
     </div>
   ) : (
-    <div className='grid-panel p-0' style={{ backgroundImage: `url(${imagePanelImage})` }}></div>
+    <div
+      className='grid-panel image-panel p-0'
+      style={imagePanelImage && { backgroundImage: `url(${imagePanelImage})` }}
+    />
   )
 
 ExperiencePanelComponent.propTypes = {

@@ -6,7 +6,7 @@ const HeroComponent = () => (
   <article id='heroWrapper' className=''>
     <div className='hero' style={{ backgroundImage: `url(${background})` }}>
       <div className='content'>
-        <div className='name px-4 py-3'>
+        <div className='name inline-block px-4 py-3'>
           <h1 className='color-white uppercase'>
             <span className='line1'>Ian</span>
             <br/>

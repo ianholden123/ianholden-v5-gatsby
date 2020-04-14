@@ -3,8 +3,7 @@ import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import moment from 'moment'
 import config from '../../config'
-import CategoryIcon from '../icons/category'
-import TagIcon from '../icons/tag'
+import Icon from '../icons'
 import { createLocalLink } from '../../utils'
 import classNames from 'classnames'
 
@@ -15,17 +14,17 @@ const MetaComponent = ({ author, date, modified, categories, tags, isPostArchive
 
     if (author || date || modified) {
       return (
-        <ul className={classNames('meta m-0 mb-3 mr-4 ml-0', !isPostArchive && 'mb-5')}>
+        <ul className={classNames('meta inline-block m-0 mb-3 mr-4 ml-0', !isPostArchive && 'mb-5')}>
           {fullName && config.postsShowAuthor && (
-            <li className="m-0">Written by {fullName}</li>
+            <li className="m-0 inline">Written by {fullName}</li>
           )}
           {!hasBeenModified && date && (
-            <li className="m-0">
+            <li className="m-0 inline">
               Published {moment(date).format('MMMM Do YYYY')}
             </li>
           )}
           {hasBeenModified && modified && (
-            <li className="m-0">
+            <li className="m-0 inline">
               Updated {moment(modified).format('MMMM Do YYYY')}
             </li>
           )}
@@ -40,13 +39,13 @@ const MetaComponent = ({ author, date, modified, categories, tags, isPostArchive
     const fetchedCategories = categories.nodes || categories.edges || []
     if (fetchedCategories.length === 0) return ''
     return (
-      <ul className='category m-0 mb-3 mr-4 ml-0'>
-        <CategoryIcon />
+      <ul className='category inline-block m-0 mb-3 mr-4 ml-0'>
+        <Icon name='category' classes='icon-tiny inline-block mr-2' />
         {fetchedCategories.map(category => {
           const fetchedCategory = category.node || category
           const { name, uri, id } = fetchedCategory
           return (
-            <li key={id} className='m-0 capitalize'>
+            <li key={id} className='m-0 capitalize inline'>
               <Link to={`/blog/${createLocalLink(uri)}`}>{name}</Link>
             </li>
           )
@@ -60,13 +59,13 @@ const MetaComponent = ({ author, date, modified, categories, tags, isPostArchive
     const fetchedTags = tags.nodes || tags.edges || []
     if (fetchedTags.length === 0) return ''
     return (
-      <ul className='tags m-0 mb-3 mr-4 ml-0'>
-        <TagIcon />
+      <ul className='tags inline-block m-0 mb-3 mr-4 ml-0'>
+        <Icon name='tag' classes='icon-tiny inline-block mr-2' />
         {fetchedTags.map(tag => {
           const fetchedTag = tag.node || tag
           const { name, uri, id } = fetchedTag
           return (
-            <li key={id} className='m-0 capitalize'>
+            <li key={id} className='m-0 capitalize inline'>
               <Link to={`/blog/${createLocalLink(uri)}`}>{name}</Link>
             </li>
           )
