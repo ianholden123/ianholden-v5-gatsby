@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const ProjectComponent = ({ projectName, projectLink, imageAlt, imageSrc }) => (
+const ProjectComponent = ({ projectName, projectLink, image }) => (
   <div className='hsItem text-center'>
     <a href={projectLink} rel='noreferrer noopener'>
-      <img src={imageSrc} alt={imageAlt} />
+      { image && image.sourceUrl && <img src={image.sourceUrl} alt={image.altText} />}
       <h3 className='f5 capitalize px-4'>{projectName}</h3>
     </a>
   </div>
@@ -17,8 +17,10 @@ ProjectComponent.defaultProps = {
 ProjectComponent.propTypes = {
   projectName: PropTypes.string.isRequired,
   projectLink: PropTypes.string,
-  imageAlt: PropTypes.string.isRequired,
-  imageSrc: PropTypes.string.isRequired
+  image: PropTypes.shape({
+    altText: PropTypes.string,
+    sourceUrl: PropTypes.string
+  })
 }
 
 export default ProjectComponent

@@ -18,7 +18,7 @@ const Projects = props => {
       <SEO title={'Projects | What have I worked on | Ian Holden'} />
       <article id='projects' className='pb-5 pt-6'>
         <h1 className='px-4 not-full-width block-center'>Projects</h1>
-        <div className='grid'>
+        <div className='grid not-full-width'>
           {projects.nodes.map(project => (
             <div className='grid-panel p-4' key={project.id}>
               <ProjectComponent

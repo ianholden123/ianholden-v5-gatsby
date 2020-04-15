@@ -54,7 +54,7 @@ const ProjectComponent = ({
       </>
     }
     { !isPostArchive &&
-      <ul className='inline-list ml-0'>
+      <ul className='meta ml-0'>
         { state && <li className='inline-block mr-4'><strong>Status:</strong> {state}</li> }
         { link &&
           <li className='inline-block'>
