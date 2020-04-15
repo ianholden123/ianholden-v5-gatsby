@@ -830,10 +830,10 @@ h1, h2, h3, h4, h5, h6 {
 .br-pill { border-radius: 9999px; }
 
 /* ICONS ********************************************/
-.icon-tiny { height: 13px; width: 13px; }
-.icon-small { height: 75px; width: 75px; }
-.icon-medium { height: 200px; width: 200px; }
-.icon-large { height: 500px; width: 500px; }
+.icon-tiny { width: 13px; }
+.icon-small { width: 75px; }
+.icon-medium { width: 200px; }
+.icon-large { width: 500px; }
 
 /*****************************************************************
 * COMMON ELEMENTS ***********************************************

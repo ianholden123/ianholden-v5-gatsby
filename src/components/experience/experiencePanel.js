@@ -1,21 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Icon from '../icons'
 
 const ExperiencePanelComponent = ({
   isImagePanel,
   imagePanelImage,
-  thumbImageSrc,
-  thumbImageAlt,
+  iconName,
   panelTitle,
   panelParagraph
 }) =>
   !isImagePanel ? (
     <div className='grid-panel p-4'>
       <div className='experience-content m-5'>
-        <img src={thumbImageSrc} alt={thumbImageAlt} aria-hidden='true' />
+        <Icon name='wordpress' classes='mr-4' />
         <div className='text'>
-          <h3>{panelTitle}</h3>
-          <p>{panelParagraph}</p>
+          <h3 className='mb-2'>{panelTitle}</h3>
+          <p className='mb-0'>{panelParagraph}</p>
         </div>
       </div>
     </div>
@@ -29,8 +29,7 @@ const ExperiencePanelComponent = ({
 ExperiencePanelComponent.propTypes = {
   isImagePanel: PropTypes.bool,
   imagePanelImage: PropTypes.string,
-  thumbImageSrc: PropTypes.string,
-  thumbImageAlt: PropTypes.string,
+  iconName: PropTypes.string,
   panelTitle: PropTypes.string,
   panelParagraph: PropTypes.string
 }

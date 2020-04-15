@@ -3,6 +3,7 @@
   height: 100vh;
   text-align: center;
   width: 100%;
+  background-image: url('../../images/ian800.jpg');
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
@@ -43,4 +44,12 @@
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
   border-top: 20px solid var(--colorWhite);
+}
+
+@media (min-width: 700px) {
+  .hero { background-image: url('../../images/ian1200.jpg') }
+}
+
+@media (min-width: 1000px) {
+  .hero { background-image: url('../../images/ian.jpg') }
 }

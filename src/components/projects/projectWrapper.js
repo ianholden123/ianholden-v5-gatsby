@@ -11,10 +11,6 @@ const ProjectWrapperComponent = props => {
             id
             title
             uri
-            featuredImage {
-              altText
-              sourceUrl
-            }
             customFields {
               showOnHomepage
             }
@@ -32,7 +28,7 @@ const ProjectWrapperComponent = props => {
           projects: { nodes: projectItems }
         }
       }) => {
-        const projectsToDisplay = projectItems.filter(item => item.customFields.showOnHomepage)
+        const projectsToDisplay = projectItems.filter(project => project.customFields.showOnHomepage)
 
         return projectsToDisplay && (
           <article id='projectsWrapper' className='px-0 m-0 py-5'>
@@ -43,7 +39,7 @@ const ProjectWrapperComponent = props => {
                   key={project.id}
                   projectLink={project.uri}
                   projectName={project.title}
-                  image={project.featuredImage}
+                  // image={project.customFields.portraitImage}
                 />
               ))}
             </div>
