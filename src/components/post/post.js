@@ -11,6 +11,7 @@ const PostComponent = ({
   title,
   excerpt,
   date,
+  dateOverride,
   modified,
   categories,
   tags,
@@ -29,6 +30,7 @@ const PostComponent = ({
     <MetaComponent
       author={author}
       date={date}
+      dateOverride={dateOverride}
       modified={modified}
       categories={categories}
       tags={tags}
@@ -52,6 +54,7 @@ PostComponent.propTypes = {
   title: PropTypes.string,
   excerpt: PropTypes.string,
   date: PropTypes.string,
+  dateOverride: PropTypes.string,
   modified: PropTypes.string,
   categories: PropTypes.shape(),
   tags: PropTypes.shape(),

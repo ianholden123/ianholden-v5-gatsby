@@ -10,21 +10,17 @@ article.post img.featured-image {
   max-height: 500px;
 }
 
-article.post ul {
-  padding-left: 20px;
-}
-
-article.post ul.tools,
-article.post ul.colours,
-article.post ul.meta {
-  padding-left: 0;
-}
-
 /*******************************************************
  ******** Styles for the content from WordPress ********
  *******************************************************/
+ article.post .content h2,
+ article.post .content h3,
+ article.post .content h4,
+ article.post .content h5,
+ article.post .content h6,
  article.post .content p,
  article.post .content ul,
+ article.post .content hr,
  article.post .content blockquote {
    max-width: var(--articleContentWidth);
    margin-left: auto; margin-right: auto;
@@ -33,6 +29,10 @@ article.post ul.meta {
  article.post .content p,
  article.post .content figure {
    margin-top: 2rem; margin-bottom: 2rem;
+ }
+
+ article.post .content ul {
+   padding-left: 20px;
  }
 
  article.post .content figure figcaption {

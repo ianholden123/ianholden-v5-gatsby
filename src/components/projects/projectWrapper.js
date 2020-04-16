@@ -13,6 +13,10 @@ const ProjectWrapperComponent = props => {
             uri
             customFields {
               showOnHomepage
+              portraitImage {
+                altText
+                sourceUrl
+              }
             }
           }
         }
@@ -39,7 +43,7 @@ const ProjectWrapperComponent = props => {
                   key={project.id}
                   projectLink={project.uri}
                   projectName={project.title}
-                  // image={project.customFields.portraitImage}
+                  image={project.customFields.portraitImage}
                 />
               ))}
             </div>
