@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
+import AppDev from './svg/appDev.js'
 import Bootstrap from './svg/bootstrap.js'
 import Category from './svg/category.js'
 import CSS3 from './svg/css3.js'
@@ -17,14 +18,17 @@ import Photoshop from './svg/photoshop.js'
 import PHP from './svg/php.js'
 import ReactIcon from './svg/react.js'
 import Sass from './svg/sass.js'
+import SEO from './svg/seo.js'
 import Tag from './svg/tag.js'
 import Typescript from './svg/typescript.js'
+import WebDev from './svg/webDev.js'
 import WordPress from './svg/wordpress.js'
 
 const tidy = string => string.toLowerCase().trim()
 
 const getIcon = name => {
   switch (tidy(name)) {
+    case 'appdev': return <AppDev />
     case 'bootstrap': return <Bootstrap />
     case 'category': return <Category />
     case 'css3': return <CSS3 />
@@ -40,8 +44,10 @@ const getIcon = name => {
     case 'php': return <PHP />
     case 'react': return <ReactIcon />
     case 'sass': return <Sass />
+    case 'seo': return <SEO />
     case 'tag': return <Tag />
     case 'typescript': return <Typescript />
+    case 'webdev': return <WebDev />
     case 'wordpress': return <WordPress />
     default: return ''
   }

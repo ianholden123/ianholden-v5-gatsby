@@ -29,7 +29,8 @@ const ProjectComponent = ({
   toolsUsed,
   isPostArchive,
   colours,
-  projectType
+  projectType,
+  archiveImage
 }) => (
   <>
     { !isPostArchive &&
@@ -47,6 +48,11 @@ const ProjectComponent = ({
     }
     { isPostArchive &&
       <>
+        <img
+          className='px-5'
+          src={archiveImage.sourceUrl}
+          alt={archiveImage.altText}
+        />
         <p className='uppercase f-thin color-dark-grey m-0'>{projectType}</p>
         <h2 className="mb-2">
           <Link to={createLocalLink(uri)}>{title}</Link>
@@ -104,7 +110,11 @@ ProjectComponent.propTypes = {
     sourceUrl: PropTypes.string,
     srcSet: PropTypes.string
   }),
-  contributors: PropTypes.string
+  contributors: PropTypes.string,
+  archiveImage: PropTypes.shape({
+    altText: PropTypes.string,
+    sourceUrl: PropTypes.string
+  })
 }
 
 export default ProjectComponent

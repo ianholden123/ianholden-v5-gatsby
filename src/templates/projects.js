@@ -37,6 +37,7 @@ const Projects = props => {
                   tertiary: project.customFields.colourSchemeTertiary
                 }}
                 projectType={project.customFields.typeOfProject}
+                archiveImage={project.customFields.archiveImage}
               />
             </div>
           ))}
@@ -59,8 +60,7 @@ Projects.propTypes = {
             title: PropTypes.string,
             uri: PropTypes.string,
             featuredImage: PropTypes.shape({
-              uri: PropTypes.string,
-              slug: PropTypes.string,
+              altText: PropTypes.string,
               sourceUrl: PropTypes.string
             }),
             customFields: PropTypes.shape({
@@ -71,7 +71,11 @@ Projects.propTypes = {
               colourSchemePrimary: PropTypes.string,
               colourSchemeSecondary: PropTypes.string,
               colourSchemeTertiary: PropTypes.string,
-              typeOfProject: PropTypes.string
+              typeOfProject: PropTypes.string,
+              archiveImage: PropTypes.shape({
+                altText: PropTypes.string,
+                sourceUrl: PropTypes.string
+              })
             })
           })
         )
@@ -90,8 +94,7 @@ export const pageQuery = graphql`
           title
           uri
           featuredImage {
-            uri
-            slug
+            altText
             sourceUrl(size: LARGE)
           }
           customFields {
@@ -102,9 +105,12 @@ export const pageQuery = graphql`
             colourSchemePrimary,
             colourSchemeSecondary,
             colourSchemeTertiary,
-            typeOfProject
+            typeOfProject,
+            archiveImage {
+              altText
+              sourceUrl
+            }
           }
-
         }
       }
     }

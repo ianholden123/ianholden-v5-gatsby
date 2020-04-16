@@ -7,7 +7,7 @@ const ExperienceWrapperComponent = () => (
     <h2 className='text-center uppercase'>Experience</h2>
     <div className='grid'>
       <ExperiencePanelComponent
-        iconName='SOMETHING'
+        iconName='webdev'
         panelTitle='Website Design'
         panelParagraph='I have built many stunning websites using the latest web technologies that deliver on speed and accessibility.'
       />
@@ -19,14 +19,14 @@ const ExperienceWrapperComponent = () => (
         panelParagraph='I love creating websites with WordPress, the content management system that allows you to control your content.'
       />
       <ExperiencePanelComponent
-        iconName='SOMETHING'
+        iconName='appdev'
         panelTitle='Mobile App Development'
         panelParagraph='I am capable of building outstanding Mobile applications suitable for both Android and iOS.'
       />
       <ExperiencePanelComponent isImagePanel />
       <ExperiencePanelComponent isImagePanel />
       <ExperiencePanelComponent
-        iconName='SOMETHING'
+        iconName='seo'
         panelTitle='Search Engine Optimisation (SEO)'
         panelParagraph='I have a wealth of experience in optimising websites for search engines so that your users can find you on the web.'
       />

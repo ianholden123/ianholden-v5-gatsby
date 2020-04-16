@@ -12,7 +12,7 @@ const ExperiencePanelComponent = ({
   !isImagePanel ? (
     <div className='grid-panel p-4'>
       <div className='experience-content m-5'>
-        <Icon name='wordpress' classes='mr-4' />
+        <Icon name={iconName} classes='mr-4' />
         <div className='text'>
           <h3 className='mb-2'>{panelTitle}</h3>
           <p className='mb-0'>{panelParagraph}</p>
