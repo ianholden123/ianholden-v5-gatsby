@@ -1,39 +1,57 @@
 import React from 'react'
-import philippinesImage from '../../images/philippines.png'
-import snakesAndLaddersImage from '../../images/snakesAndLadders.png'
-import netdirectorVisionImage from '../../images/netdirectorVision.png'
-import FitnessImage from '../../images/3DFitness.png'
+import { StaticQuery, graphql } from 'gatsby'
 import ProjectComponent from './project'
 
-const ProjectWrapperComponent = () => (
-  <article id='projectsWrapper' className='px-0 m-0 py-5'>
-    <h2 className='text-center uppercase'>Web Projects</h2>
-    <div className='horizontalScroll'>
-      <ProjectComponent
-        projectLink='https://www.philippines-schools-project.org/'
-        projectName='Philippines Schools Project'
-        imageSrc={philippinesImage}
-        imageAlt='Philippines Schools Project logo'
-      />
-      <ProjectComponent
-        projectLink='https://onlinegames-byninalazina.com/snakes-and-ladders-times-table/'
-        projectName='Snakes and Ladders - Times Table Game'
-        imageSrc={snakesAndLaddersImage}
-        imageAlt='Online snakes and ladders times table game'
-      />
-      <ProjectComponent
-        projectName='NetDirector Vision'
-        imageSrc={netdirectorVisionImage}
-        imageAlt='NetDirector Vision logo'
-      />
-      <ProjectComponent
-        projectLink='https://threedimensionalfitness.co.uk/'
-        projectName='3Dimensional Fitness'
-        imageSrc={FitnessImage}
-        imageAlt='Three dimensional fitness logo'
-      />
-    </div>
-  </article>
-)
+const ProjectWrapperComponent = props => {
+  const HOME_PROJECTS_QUERY = graphql`
+    query GET_PROJECTS_FOR_HOME {
+      wpgraphql {
+        projects {
+          nodes {
+            id
+            title
+            uri
+            customFields {
+              showOnHomepage
+              portraitImage {
+                altText
+                sourceUrl
+              }
+            }
+          }
+        }
+      }
+    }
+  `
+
+  return (
+    <StaticQuery
+      query={HOME_PROJECTS_QUERY}
+      render={({
+        wpgraphql: {
+          projects: { nodes: projectItems }
+        }
+      }) => {
+        const projectsToDisplay = projectItems.filter(project => project.customFields.showOnHomepage)
+
+        return projectsToDisplay && (
+          <article id='projectsWrapper' className='px-0 m-0 py-5'>
+            <h2 className='text-center uppercase'>Web Projects</h2>
+            <div className='horizontalScroll'>
+              { projectsToDisplay.map(project => (
+                <ProjectComponent
+                  key={project.id}
+                  projectLink={project.uri}
+                  projectName={project.title}
+                  image={project.customFields.portraitImage}
+                />
+              ))}
+            </div>
+          </article>
+        )
+      }}
+    />
+  )
+}
 
 export default ProjectWrapperComponent

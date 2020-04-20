@@ -11,6 +11,7 @@ const PostComponent = ({
   title,
   excerpt,
   date,
+  dateOverride,
   modified,
   categories,
   tags,
@@ -29,13 +30,14 @@ const PostComponent = ({
     <MetaComponent
       author={author}
       date={date}
+      dateOverride={dateOverride}
       modified={modified}
       categories={categories}
       tags={tags}
       isPostArchive={isPostArchive}
     />
     { excerpt &&
-      <div className="excerpt pb-4 article-content" dangerouslySetInnerHTML={{ __html: excerpt }} />
+      <div className="excerpt pb-4 reading-content" dangerouslySetInnerHTML={{ __html: excerpt }} />
     }
     { content && !isPostArchive &&
       <div className='content pb-4' dangerouslySetInnerHTML={{ __html: content }} />
@@ -52,6 +54,7 @@ PostComponent.propTypes = {
   title: PropTypes.string,
   excerpt: PropTypes.string,
   date: PropTypes.string,
+  dateOverride: PropTypes.string,
   modified: PropTypes.string,
   categories: PropTypes.shape(),
   tags: PropTypes.shape(),

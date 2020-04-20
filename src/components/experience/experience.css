@@ -8,6 +8,10 @@
   grid-gap: 0
 }
 
+#experienceWrapper .image-panel {
+  background-color: var(--colorLightGrey);
+}
+
 #experienceWrapper .grid-panel:nth-child(2n):before {
   content: ' ';
   display: block;
@@ -35,39 +39,12 @@
   background-color: var(--colorWhite);
 }
 
-#experienceWrapper .grid-panel:nth-child(2n),
-#experienceWrapper .grid-panel:nth-child(3n),
-#experienceWrapper .grid-panel:nth-child(6n),
-#experienceWrapper .grid-panel:nth-child(7n) {
-  background-position: center;
-  background-size: cover;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-}
-
-#experienceWrapper .grid-panel:nth-child(4n),
-#experienceWrapper .grid-panel:nth-child(8n) {
-  background-image: none;
-}
 #experienceWrapper .grid-panel:nth-child(1n) .experience-content {
-  text-align: center;
-  margin: 10px 0 40px 0;
-}
-
-#experienceWrapper .grid-panel .experience-content img {
-  width: 20%;
-}
-
-#experienceWrapper .grid-panel .experience-content .text h3 {
-  margin-bottom: 10px;
-}
-
-#experienceWrapper .grid-panel:nth-child(1n) .experience-content {
-    display: flex;
+    display: grid;
     align-items: center;
     margin: 10px 0;
     text-align: left;
+    grid-template-columns: 75px auto;
 }
 
 #experienceWrapper .grid-panel:nth-child(1n) .experience-content .text {
@@ -85,25 +62,22 @@
 
   #experienceWrapper .grid-panel:nth-child(1n) .experience-content {
     margin: 40px 0;
+    /* grid-template-columns: 75px auto;   */
   }
 
-  #experienceWrapper .grid-panel:nth-child(1n) .experience-content img {
-    width: 50%;
-  }
-
-  #experienceWrapper .grid-panel:nth-child(2n) .experience-content {
-    flex-direction: row-reverse;
+  #experienceWrapper .grid-panel:nth-child(1n) .experience-content .icon {
+    width: 100%;
   }
 }
 
 @media (min-width: 1000px) {
   #experienceWrapper .grid-panel:nth-child(1n) .experience-content {
-      margin-left: calc(100% - (var(--gridWrapperWidth) / 2));
+      margin-left: calc(100% + 30px - (var(--gridWrapperWidth) / 2));
       margin-right: 0;
   }
 
   #experienceWrapper .grid-panel:nth-child(2n) .experience-content {
       margin-left: 0;
-      margin-right: calc(100% - (var(--gridWrapperWidth) / 2));
+      margin-right: calc(100% + 30px - (var(--gridWrapperWidth) / 2));
   }
 }

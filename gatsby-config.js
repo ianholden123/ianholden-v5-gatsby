@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: 'Ian Holden',
     description:
-      'Ian Holden is a software Engineer based in Kent, UK. Get in touch to see how Ian can help you build your next web project.',
+      'Ian Holden is a Software Engineer based in Kent, UK. Get in touch to see how Ian can help you build your next web project.',
     author: 'Ian Holden'
   },
   pathPrefix: '',
@@ -43,11 +43,11 @@ module.exports = {
         fonts: [
           {
             family: 'Chivo',
-            variants: ['400']
+            variants: ['Regular 400']
           },
           {
             family: 'Overpass',
-            variants: ['Regular 400']
+            variants: ['Regular 400', 'Regular 400 italic', 'Extra-light 200']
           }
         ]
       }

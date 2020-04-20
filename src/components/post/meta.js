@@ -2,30 +2,39 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import moment from 'moment'
-import config from '../../config'
-import CategoryIcon from '../icons/category'
-import TagIcon from '../icons/tag'
+import Icon from '../icons'
 import { createLocalLink } from '../../utils'
 import classNames from 'classnames'
 
-const MetaComponent = ({ author, date, modified, categories, tags, isPostArchive }) => {
-  const renderMeta = ({ author, date, modified }) => {
-    const fullName = author && `${author.firstName} ${author.lastName}`
-    const hasBeenModified = moment(date).diff(moment(modified)) < -24 // Only deem as modified if modification has happened more than 24 hours of publish date
+const MetaComponent = ({ author, date, dateOverride, modified, categories, tags, isPostArchive }) => {
+  // const renderAuthor = (author) => {
+  //   const fullName = author && `${author.firstName} ${author.lastName}`
 
-    if (author || date || modified) {
+  //   return fullName && (
+  //     <ul className='author ml-0'>
+  //       <li className="m-0 inline">Written by {fullName}</li>
+  //     </ul>
+  //   )
+  // }
+
+  const renderDate = ({ date, modified }) => {
+    if (date || modified) {
+      const hasBeenModified = moment(date).diff(moment(modified)) < -24 // Only deem as modified if modification has happened more than 24 hours of publish date
+
       return (
-        <ul className={classNames('meta m-0 mb-3 mr-4 ml-0', !isPostArchive && 'mb-5')}>
-          {fullName && config.postsShowAuthor && (
-            <li className="m-0">Written by {fullName}</li>
-          )}
-          {!hasBeenModified && date && (
-            <li className="m-0">
+        <ul className={classNames('meta inline-block m-0 mb-3 mr-4 ml-0')}>
+          { dateOverride &&
+            <li className="m-0 inline">
+              Published {moment(dateOverride).format('MMMM Do YYYY')}
+            </li>
+          }
+          {!dateOverride && !hasBeenModified && date && (
+            <li className="m-0 inline">
               Published {moment(date).format('MMMM Do YYYY')}
             </li>
           )}
-          {hasBeenModified && modified && (
-            <li className="m-0">
+          {!dateOverride && hasBeenModified && modified && (
+            <li className="m-0 inline">
               Updated {moment(modified).format('MMMM Do YYYY')}
             </li>
           )}
@@ -40,13 +49,13 @@ const MetaComponent = ({ author, date, modified, categories, tags, isPostArchive
     const fetchedCategories = categories.nodes || categories.edges || []
     if (fetchedCategories.length === 0) return ''
     return (
-      <ul className='category m-0 mb-3 mr-4 ml-0'>
-        <CategoryIcon />
+      <ul className='category inline-block m-0 mb-3 mr-4 ml-0'>
+        <Icon name='category' classes='icon-tiny inline-block mr-2' />
         {fetchedCategories.map(category => {
           const fetchedCategory = category.node || category
           const { name, uri, id } = fetchedCategory
           return (
-            <li key={id} className='m-0 capitalize'>
+            <li key={id} className='m-0 capitalize inline'>
               <Link to={`/blog/${createLocalLink(uri)}`}>{name}</Link>
             </li>
           )
@@ -60,13 +69,13 @@ const MetaComponent = ({ author, date, modified, categories, tags, isPostArchive
     const fetchedTags = tags.nodes || tags.edges || []
     if (fetchedTags.length === 0) return ''
     return (
-      <ul className='tags m-0 mb-3 mr-4 ml-0'>
-        <TagIcon />
+      <ul className='tags inline-block m-0 mb-3 mr-4 ml-0'>
+        <Icon name='tag' classes='icon-tiny inline-block mr-2' />
         {fetchedTags.map(tag => {
           const fetchedTag = tag.node || tag
           const { name, uri, id } = fetchedTag
           return (
-            <li key={id} className='m-0 capitalize'>
+            <li key={id} className='m-0 capitalize inline'>
               <Link to={`/blog/${createLocalLink(uri)}`}>{name}</Link>
             </li>
           )
@@ -76,10 +85,11 @@ const MetaComponent = ({ author, date, modified, categories, tags, isPostArchive
   }
 
   return (
-    <div className="meta f-6 color-grey">
-      {renderMeta({ author, date, modified })}
+    <div className="meta f-6">
+      {renderDate({ date, modified })}
       {renderCategories(categories)}
       {renderTags(tags)}
+      {/* { !isPostArchive && renderAuthor(author)} */}
     </div>
   )
 }
@@ -91,6 +101,7 @@ MetaComponent.propTypes = {
     lastName: PropTypes.string
   }),
   date: PropTypes.string,
+  dateOverride: PropTypes.string,
   modified: PropTypes.string,
   categories: PropTypes.oneOfType([
     PropTypes.shape({
