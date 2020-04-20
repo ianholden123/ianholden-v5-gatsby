@@ -34,8 +34,8 @@ const FooterComponent = () => {
       }) => {
         const { content: quote } = allQuotes[getRandomInt(allQuotes.length - 1)]
         return (
-          <footer className='p-4 bg-light-grey mt-5'>
-            <div className='grid not-full-width'>
+          <footer className='py-4 bg-light-grey mt-5'>
+            <div className='grid not-full-width px-4'>
               <div className='grid-panel'>
                 <p className='m-0 py-2'>© Ian Holden {new Date().getFullYear()}</p>
               </div>
@@ -50,7 +50,7 @@ const FooterComponent = () => {
               </div>
             </div>
             <div
-              className='quote not-full-width color-grey block-center text-center pt-5 f-4'
+              className='quote not-full-width color-grey block-center text-center pt-5 f-4 px-4'
               dangerouslySetInnerHTML={{ __html: quote }}
             />
           </footer>

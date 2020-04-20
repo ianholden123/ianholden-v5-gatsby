@@ -4,6 +4,13 @@ import { graphql } from 'gatsby'
 import Layout from '../components/layout/layout'
 import SEO from '../components/seo'
 import PostComponent from '../components/post/post'
+import { DiscussionEmbed } from 'disqus-react'
+import config from '../config'
+
+const disqusConfig = (url, slug, title) => ({
+  shortname: process.env.GATSBY_DISQUS_NAME,
+  config: { url, identifier: slug, title }
+})
 
 const Post = props => {
   const {
@@ -11,7 +18,8 @@ const Post = props => {
       wpgraphql: { post }
     }
   } = props
-  const { title, content, date, modified, categories, tags, author, featuredImage } = post
+  const { title, content, date, modified, categories, tags, author, featuredImage, slug } = post
+  const postUrl = `${config.productionSiteUrl}/blog/${slug}`
 
   return (
     <Layout>
@@ -27,6 +35,7 @@ const Post = props => {
           tags={tags}
           featuredImage={featuredImage}
         />
+        <DiscussionEmbed {...disqusConfig(postUrl, slug, title)} />
         <hr/>
       </article>
     </Layout>
@@ -44,6 +53,7 @@ Post.propTypes = {
           lastName: PropTypes.string
         }),
         title: PropTypes.string,
+        slug: PropTypes.string,
         date: PropTypes.string,
         modified: PropTypes.string,
         categories: PropTypes.shape(),
@@ -64,6 +74,7 @@ export const pageQuery = graphql`
     wpgraphql {
       post(id: $id) {
         title
+        slug
         content(format: RENDERED)
         categories {
           edges {
