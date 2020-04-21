@@ -19,7 +19,8 @@ const MetaComponent = ({ author, date, dateOverride, modified, categories, tags,
 
   const renderDate = ({ date, modified }) => {
     if (date || modified) {
-      const hasBeenModified = moment(date).diff(moment(modified)) < -24 // Only deem as modified if modification has happened more than 24 hours of publish date
+      // Only deem as modified if modification has happened more than 168 hours (7 days) of publish date
+      const hasBeenModified = moment(date).diff(moment(modified)) < -168
 
       return (
         <ul className={classNames('meta inline-block m-0 mb-3 mr-4 ml-0')}>

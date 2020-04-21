@@ -35,7 +35,10 @@ const Post = props => {
           tags={tags}
           featuredImage={featuredImage}
         />
-        <DiscussionEmbed {...disqusConfig(postUrl, slug, title)} />
+        <div className='reading-content block-center'>
+          <hr/>
+          <DiscussionEmbed {...disqusConfig(postUrl, slug, title)} />
+        </div>
         <hr/>
       </article>
     </Layout>

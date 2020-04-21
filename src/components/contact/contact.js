@@ -1,5 +1,6 @@
 import React from 'react'
 import config from '../../config'
+import { OutboundLink } from 'gatsby-plugin-google-analytics'
 
 const buttons = [
   { name: 'Email', url: config.email },
@@ -18,9 +19,9 @@ const ContactWrapperComponent = () => (
     </p>
     { buttons.map((button, index) => (
       <button className='mr-5' key={index}>
-        <a href={button.url} target='_blank' rel='noreferrer noopener'>
+        <OutboundLink href={button.url} target='_blank' rel='noreferrer noopener'>
           {button.name}
-        </a>
+        </OutboundLink>
       </button>
     ))}
   </article>
