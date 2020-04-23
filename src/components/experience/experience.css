@@ -62,7 +62,6 @@
 
   #experienceWrapper .grid-panel:nth-child(1n) .experience-content {
     margin: 40px 0;
-    /* grid-template-columns: 75px auto;   */
   }
 
   #experienceWrapper .grid-panel:nth-child(1n) .experience-content .icon {

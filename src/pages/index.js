@@ -15,7 +15,7 @@ const IndexPage = () => (
     <HeroComponent />
     <ProjectWrapperComponent />
     <ExperienceWrapperComponent />
-    <ContactWrapperComponent />
+    <ContactWrapperComponent isHomePage />
   </Layout>
 )
 
