@@ -20,12 +20,12 @@ const PostComponent = ({
 }) => (
   <>
     { title && !isPostArchive &&
-      <h1 className='mb-2'>{title}</h1>
+      <h1 className='mb-2' dangerouslySetInnerHTML={{ __html: title }} />
     }
     { title && isPostArchive &&
-      <h2 className="mb-2">
-        <Link to={createLocalLink(`/blog/${uri}`)}>{title}</Link>
-      </h2>
+      <Link to={createLocalLink(`/blog/${uri}`)}>
+        <h2 className="mb-2" dangerouslySetInnerHTML={{ __html: title }} />
+      </Link>
     }
     <MetaComponent
       author={author}

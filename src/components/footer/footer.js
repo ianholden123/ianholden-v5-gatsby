@@ -3,6 +3,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import './footer.css'
 import config from '../../config'
 import { getRandomInt } from '../../utils'
+import { OutboundLink } from 'gatsby-plugin-google-analytics'
 
 const footerLinks = [
   { name: 'Email', url: config.email },
@@ -43,7 +44,7 @@ const FooterComponent = () => {
                 <ul className='m-0'>
                   {footerLinks.map((link, i) => (
                     <li className='m-0 pl-4 py-2 inline-block' key={i}>
-                      <a href={link.url} target='_blank' rel='noreferrer noopener'>{link.name}</a>
+                      <OutboundLink href={link.url} target='_blank' rel='noreferrer noopener'>{link.name}</OutboundLink>
                     </li>
                   ))}
                 </ul>

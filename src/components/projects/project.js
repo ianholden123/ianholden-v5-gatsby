@@ -1,12 +1,13 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 
 const ProjectComponent = ({ projectName, projectLink, image }) => (
   <div className='hsItem text-center'>
-    <a href={projectLink} rel='noreferrer noopener'>
+    <Link to={projectLink}>
       { image && image.sourceUrl && <img src={image.sourceUrl} alt={image.altText} />}
       <h3 className='f5 capitalize px-4'>{projectName}</h3>
-    </a>
+    </Link>
   </div>
 )
 

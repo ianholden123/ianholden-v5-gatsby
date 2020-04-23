@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import { createLocalLink } from '../../utils'
 import Icon from '../icons'
+import { OutboundLink } from 'gatsby-plugin-google-analytics'
 
 const renderTools = tools => {
   return (
@@ -64,7 +65,7 @@ const ProjectComponent = ({
         { state && <li className='inline-block mr-4'><strong>Status:</strong> {state}</li> }
         { link &&
           <li className='inline-block'>
-            <strong>Link:</strong> <a href={link} target='_blank' rel='noreferrer noopener'>{title} <Icon name='externallink' classes='icon-tiny inline-block' /></a>
+            <strong>Link:</strong> <OutboundLink href={link} target='_blank' rel='noreferrer noopener'>{title} <Icon name='externallink' classes='icon-tiny inline-block' /></OutboundLink>
           </li>
         }
       </ul>
