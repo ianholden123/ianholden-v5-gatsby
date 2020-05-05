@@ -28,7 +28,7 @@ const ExperienceWrapperComponent = () => (
       <ExperiencePanelComponent
         iconName='seo'
         panelTitle='Search Engine Optimisation (SEO)'
-        panelParagraph='I have a wealth of experience in optimising websites for search engines so that your users can find you on the web.'
+        panelParagraph='I have experience in optimising websites for search engines so that your users can find you on the web.'
       />
     </div>
   </article>

@@ -16,8 +16,8 @@ const Page = props => {
     <Layout>
       <SEO title={`${title} | Ian Holden`} />
       <article className='not-full-width block-center px-4 pb-5 pt-6'>
-        <h1>{title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: content }}></div>
+        <h1 dangerouslySetInnerHTML={{ __html: title }} />
+        <div dangerouslySetInnerHTML={{ __html: content }} />
       </article>
     </Layout>
   )

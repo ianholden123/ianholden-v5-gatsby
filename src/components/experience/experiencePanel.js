@@ -14,7 +14,7 @@ const ExperiencePanelComponent = ({
       <div className='experience-content m-5'>
         <Icon name={iconName} classes='mr-4' />
         <div className='text'>
-          <h3 className='mb-2'>{panelTitle}</h3>
+          <h3 className='mb-2' dangerouslySetInnerHTML={{ __html: panelTitle }} />
           <p className='mb-0'>{panelParagraph}</p>
         </div>
       </div>

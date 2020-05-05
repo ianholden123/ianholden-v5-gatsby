@@ -10,10 +10,18 @@ export const getRandomInt = (max = 1, min = 0) => {
 }
 
 export const setCookie = (key, value) => {
-  document.cookie = `${key}=${value}`
-  return true
+  // Requiring function causes error during builds as the code tries to reference document
+  if (typeof document !== 'undefined') {
+    document.cookie = `${key}=${value}`
+    return true
+  }
+  return false
 }
 
 export const hasCookie = (key) => {
-  return document.cookie.split(';').some((item) => item.trim().startsWith(key))
+  // Requiring function causes error during builds as the code tries to reference document
+  if (typeof document !== 'undefined') {
+    return document.cookie.split(';').some((item) => item.trim().startsWith(key))
+  }
+  return false
 }

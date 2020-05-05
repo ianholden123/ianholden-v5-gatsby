@@ -19,7 +19,7 @@ const TagTemplate = props => {
     <Layout>
       <SEO title={`Posts tagged '${name}' | Ian Holden`} />
       <article className='not-full-width block-center px-4 pb-5 pt-6'>
-        <h1>{`Posts tagged '${name}'`}</h1>
+        <h1 dangerouslySetInnerHTML={{ __html: `Posts tagged '${name}'` }} />
         {posts.nodes.map(post => (
           <PostComponent
             key={post.postId}

@@ -3,13 +3,16 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
 import AppDev from './svg/appDev.js'
+import AWS from './svg/aws.js'
 import Bootstrap from './svg/bootstrap.js'
 import Category from './svg/category.js'
 import CSS3 from './svg/css3.js'
 import Docker from './svg/docker.js'
 import ExternalLink from './svg/externalLink.js'
+import Gatsby from './svg/gatsby.js'
 import GitHub from './svg/github.js'
 import Gulp from './svg/gulp.js'
+import Illustrator from './svg/illustrator.js'
 import JavaScript from './svg/javascript.js'
 import JQuery from './svg/jQuery.js'
 import MySQL from './svg/mysql.js'
@@ -29,13 +32,16 @@ const tidy = string => string.toLowerCase().trim()
 const getIcon = name => {
   switch (tidy(name)) {
     case 'appdev': return <AppDev />
+    case 'aws': return <AWS />
     case 'bootstrap': return <Bootstrap />
     case 'category': return <Category />
     case 'css3': return <CSS3 />
     case 'docker': return <Docker />
     case 'externallink': return <ExternalLink />
+    case 'gatsby': return <Gatsby />
     case 'github': return <GitHub />
     case 'gulp': return <Gulp />
+    case 'illustrator': return <Illustrator />
     case 'javascript': return <JavaScript />
     case 'jquery': return <JQuery />
     case 'mysql': return <MySQL />
