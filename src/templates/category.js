@@ -19,7 +19,7 @@ const CategoryTemplate = props => {
     <Layout>
       <SEO title={`Posts in category '${name}' | Ian Holden`} />
       <article className='not-full-width block-center px-4 pb-5 pt-6'>
-        <h1>{`Posts in category '${name}'`}</h1>
+        <h1 dangerouslySetInnerHTML={{ __html: `Posts in category '${name}'` }} />
         {posts.nodes.map(post => (
           <PostComponent
             key={post.postId}

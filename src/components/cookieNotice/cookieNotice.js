@@ -28,7 +28,7 @@ class CookieNotice extends Component {
             <p>
               This site uses cookies. Close this dialog to confirm you are happy to continue or find out more in my <Link to='/cookie-policy'>cookie policy document</Link>.
             </p>
-            <button onClick={this.dismissCookieNotice}>Agree and Close</button>
+            <button className='uppercase' onClick={this.dismissCookieNotice}>Agree and Close</button>
           </div>
         </div>
       )

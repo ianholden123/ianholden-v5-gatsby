@@ -36,7 +36,7 @@ const Projects = props => {
                   secondary: project.customFields.colourSchemeSecondary,
                   tertiary: project.customFields.colourSchemeTertiary
                 }}
-                projectType={project.customFields.typeOfProject}
+                type={project.customFields.typeOfProject}
                 archiveImage={project.customFields.archiveImage}
               />
             </div>
@@ -110,6 +110,7 @@ export const pageQuery = graphql`
               altText
               sourceUrl
             }
+            typeOfProject
           }
         }
       }

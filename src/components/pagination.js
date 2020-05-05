@@ -18,12 +18,12 @@ const Pagination = ({ pageNumber, hasNextPage }) => {
   return (
     <nav>
       {prevLink && (
-        <button className='mr-4'>
+        <button className='mr-4 uppercase'>
           <Link to={prevLink}>&larr; Previous Posts</Link>
         </button>
       )}
       {nextLink && (
-        <button>
+        <button className='uppercase'>
           <Link to={nextLink}>Next Posts &rarr;</Link>
         </button>
       )}

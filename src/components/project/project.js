@@ -8,12 +8,16 @@ import { OutboundLink } from 'gatsby-plugin-google-analytics'
 const renderTools = tools => {
   return (
     <ul className='tools reading-content block-center text-center'>
-      { tools.split(',').map((tool, index) => (
-        <li className='tool inline-block mx-4' key={index}>
-          <Icon name={tool.trim()} classes='icon-small block-center' />
-          {tool}
-        </li>
-      ))}
+      { tools.split(',').map((tool, index) => {
+        tool = tool.trim()
+        if (!tool) return ''
+        return (
+          <li className='tool inline-block mx-4' key={index}>
+            <Icon name={tool} classes='icon-small block-center' />
+            {tool}
+          </li>
+        )
+      })}
     </ul>
   )
 }
@@ -30,7 +34,7 @@ const ProjectComponent = ({
   toolsUsed,
   isPostArchive,
   colours,
-  projectType,
+  type,
   archiveImage
 }) => (
   <>
@@ -44,7 +48,7 @@ const ProjectComponent = ({
             className='featured-image block-center block'
           />
         }
-        <h1 className='mb-2'>{title}</h1>
+        <h1 className='mb-2' dangerouslySetInnerHTML={{ __html: title }} />
       </>
     }
     { isPostArchive &&
@@ -54,20 +58,23 @@ const ProjectComponent = ({
           src={archiveImage.sourceUrl}
           alt={archiveImage.altText}
         />
-        <p className='uppercase f-thin color-dark-grey m-0'>{projectType}</p>
-        <h2 className="mb-2">
-          <Link to={createLocalLink(uri)}>{title}</Link>
-        </h2>
+        <p className='uppercase f-thin color-dark-grey m-0' dangerouslySetInnerHTML={{ __html: type }} />
+        <Link to={createLocalLink(uri)}>
+          <h2 className="mb-2" dangerouslySetInnerHTML={{ __html: title }} />
+        </Link>
       </>
     }
     { !isPostArchive &&
       <ul className='meta ml-0'>
         { state && <li className='inline-block mr-4'><strong>Status:</strong> {state}</li> }
         { link &&
-          <li className='inline-block'>
-            <strong>Link:</strong> <OutboundLink href={link} target='_blank' rel='noreferrer noopener'>{title} <Icon name='externallink' classes='icon-tiny inline-block' /></OutboundLink>
+          <li className='inline-block mr-4'>
+            <strong>Link: </strong>
+            <OutboundLink href={link} target='_blank' rel='noreferrer noopener' dangerouslySetInnerHTML={{ __html: title }} />
+            <Icon name='externallink' classes='icon-tiny inline-block ml-2' />
           </li>
         }
+        { contributors && <li className='inline-block'><strong>Collaborators:</strong> {contributors}</li> }
       </ul>
     }
     { excerpt &&
@@ -91,7 +98,7 @@ const ProjectComponent = ({
 
 ProjectComponent.propTypes = {
   title: PropTypes.string.isRequired,
-  projectType: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
   excerpt: PropTypes.string,
   content: PropTypes.string,
   uri: PropTypes.string,

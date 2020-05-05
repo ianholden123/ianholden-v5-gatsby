@@ -20,7 +20,7 @@ const ContactWrapperComponent = ({ isHomePage }) => (
       to help! Get in touch by using one of the following channels below:
     </p>
     { buttons.map((button, index) => (
-      <button className='mr-5' key={index}>
+      <button className='mr-5 uppercase' key={index}>
         <OutboundLink href={button.url} target='_blank' rel='noreferrer noopener'>
           {button.name}
         </OutboundLink>

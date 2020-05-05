@@ -30,6 +30,7 @@ const Project = props => {
             secondary: project.customFields.colourSchemeSecondary,
             tertiary: project.customFields.colourSchemeTertiary
           }}
+          type={project.customFields.typeOfProject}
         />
         <hr/>
       </article>
@@ -59,7 +60,8 @@ Project.propTypes = {
           toolsUsed: PropTypes.string,
           colourSchemePrimary: PropTypes.string,
           colourSchemeSecondary: PropTypes.string,
-          colourSchemeTertiary: PropTypes.string
+          colourSchemeTertiary: PropTypes.string,
+          typeOfProject: PropTypes.string
         })
       })
     })
@@ -87,6 +89,7 @@ export const pageQuery = graphql`
           colourSchemePrimary,
           colourSchemeSecondary,
           colourSchemeTertiary
+          typeOfProject
         }
       }
     }
