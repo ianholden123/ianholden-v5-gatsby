@@ -15,7 +15,7 @@ const Projects = props => {
 
   return (
     <Layout>
-      <SEO title={'Projects | What have I worked on | Ian Holden'} />
+      <SEO title={'Projects | What have I worked on? | Ian Holden'} />
       <article id='projects' className='pb-5 pt-6'>
         <h1 className='px-4 not-full-width block-center'>Projects</h1>
         <div className='grid not-full-width'>

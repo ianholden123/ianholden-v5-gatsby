@@ -10,7 +10,7 @@
   This repository hosts the Gatsby site for Ian Holden's professional website.
 </p>
 
-## 🚀 Quick start
+## 📖 Quick start
 
 1. **Install Dependencies**
 
@@ -59,12 +59,28 @@ If you would like to build and host this project on a custom S3 bucket that does
     gatsby build --prefix-paths
     ```
 
-3. **Publish build files**
+## 🚀 Deploy
 
-    Upload the generated files from your `/build/` directory to your chosen hosting solution (S3, GCS, private web host, etc...)
+### Deploy manually
 
-_Note:_ Generally, when this gets uploaded to a website, you will not need to make these changes. In my experience, I have only used this when uploading to a custom S3 bucket.
+```bash
+gatsby build
+```
 
-<!-- ## 💫 Deploy
+Once you have run `gatsby build`, upload the generated files from your `/build/` directory to your chosen hosting solution (S3, GCS, private web host, etc...).
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default) -->
+### Deploy from CLI
+
+⚠️ You must have [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html) installed and you must have a user profile configured in your `~/.aws/credentials` file. This profile requires adequate permissions to upload and delete files from your S3 bucket.
+
+⚠️ The `./scripts/build-and-upload-to-s3.sh` script must have permissions to execute. Change these permissions like so: 
+
+```
+chmod +x ./scripts/build-and-upload-to-s3.sh
+```
+
+
+To build the project and upload it to your S3 bucket, run the following command:
+```bash
+npm run build-and-upload-to-s3
+```

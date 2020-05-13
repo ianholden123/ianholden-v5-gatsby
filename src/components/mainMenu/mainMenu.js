@@ -78,9 +78,9 @@ class MainMenu extends React.Component {
               <nav className={classNames('primary-navigation', this.state.isMenuOpen ? 'show' : '')}>
                 <div className='main-bar p-4 not-full-width block-center'>
                   <Link to={createLocalLink('/')}>
-                    <button className='brand bg-white uppercase'>Ian Holden</button>
+                    <button className='brand uppercase'>Ian Holden</button>
                   </Link>
-                  <button className='bg-white' onClick={this.toggleMenu}>
+                  <button onClick={this.toggleMenu}>
                     <div className='nav-icon'><div></div></div>
                   </button>
                 </div>

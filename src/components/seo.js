@@ -53,6 +53,10 @@ function SEO ({ description, lang, meta, title }) {
           content: 'website'
         },
         {
+          property: 'og:image',
+          content: 'https://ianholden.co.uk/static/ian-83944bc1fc683bc42c08a861ce86c89d.jpg'
+        },
+        {
           name: 'twitter:card',
           content: 'summary'
         },
