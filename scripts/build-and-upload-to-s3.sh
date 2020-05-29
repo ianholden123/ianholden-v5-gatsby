@@ -1,5 +1,5 @@
 #!/bin/bash
-# Build our Gatsby projec and upload the final files to S3
+# Build our Gatsby project and upload the final files to S3
 
 # Build our static site
 gatsby build
