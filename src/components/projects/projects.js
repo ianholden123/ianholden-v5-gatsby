@@ -44,16 +44,16 @@ const ProjectsComponent = props => {
             <div className='horizontalScroll'>
               { projectsToDisplay.map(project => (
                 <div className='hsItem text-center' key={project.id}>
-                  { project.customFields && project.customFields.portraitImage && project.customFields.portraitImage.sourceUrl &&
-                    <>
-                      <img src={project.customFields.portraitImage.sourceUrl} alt={project.customFields.portraitImage.altText} />
-
-                      { project.customFields.logo && project.customFields.logo && project.customFields.logo.sourceUrl &&
-                        <img className='logo' src={project.customFields.logo.sourceUrl} alt={project.customFields.logo.altText} />
-                      }
-                    </>
-                  }
                   <Link to={project.uri}>
+                    { project.customFields && project.customFields.portraitImage && project.customFields.portraitImage.sourceUrl &&
+                      <>
+                        <img src={project.customFields.portraitImage.sourceUrl} alt={project.customFields.portraitImage.altText} />
+
+                        { project.customFields.logo && project.customFields.logo && project.customFields.logo.sourceUrl &&
+                          <img className='logo' src={project.customFields.logo.sourceUrl} alt={project.customFields.logo.altText} />
+                        }
+                      </>
+                    }
                     <h3 className='f5 capitalize py-3 px-4' dangerouslySetInnerHTML={{ __html: project.title }} />
                   </Link>
                 </div>
