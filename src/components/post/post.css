@@ -37,10 +37,12 @@ article.post img.featured-image {
  }
 
  article.post .content figure figcaption {
-  padding: 0 10px;
   font-style: italic;
   font-weight: 200;
   color: var(--colorDarkGrey);
+  max-width: var(--articleContentWidth);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 article.post .content figure img {

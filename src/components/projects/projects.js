@@ -54,7 +54,7 @@ const ProjectsComponent = props => {
                     </>
                   }
                   <Link to={project.uri}>
-                    <h3 className='f5 capitalize px-4' dangerouslySetInnerHTML={{ __html: project.title }} />
+                    <h3 className='f5 capitalize py-3 px-4' dangerouslySetInnerHTML={{ __html: project.title }} />
                   </Link>
                 </div>
               ))}
