@@ -6,7 +6,7 @@ import Icon from '../icons'
 import { createLocalLink } from '../../utils'
 import classNames from 'classnames'
 
-const MetaComponent = ({ author, date, dateOverride, modified, categories, tags, isPostArchive }) => {
+const MetaComponent = ({ author, date, dateOverride, modified, categories, tags }) => {
   // const renderAuthor = (author) => {
   //   const fullName = author && `${author.firstName} ${author.lastName}`
 
@@ -19,8 +19,8 @@ const MetaComponent = ({ author, date, dateOverride, modified, categories, tags,
 
   const renderDate = ({ date, modified }) => {
     if (date || modified) {
-      // Only deem as modified if modification has happened more than 168 hours (7 days) of publish date
-      const hasBeenModified = moment(date).diff(moment(modified)) < -168
+      // Only deem as modified if modification has happened more than 7 days of publish date
+      const hasBeenModified = moment(date).diff(moment(modified), 'days') < -7
 
       return (
         <ul className={classNames('meta inline-block m-0 mb-3 mr-4 ml-0')}>

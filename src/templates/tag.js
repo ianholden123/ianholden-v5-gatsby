@@ -26,6 +26,7 @@ const TagTemplate = props => {
             author={post.author}
             date={post.date}
             modified={post.modified}
+            dateOverride={post.customFields ? post.customFields.publishedDateOverride : null}
             uri={post.uri}
             excerpt={post.excerpt}
             categories={post.categories}
@@ -93,6 +94,9 @@ export const pageQuery = graphql`
                 uri
                 id
               }
+            }
+            customFields {
+              publishedDateOverride
             }
           }
         }
