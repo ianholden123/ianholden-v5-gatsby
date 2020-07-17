@@ -8,13 +8,13 @@ const buttons = [
   { name: 'LinkedIn', url: config.linkedInUrl }
 ]
 
-const ContactWrapperComponent = ({ isHomePage }) => (
+const ContactWrapperComponent = ({ isContactPage = false }) => (
   <article
     id='contactWrapper'
     className='not-full-width block-center px-4 py-6'
   >
-    { !isHomePage && <h1 className='uppercase'>Contact Me</h1> }
-    { isHomePage && <h2 className='uppercase'>Contact Me</h2> }
+    { isContactPage && <h1>Contact Me</h1> }
+    { !isContactPage && <h2>Contact Me</h2> }
     <p className='reading-content'>
       If you would like to work with me on a project, I would be more than happy
       to help! Get in touch by using one of the following channels below:
@@ -31,10 +31,6 @@ const ContactWrapperComponent = ({ isHomePage }) => (
 
 export default ContactWrapperComponent
 
-ContactWrapperComponent.defaultProps = {
-  isHomePage: false
-}
-
 ContactWrapperComponent.propTypes = {
-  isHomePage: PropTypes.bool.isRequired
+  isContactPage: PropTypes.bool
 }

@@ -4,7 +4,7 @@ import ExperiencePanelComponent from './experiencePanel'
 
 const ExperienceWrapperComponent = () => (
   <article id='experienceWrapper' className='px-0 m-0 py-5'>
-    <h2 className='text-center uppercase'>Experience</h2>
+    <h2 className='text-center'>Experience</h2>
     <div className='grid'>
       <ExperiencePanelComponent
         iconName='webdev'

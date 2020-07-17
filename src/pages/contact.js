@@ -6,10 +6,10 @@ import ContactWrapperComponent from '../components/contact/contact'
 const IndexPage = () => (
   <Layout>
     <SEO
-      title='Contact Me | Ian Holden'
+      title='Contact Me | Software Engineer | Ian Holden'
       description='Ian Holden is a software Engineer based in Kent, UK. Get in touch to see how Ian can help you build your next web project.'
     />
-    <ContactWrapperComponent />
+    <ContactWrapperComponent isContactPage />
   </Layout>
 )
 

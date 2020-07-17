@@ -40,7 +40,7 @@ const ProjectsComponent = props => {
 
         return projectsToDisplay && (
           <article id='projectsWrapper' className='px-0 m-0 py-5'>
-            <h2 className='text-center uppercase mt-6'>Web Projects</h2>
+            <h2 className='text-center mt-6'>Web Projects</h2>
             <div className='horizontalScroll'>
               { projectsToDisplay.map(project => (
                 <div className='hsItem text-center' key={project.id}>
