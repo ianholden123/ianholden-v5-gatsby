@@ -1,7 +1,7 @@
 import config from '../config'
 
 export const createLocalLink = url => {
-  if (url === '#') return null
+  if (!url || url === '#') return '/'
   return url.replace(config.wordPressURL, '')
 }
 

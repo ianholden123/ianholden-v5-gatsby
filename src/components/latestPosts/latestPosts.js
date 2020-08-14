@@ -48,7 +48,7 @@ const LatestPostsComponent = props => {
             <div className='grid not-full-width block-center'>
               { postItems.map(post => (
                 <div className='grid-item mb-4 px-4' key={post.id}>
-                  <Link to={createLocalLink(`/blog/${post.uri}`)}>
+                  <Link to={`/blog/${createLocalLink(post.uri)}`}>
                     <h3 className='f5 capitalize pt-3 mb-2' dangerouslySetInnerHTML={{ __html: post.title }} />
                   </Link>
                   <MetaComponent
