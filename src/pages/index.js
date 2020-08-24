@@ -4,7 +4,6 @@ import SEO from '../components/seo'
 import HeroComponent from '../components/hero/hero'
 import ProjectsComponent from '../components/projects/projects'
 import ExperienceWrapperComponent from '../components/experience/experience'
-import LatestPostsComponent from '../components/LatestPosts/latestPosts'
 import ContactWrapperComponent from '../components/contact/contact'
 
 const IndexPage = () => (
@@ -16,7 +15,6 @@ const IndexPage = () => (
     <HeroComponent />
     <ProjectsComponent />
     <ExperienceWrapperComponent />
-    <LatestPostsComponent />
     <ContactWrapperComponent isHomePage />
   </Layout>
 )

@@ -1,9 +1,0 @@
-#postsWrapper > .grid {
-  grid-template-columns: 1fr;
-}
-
-@media (min-width: 700px) {
-  #postsWrapper > .grid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
