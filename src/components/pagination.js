@@ -5,7 +5,7 @@ import { Link } from 'gatsby'
 const Pagination = ({ pageNumber, hasNextPage }) => {
   let prevLink = null
   if (pageNumber === 1) {
-    prevLink = './blog/'
+    prevLink = '/blog/'
   } else if (pageNumber > 1) {
     prevLink = `/blog/page/${pageNumber - 1}`
   }

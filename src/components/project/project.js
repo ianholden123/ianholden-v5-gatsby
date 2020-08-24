@@ -59,7 +59,7 @@ const ProjectComponent = ({
           alt={archiveImage.altText}
         />
         <p className='uppercase f-thin color-dark-grey m-0' dangerouslySetInnerHTML={{ __html: type }} />
-        <Link to={createLocalLink(uri)}>
+        <Link to={createLocalLink(uri, ['projects/'])}>
           <h2 className="mb-2" dangerouslySetInnerHTML={{ __html: title }} />
         </Link>
       </>

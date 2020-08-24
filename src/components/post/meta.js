@@ -1,21 +1,34 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'gatsby'
+import { Link, useStaticQuery, graphql } from 'gatsby'
+import Img from 'gatsby-image'
 import moment from 'moment'
 import Icon from '../icons'
 import { createLocalLink } from '../../utils'
 import classNames from 'classnames'
 
-const MetaComponent = ({ author, date, dateOverride, modified, categories, tags }) => {
-  // const renderAuthor = (author) => {
-  //   const fullName = author && `${author.firstName} ${author.lastName}`
+const MetaComponent = ({ author, date, dateOverride, modified, categories, tags, isPostArchive }) => {
+  const renderAuthor = (author) => {
+    const data = useStaticQuery(graphql`
+      query {
+        image: file(relativePath: { eq: "ianHeadshot.jpg" }) {
+          childImageSharp {
+            fixed(width: 50, height: 50) {
+              ...GatsbyImageSharpFixed
+            }
+          }
+        }
+      }
+    `)
+    const fullName = author && `${author.firstName} ${author.lastName}`
 
-  //   return fullName && (
-  //     <ul className='author ml-0'>
-  //       <li className="m-0 inline">Written by {fullName}</li>
-  //     </ul>
-  //   )
-  // }
+    return fullName && (
+      <ul className='author flex flex-v-middle ml-0 mr-4 mb-3 mt-3'>
+        <li className="m-0 mr-3 inline"><Link to='/about'><Img fixed={data.image.childImageSharp.fixed} alt='Ian Holden' /></Link></li>
+        <li className="m-0 inline">Written by <Link to='/about'>{fullName}</Link></li>
+      </ul>
+    )
+  }
 
   const renderDate = ({ date, modified }) => {
     if (date || modified) {
@@ -23,13 +36,13 @@ const MetaComponent = ({ author, date, dateOverride, modified, categories, tags 
       const hasBeenModified = moment(date).diff(moment(modified), 'days') < -7
 
       return (
-        <ul className={classNames('meta inline-block m-0 mb-3 mr-4 ml-0')}>
+        <ul className={classNames('dates inline-block m-0 mb-3 mr-4 ml-0')}>
           { dateOverride &&
             <li className="m-0 inline">
               Published {moment(dateOverride).format('MMMM Do YYYY')}
             </li>
           }
-          {!dateOverride && !hasBeenModified && date && (
+          {!dateOverride && date && (
             <li className="m-0 inline">
               Published {moment(date).format('MMMM Do YYYY')}
             </li>
@@ -90,7 +103,7 @@ const MetaComponent = ({ author, date, dateOverride, modified, categories, tags 
       {renderDate({ date, modified })}
       {renderCategories(categories)}
       {renderTags(tags)}
-      {/* { !isPostArchive && renderAuthor(author)} */}
+      {!isPostArchive && renderAuthor(author)}
     </div>
   )
 }

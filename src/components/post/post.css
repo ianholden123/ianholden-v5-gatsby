@@ -1,9 +1,22 @@
-div.meta ul li:after {
+ul.dates li:after,
+ul.category li:after,
+ul.tags li:after {
   content: ', ';
 }
 
-div.meta ul li:last-child:after {
+ul.dates li:last-child:after,
+ul.category li:last-child:after,
+ul.tags li:last-child:after {
   content: '';
+}
+
+ul.author li img {
+  border-radius: 100%;
+  border: 3px solid var(--colorDarkGrey);
+}
+
+ul.author li a img {
+  border: 3px solid var(--colorBlue);
 }
 
 article.post img.featured-image {

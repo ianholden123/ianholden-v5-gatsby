@@ -1,7 +1,12 @@
 import config from '../config'
 
-export const createLocalLink = url => {
+export const createLocalLink = (url, stringsToExclude = []) => {
   if (!url || url === '#') return '/'
+  if (Array.isArray(stringsToExclude) && stringsToExclude.length > 0) {
+    stringsToExclude.forEach(string => {
+      if (typeof string === 'string') url = url.replace(string, '')
+    })
+  }
   return url.replace(config.wordPressURL, '')
 }
 
