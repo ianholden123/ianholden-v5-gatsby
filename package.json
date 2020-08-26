@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "ianholden-v5-gatsby",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "description": "Ian Holdens personal website",
+  "version": "1.0.0",
+  "author": "Ian Holden <ianholdendev@outlook.com>",
   "dependencies": {
     "classnames": "^2.2.6",
     "disqus-react": "^1.0.9",
@@ -49,9 +49,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/ianholden123/ianholden-v5-gatsby/"
   }
 }

@@ -3,7 +3,7 @@ import Layout from '../components/layout/layout'
 import SEO from '../components/seo'
 import ContactWrapperComponent from '../components/contact/contact'
 
-const IndexPage = () => (
+const ContactPage = () => (
   <Layout>
     <SEO
       title='Contact Me | Software Engineer | Ian Holden'
@@ -13,4 +13,4 @@ const IndexPage = () => (
   </Layout>
 )
 
-export default IndexPage
+export default ContactPage

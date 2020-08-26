@@ -12,7 +12,7 @@ const outputTechnology = (icon, name) => (
   </div>
 )
 
-const IndexPage = () => (
+const AboutPage = () => (
   <Layout>
     <SEO
       title='About Me | Software Engineer | Ian Holden'
@@ -57,4 +57,4 @@ const IndexPage = () => (
   </Layout>
 )
 
-export default IndexPage
+export default AboutPage

@@ -53,11 +53,13 @@ const ProjectComponent = ({
     }
     { isPostArchive &&
       <>
-        <img
-          className='px-5'
-          src={archiveImage.sourceUrl}
-          alt={archiveImage.altText}
-        />
+        <Link to={createLocalLink(uri, ['projects/'])}>
+          <img
+            className='px-5'
+            src={archiveImage.sourceUrl}
+            alt={archiveImage.altText}
+          />
+        </Link>
         <p className='uppercase f-thin color-dark-grey m-0' dangerouslySetInnerHTML={{ __html: type }} />
         <Link to={createLocalLink(uri, ['projects/'])}>
           <h2 className="mb-2" dangerouslySetInnerHTML={{ __html: title }} />
