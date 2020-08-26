@@ -10,9 +10,13 @@ import CSS3 from './svg/css3.js'
 import Docker from './svg/docker.js'
 import ExternalLink from './svg/externalLink.js'
 import Gatsby from './svg/gatsby.js'
+import Git from './svg/git.js'
 import GitHub from './svg/github.js'
 import Gulp from './svg/gulp.js'
+import Handlebars from './svg/handlebars.js'
+import Html5 from './svg/html5.js'
 import Illustrator from './svg/illustrator.js'
+import Ionic from './svg/ionic.js'
 import JavaScript from './svg/javascript.js'
 import JQuery from './svg/jQuery.js'
 import MySQL from './svg/mysql.js'
@@ -39,9 +43,13 @@ const getIcon = name => {
     case 'docker': return <Docker />
     case 'externallink': return <ExternalLink />
     case 'gatsby': return <Gatsby />
+    case 'git': return <Git />
     case 'github': return <GitHub />
     case 'gulp': return <Gulp />
+    case 'handlebars': return <Handlebars />
+    case 'html5': return <Html5 />
     case 'illustrator': return <Illustrator />
+    case 'ionic': return <Ionic />
     case 'javascript': return <JavaScript />
     case 'jquery': return <JQuery />
     case 'mysql': return <MySQL />

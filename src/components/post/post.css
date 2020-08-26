@@ -1,9 +1,22 @@
-div.meta ul li:after {
+ul.dates li:after,
+ul.category li:after,
+ul.tags li:after {
   content: ', ';
 }
 
-div.meta ul li:last-child:after {
+ul.dates li:last-child:after,
+ul.category li:last-child:after,
+ul.tags li:last-child:after {
   content: '';
+}
+
+ul.author li img {
+  border-radius: 100%;
+  border: 3px solid var(--colorDarkGrey);
+}
+
+ul.author li a img {
+  border: 3px solid var(--colorBlue);
 }
 
 article.post img.featured-image {
@@ -37,14 +50,17 @@ article.post img.featured-image {
  }
 
  article.post .content figure figcaption {
-  padding: 0 10px;
   font-style: italic;
   font-weight: 200;
   color: var(--colorDarkGrey);
+  max-width: var(--articleContentWidth);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 article.post .content figure img {
-  margin: 0;
+  display: block;
+  margin: 10px auto;
   box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
   -webkit-box-shadow: 0 3px 15px rgba(0,0,0,0.2);
   -moz-box-shadow: 0 3px 15px rgba(0,0,0,0.2);

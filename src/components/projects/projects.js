@@ -40,21 +40,21 @@ const ProjectsComponent = props => {
 
         return projectsToDisplay && (
           <article id='projectsWrapper' className='px-0 m-0 py-5'>
-            <h2 className='text-center uppercase mt-6'>Web Projects</h2>
+            <h2 className='text-center mt-6'>Web Projects</h2>
             <div className='horizontalScroll'>
               { projectsToDisplay.map(project => (
                 <div className='hsItem text-center' key={project.id}>
-                  { project.customFields && project.customFields.portraitImage && project.customFields.portraitImage.sourceUrl &&
-                    <>
-                      <img src={project.customFields.portraitImage.sourceUrl} alt={project.customFields.portraitImage.altText} />
-
-                      { project.customFields.logo && project.customFields.logo && project.customFields.logo.sourceUrl &&
-                        <img className='logo' src={project.customFields.logo.sourceUrl} alt={project.customFields.logo.altText} />
-                      }
-                    </>
-                  }
                   <Link to={project.uri}>
-                    <h3 className='f5 capitalize px-4' dangerouslySetInnerHTML={{ __html: project.title }} />
+                    { project.customFields && project.customFields.portraitImage && project.customFields.portraitImage.sourceUrl &&
+                      <>
+                        <img src={project.customFields.portraitImage.sourceUrl} alt={project.customFields.portraitImage.altText} />
+
+                        { project.customFields.logo && project.customFields.logo && project.customFields.logo.sourceUrl &&
+                          <img className='logo' src={project.customFields.logo.sourceUrl} alt={project.customFields.logo.altText} />
+                        }
+                      </>
+                    }
+                    <h3 className='f5 capitalize py-3 px-4' dangerouslySetInnerHTML={{ __html: project.title }} />
                   </Link>
                 </div>
               ))}

@@ -23,7 +23,7 @@ const PostComponent = ({
       <h1 className='mb-2' dangerouslySetInnerHTML={{ __html: title }} />
     }
     { title && isPostArchive &&
-      <Link to={createLocalLink(`/blog/${uri}`)}>
+      <Link to={`/blog/${createLocalLink(uri)}`}>
         <h2 className="mb-2" dangerouslySetInnerHTML={{ __html: title }} />
       </Link>
     }

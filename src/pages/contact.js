@@ -3,14 +3,14 @@ import Layout from '../components/layout/layout'
 import SEO from '../components/seo'
 import ContactWrapperComponent from '../components/contact/contact'
 
-const IndexPage = () => (
+const ContactPage = () => (
   <Layout>
     <SEO
-      title='Contact Me | Ian Holden'
+      title='Contact Me | Software Engineer | Ian Holden'
       description='Ian Holden is a software Engineer based in Kent, UK. Get in touch to see how Ian can help you build your next web project.'
     />
-    <ContactWrapperComponent />
+    <ContactWrapperComponent isContactPage />
   </Layout>
 )
 
-export default IndexPage
+export default ContactPage

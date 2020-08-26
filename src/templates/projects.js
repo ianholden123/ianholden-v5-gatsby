@@ -1,6 +1,6 @@
 import React from 'react'
-import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
+import { graphql } from 'gatsby'
 import Layout from '../components/layout/layout'
 import ProjectComponent from '../components/project/project'
 import SEO from '../components/seo'

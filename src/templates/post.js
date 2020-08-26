@@ -29,6 +29,7 @@ const Post = props => {
           title={title}
           content={content}
           date={date}
+          dateOverride={post.customFields ? post.customFields.publishedDateOverride : null}
           modified={modified}
           author={author}
           categories={categories}
@@ -58,6 +59,9 @@ Post.propTypes = {
         title: PropTypes.string,
         slug: PropTypes.string,
         date: PropTypes.string,
+        customFields: PropTypes.shape({
+          publishedDateOverride: PropTypes.string
+        }),
         modified: PropTypes.string,
         categories: PropTypes.shape(),
         tags: PropTypes.shape(),
@@ -107,6 +111,9 @@ export const pageQuery = graphql`
           altText
           sourceUrl
           srcSet
+        }
+        customFields {
+          publishedDateOverride
         }
       }
     }

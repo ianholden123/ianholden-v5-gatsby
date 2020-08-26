@@ -1,0 +1,29 @@
+#aboutWrapper #general-info.grid {
+  grid-template-columns: 1fr;
+}
+
+#aboutWrapper #technologies.grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+#ian-image {
+  background-image: url('../images/ian1200.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 300px;
+}
+
+@media (min-width: 700px) {
+  #aboutWrapper #general-info.grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #aboutWrapper #technologies.grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .grid > .grid-panel.not-full-width {
+    max-width: calc(var(--gridWrapperWidth) / 2);
+  }
+}

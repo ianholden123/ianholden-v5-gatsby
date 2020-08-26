@@ -1,7 +1,7 @@
 .primary-navigation {
     width: 100%;
     z-index: 100;
-    position: fixed;
+    position: absolute;
     top: 0;
 }
 
