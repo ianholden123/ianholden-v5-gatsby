@@ -16,7 +16,10 @@ const Posts = props => {
 
   return (
     <Layout>
-      <SEO title={'Blog Posts | Ian Holden'} />
+      <SEO
+        title={'Blog Posts | Ian Holden'}
+        pathName='/blog/'
+      />
       <article className='not-full-width block-center px-4 pb-5 pt-6'>
         <h1>Blog Posts</h1>
         {posts.nodes.map(post => (

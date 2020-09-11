@@ -17,6 +17,7 @@ const AboutPage = () => (
     <SEO
       title='About Me | Software Engineer | Ian Holden'
       description='Ian Holden is a software Engineer based in Kent, UK. Get in touch to see how Ian can help you build your next web project.'
+      pathName='/about/'
     />
     <article id='aboutWrapper' className='block-center py-6'>
       <h1 className='not-full-width block-center px-4'>About Me</h1>

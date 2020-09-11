@@ -13,11 +13,14 @@ const TagTemplate = props => {
     },
     pageContext: { pageNumber, hasNextPage }
   } = props
-  const { name, posts } = tag
+  const { name, posts, slug } = tag
 
   return (
     <Layout>
-      <SEO title={`Posts tagged '${name}' | Ian Holden`} />
+      <SEO
+        title={`Posts tagged '${name}' | Ian Holden`}
+        pathName={`/blog/tag/${slug}/`}
+      />
       <article className='not-full-width block-center px-4 pb-5 pt-6'>
         <h1 dangerouslySetInnerHTML={{ __html: `Posts tagged '${name}'` }} />
         {posts.nodes.map(post => (
@@ -49,7 +52,8 @@ TagTemplate.propTypes = {
         name: PropTypes.string,
         posts: PropTypes.shape({
           nodes: PropTypes.array
-        })
+        }),
+        slug: PropTypes.string
       })
     })
   }),

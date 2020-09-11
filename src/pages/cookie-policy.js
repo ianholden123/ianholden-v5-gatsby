@@ -7,6 +7,7 @@ const CookiePolicyPage = () => (
     <SEO
       title='Cookie Policy | Ian Holden'
       description='We use cookies on our site. Find out about how we use them to improve your experience here.'
+      pathName='/cookie-policy/'
     />
     <article
       id='cookieNoticeWrapper'

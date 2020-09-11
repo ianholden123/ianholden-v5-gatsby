@@ -3,7 +3,8 @@ module.exports = {
     title: 'Ian Holden',
     description:
       'Ian Holden is a Software Engineer based in Kent, UK. Get in touch to see how Ian can help you build your next web project.',
-    author: 'Ian Holden'
+    author: 'Ian Holden',
+    siteUrl: 'https://ianholden.co.uk'
   },
   pathPrefix: '',
   plugins: [
@@ -58,7 +59,8 @@ module.exports = {
         trackingId: 'UA-36059287-1',
         respectDNT: true
       }
-    }
+    },
+    'gatsby-plugin-sitemap'
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // 'gatsby-plugin-offline',
