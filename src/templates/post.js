@@ -23,7 +23,10 @@ const Post = props => {
 
   return (
     <Layout>
-      <SEO title={`${title} | Ian Holden`} />
+      <SEO
+        title={`${title} | Ian Holden`}
+        pathName={`/blog/${slug}/`}
+      />
       <article className='post not-full-width block-center px-4 pb-5 pt-6'>
         <PostComponent
           title={title}

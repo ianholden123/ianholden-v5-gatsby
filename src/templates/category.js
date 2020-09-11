@@ -13,11 +13,14 @@ const CategoryTemplate = props => {
     },
     pageContext: { pageNumber, hasNextPage }
   } = props
-  const { name, posts } = category
+  const { name, posts, slug } = category
 
   return (
     <Layout>
-      <SEO title={`Posts in category '${name}' | Ian Holden`} />
+      <SEO
+        title={`Posts in category '${name}' | Ian Holden`}
+        pathName={`/blog/category/${slug}/`}
+      />
       <article className='not-full-width block-center px-4 pb-5 pt-6'>
         <h1 dangerouslySetInnerHTML={{ __html: `Posts in category '${name}'` }} />
         {posts.nodes.map(post => (
@@ -49,7 +52,8 @@ CategoryTemplate.propTypes = {
         name: PropTypes.string,
         posts: PropTypes.shape({
           nodes: PropTypes.array
-        })
+        }),
+        slug: PropTypes.string
       })
     })
   }),

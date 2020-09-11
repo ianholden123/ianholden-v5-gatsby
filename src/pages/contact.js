@@ -8,6 +8,7 @@ const ContactPage = () => (
     <SEO
       title='Contact Me | Software Engineer | Ian Holden'
       description='Ian Holden is a software Engineer based in Kent, UK. Get in touch to see how Ian can help you build your next web project.'
+      pathName='/contact/'
     />
     <ContactWrapperComponent isContactPage />
   </Layout>

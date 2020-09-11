@@ -10,11 +10,14 @@ const Page = props => {
       wpgraphql: { page }
     }
   } = props
-  const { title, content } = page
+  const { title, content, slug } = page
 
   return (
     <Layout>
-      <SEO title={`${title} | Ian Holden`} />
+      <SEO
+        title={`${title} | Ian Holden`}
+        pathName={`/${slug}/`}
+      />
       <article className='not-full-width block-center px-4 pb-5 pt-6'>
         <h1 dangerouslySetInnerHTML={{ __html: title }} />
         <div dangerouslySetInnerHTML={{ __html: content }} />
@@ -28,7 +31,8 @@ Page.propTypes = {
     wpgraphql: PropTypes.shape({
       page: PropTypes.shape({
         title: PropTypes.string,
-        content: PropTypes.string
+        content: PropTypes.string,
+        slug: PropTypes.string
       })
     })
   })
@@ -42,7 +46,7 @@ export const pageQuery = graphql`
       page(id: $id) {
         title
         content
-        uri
+        slug
       }
     }
   }

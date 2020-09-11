@@ -14,7 +14,10 @@ const Project = props => {
 
   return (
     <Layout>
-      <SEO title={`${project.title} | Projects | Ian Holden`} />
+      <SEO
+        title={`${project.title} | Projects | Ian Holden`}
+        pathName={`/projects/${project.slug}/`}
+      />
       <article className='post not-full-width block-center px-4 pb-5 pt-6'>
         <ProjectComponent
           title={project.title}
@@ -62,7 +65,8 @@ Project.propTypes = {
           colourSchemeSecondary: PropTypes.string,
           colourSchemeTertiary: PropTypes.string,
           typeOfProject: PropTypes.string
-        })
+        }),
+        slug: PropTypes.string
       })
     })
   })
@@ -91,6 +95,7 @@ export const pageQuery = graphql`
           colourSchemeTertiary
           typeOfProject
         }
+        slug
       }
     }
   }
