@@ -28,7 +28,8 @@ const Posts = props => {
             isPostArchive
             author={post.author}
             date={post.date}
-            dateOverride={post.customFields ? post.customFields.publishedDateOverride : null}
+            dateOverride={post.customFields && post.customFields.publishedDateOverride}
+            hideUpdatedDate={post.customFields && post.customFields.hideUpdatedDate}
             modified={post.modified}
             uri={post.uri}
             excerpt={post.excerpt}
@@ -95,6 +96,7 @@ export const pageQuery = graphql`
           }
           customFields {
             publishedDateOverride
+            hideUpdatedDate
           }
         }
       }

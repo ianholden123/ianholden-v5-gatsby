@@ -79,3 +79,12 @@ To build the project and upload it to your S3 bucket, run the following command:
 ```bash
 npm run build-and-upload-to-s3
 ```
+
+## 🔗 Dependencies
+
+### Prism
+
+This project uses Prism via the `react-syntax-highlighter` package. In order to use syntax highlighting inside of code blocks, you must do the following:
+
+1. Use the code block in the Gutenberg editor inside of WordPress.
+2. On this code block, enter the Advanced Block options tab on the right panel of the Gutenberg editor and add a class that uses one of the following language strings defined in the [Prism docs](https://github.com/react-syntax-highlighter/react-syntax-highlighter/blob/HEAD/AVAILABLE_LANGUAGES_PRISM.MD).
