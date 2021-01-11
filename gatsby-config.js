@@ -39,17 +39,11 @@ module.exports = {
       }
     },
     {
-      resolve: 'gatsby-plugin-prefetch-google-fonts',
+      resolve: 'gatsby-plugin-google-fonts',
       options: {
         fonts: [
-          {
-            family: 'Chivo',
-            variants: ['Regular 400']
-          },
-          {
-            family: 'Overpass',
-            variants: ['Regular 400', 'Regular 400 italic', 'Extra-light 200']
-          }
+          'Chivo:Regular 400',
+          'Overpass:Regular 400,Regular 400 italic,Extra-light 200'
         ]
       }
     },
