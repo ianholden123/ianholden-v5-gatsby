@@ -14,6 +14,7 @@ const PostComponent = ({
   excerpt,
   date,
   dateOverride,
+  hideUpdatedDate,
   modified,
   categories,
   tags,
@@ -55,7 +56,7 @@ const PostComponent = ({
         author={author}
         date={date}
         dateOverride={dateOverride}
-        modified={modified}
+        modified={!hideUpdatedDate && modified}
         categories={categories}
         tags={tags}
         isPostArchive={isPostArchive}
@@ -80,6 +81,7 @@ PostComponent.propTypes = {
   excerpt: PropTypes.string,
   date: PropTypes.string,
   dateOverride: PropTypes.string,
+  hideUpdatedDate: PropTypes.bool,
   modified: PropTypes.string,
   categories: PropTypes.shape(),
   tags: PropTypes.shape(),
