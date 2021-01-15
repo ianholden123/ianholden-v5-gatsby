@@ -1,14 +1,16 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
+import { OutboundLink } from 'gatsby-plugin-google-analytics'
 import './footer.css'
 import config from '../../config'
 import { getRandomInt } from '../../utils'
-import { OutboundLink } from 'gatsby-plugin-google-analytics'
+import Icon from '../icons'
 
 const footerLinks = [
-  { name: 'Email', url: config.email },
-  { name: 'LinkedIn', url: config.linkedInUrl },
-  { name: 'GitHub', url: config.githubUrl }
+  { name: 'Email', url: config.email, icon: 'email' },
+  { name: 'LinkedIn', url: config.linkedInUrl, icon: 'linkedin' },
+  { name: 'GitHub', url: config.githubUrl, icon: 'github' },
+  { name: 'Twitter', url: config.twitterUrl, icon: 'twitter' }
 ]
 
 const FooterComponent = () => {
@@ -44,7 +46,10 @@ const FooterComponent = () => {
                 <ul className='m-0'>
                   {footerLinks.map((link, i) => (
                     <li className='m-0 pl-4 py-2 inline-block' key={i}>
-                      <OutboundLink href={link.url} target='_blank' rel='noreferrer noopener'>{link.name}</OutboundLink>
+                      <OutboundLink href={link.url} target='_blank' rel='noreferrer noopener'>
+                        <Icon name={link.icon} classes='icon-smaller inline-block mr-2 pos-rel top-4' />
+                        {link.name}
+                      </OutboundLink>
                     </li>
                   ))}
                 </ul>

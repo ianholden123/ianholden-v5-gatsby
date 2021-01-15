@@ -51,6 +51,13 @@ a:hover {
   color: var(--colorBlueDark);
   text-decoration: underline;
 }
+a svg > * {
+  fill: var(--colorBlue);
+}
+a:active svg > *,
+a:hover svg > * {
+  fill: var(--colorBlueDark);
+}
 abbr[title] {
   border-bottom: none;
   text-decoration: underline;
@@ -833,9 +840,14 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ICONS ********************************************/
 .icon-tiny { width: 13px; }
+.icon-smaller { width: 20px; }
 .icon-small { width: 75px; }
 .icon-medium { width: 200px; }
 .icon-large { width: 500px; }
+
+/* POSITION ****************************************/
+.pos-rel { position: relative; }
+.top-4 { top: 4px; }
 
 /*****************************************************************
 * COMMON ELEMENTS ***********************************************

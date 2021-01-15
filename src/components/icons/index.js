@@ -8,6 +8,7 @@ import Bootstrap from './svg/bootstrap.js'
 import Category from './svg/category.js'
 import CSS3 from './svg/css3.js'
 import Docker from './svg/docker.js'
+import Email from './svg/email.js'
 import ExternalLink from './svg/externalLink.js'
 import Gatsby from './svg/gatsby.js'
 import Git from './svg/git.js'
@@ -19,6 +20,7 @@ import Illustrator from './svg/illustrator.js'
 import Ionic from './svg/ionic.js'
 import JavaScript from './svg/javascript.js'
 import JQuery from './svg/jQuery.js'
+import LinkedIn from './svg/linkedIn.js'
 import MySQL from './svg/mysql.js'
 import Node from './svg/node.js'
 import Photoshop from './svg/photoshop.js'
@@ -27,58 +29,64 @@ import ReactIcon from './svg/react.js'
 import Sass from './svg/sass.js'
 import SEO from './svg/seo.js'
 import Tag from './svg/tag.js'
+import Twitter from './svg/twitter.js'
 import Typescript from './svg/typescript.js'
 import WebDev from './svg/webDev.js'
 import WordPress from './svg/wordpress.js'
 
 const tidy = string => string.toLowerCase().trim()
 
-const getIcon = name => {
+const getIcon = (name, color = '#494949') => {
   switch (tidy(name)) {
-    case 'appdev': return <AppDev />
-    case 'aws': return <AWS />
-    case 'bootstrap': return <Bootstrap />
-    case 'category': return <Category />
-    case 'css3': return <CSS3 />
-    case 'docker': return <Docker />
-    case 'externallink': return <ExternalLink />
-    case 'gatsby': return <Gatsby />
-    case 'git': return <Git />
-    case 'github': return <GitHub />
-    case 'gulp': return <Gulp />
-    case 'handlebars': return <Handlebars />
-    case 'html5': return <Html5 />
-    case 'illustrator': return <Illustrator />
-    case 'ionic': return <Ionic />
-    case 'javascript': return <JavaScript />
-    case 'jquery': return <JQuery />
-    case 'mysql': return <MySQL />
-    case 'node': return <Node />
-    case 'photoshop': return <Photoshop />
-    case 'php': return <PHP />
-    case 'react': return <ReactIcon />
-    case 'sass': return <Sass />
-    case 'seo': return <SEO />
-    case 'tag': return <Tag />
-    case 'typescript': return <Typescript />
-    case 'webdev': return <WebDev />
-    case 'wordpress': return <WordPress />
+    case 'appdev': return <AppDev color={color} />
+    case 'aws': return <AWS color={color} />
+    case 'bootstrap': return <Bootstrap color={color} />
+    case 'category': return <Category color={color} />
+    case 'css3': return <CSS3 color={color} />
+    case 'docker': return <Docker color={color} />
+    case 'email': return <Email color={color} />
+    case 'externallink': return <ExternalLink color={color} />
+    case 'gatsby': return <Gatsby color={color} />
+    case 'git': return <Git color={color} />
+    case 'github': return <GitHub color={color} />
+    case 'gulp': return <Gulp color={color} />
+    case 'handlebars': return <Handlebars color={color} />
+    case 'html5': return <Html5 color={color} />
+    case 'illustrator': return <Illustrator color={color} />
+    case 'ionic': return <Ionic color={color} />
+    case 'javascript': return <JavaScript color={color} />
+    case 'jquery': return <JQuery color={color} />
+    case 'linkedin': return <LinkedIn color={color} />
+    case 'mysql': return <MySQL color={color} />
+    case 'node': return <Node color={color} />
+    case 'photoshop': return <Photoshop color={color} />
+    case 'php': return <PHP color={color} />
+    case 'react': return <ReactIcon color={color} />
+    case 'sass': return <Sass color={color} />
+    case 'seo': return <SEO color={color} />
+    case 'tag': return <Tag color={color} />
+    case 'twitter': return <Twitter color={color} />
+    case 'typescript': return <Typescript color={color} />
+    case 'webdev': return <WebDev color={color} />
+    case 'wordpress': return <WordPress color={color} />
     default: return ''
   }
 }
 
 const Icons = ({
   name,
-  classes
+  classes,
+  color
 }) => (
   <div id={`${tidy(name)}-logo-icon`} className={classNames('icon', classes)}>
-    {getIcon(tidy(name))}
+    {getIcon(tidy(name), color)}
   </div>
 )
 
 Icons.propTypes = {
   name: PropTypes.string,
-  classes: PropTypes.string
+  classes: PropTypes.string,
+  color: PropTypes.string
 }
 
 export default Icons

@@ -4,6 +4,7 @@ const config = {
   linkedInUrl: 'https://www.linkedin.com/in/ianlewisholden',
   email: 'mailto:ianholdendev@outlook.com',
   githubUrl: 'https://github.com/ianholden123',
+  twitterUrl: 'https://twitter.com/IanHoldenDev',
   cookieNoticeCookieName: '_cookieNoticeDismissed'
 }
 
