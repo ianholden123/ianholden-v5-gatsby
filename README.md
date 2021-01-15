@@ -31,6 +31,9 @@
     gatsby develop
     ```
 
+    _Note: You must ensure that your connected WordPress site is available. If you are connecting to a local WordPress instance, this must be accessible via a localhost link._
+
+
 3.  **Open the source code and start editing!**
 
     Your site is now running at `http://localhost:8000`!
