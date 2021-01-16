@@ -1,7 +1,14 @@
 footer div.grid {
-  grid-template-columns: 200px auto;
+  grid-template-columns: auto;
+  text-align: center;
 }
 
-footer ul {
-  text-align: right;
+@media (min-width: 700px) {
+  footer div.grid {
+    grid-template-columns: 200px auto;
+  }
+
+  footer ul {
+    text-align: right;
+  }
 }

@@ -6,6 +6,7 @@ import SEO from '../components/seo'
 import PostComponent from '../components/post/post'
 import { DiscussionEmbed } from 'disqus-react'
 import config from '../config'
+import { removeLargeSpacesFromString, stripHtmlFromString } from '../utils'
 
 const disqusConfig = (url, slug, title) => ({
   shortname: process.env.GATSBY_DISQUS_NAME,
@@ -26,26 +27,24 @@ const Post = props => {
       <SEO
         title={`${title} | Ian Holden`}
         pathName={`/blog/${slug}/`}
+        description={`${removeLargeSpacesFromString(stripHtmlFromString(content.substring(0, 240)))}...`}
       />
-      <article className='post not-full-width block-center px-4 pb-5 pt-6'>
-        <PostComponent
-          title={title}
-          content={content}
-          date={date}
-          dateOverride={post.customFields ? post.customFields.publishedDateOverride : null}
-          hideUpdatedDate={post.customFields ? post.customFields.hideUpdatedDate : null}
-          modified={modified}
-          author={author}
-          categories={categories}
-          tags={tags}
-          featuredImage={featuredImage}
-        />
-        <div className='reading-content block-center'>
-          <hr/>
-          <DiscussionEmbed {...disqusConfig(postUrl, slug, title)} />
-        </div>
+      <PostComponent
+        title={title}
+        content={content}
+        date={date}
+        dateOverride={post.customFields ? post.customFields.publishedDateOverride : null}
+        hideUpdatedDate={post.customFields ? post.customFields.hideUpdatedDate : null}
+        modified={modified}
+        author={author}
+        categories={categories}
+        tags={tags}
+        featuredImage={featuredImage}
+      />
+      <div className='reading-content block-center px-4'>
         <hr/>
-      </article>
+        <DiscussionEmbed {...disqusConfig(postUrl, slug, title)} />
+      </div>
     </Layout>
   )
 }

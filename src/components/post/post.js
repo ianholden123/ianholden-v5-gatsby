@@ -1,4 +1,5 @@
 import React from 'react'
+import classNames from 'classnames'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import parse, { domToReact } from 'html-react-parser'
@@ -42,21 +43,23 @@ const PostComponent = ({
     }
   }
 
+  const articleClasses = classNames('post not-full-width block-center', isPostArchive ? 'py-3' : 'px-4 pb-5 pt-6')
+
   return (
-    <>
+    <article className={articleClasses} itemScope itemType="http://schema.org/Article" >
       { title && !isPostArchive &&
-        <h1 className='mb-2' dangerouslySetInnerHTML={{ __html: title }} />
+        <h1 className='mb-2' dangerouslySetInnerHTML={{ __html: title }} itemProp="name" />
       }
       { title && isPostArchive &&
         <Link to={`/blog/${createLocalLink(uri)}`}>
-          <h2 className="mb-2" dangerouslySetInnerHTML={{ __html: title }} />
+          <h2 className="mb-2" dangerouslySetInnerHTML={{ __html: title }} itemProp="name" />
         </Link>
       }
       <MetaComponent
         author={author}
         date={date}
         dateOverride={dateOverride}
-        modified={!hideUpdatedDate && modified}
+        modified={!hideUpdatedDate ? modified : null}
         categories={categories}
         tags={tags}
         isPostArchive={isPostArchive}
@@ -65,9 +68,9 @@ const PostComponent = ({
         <div className="excerpt pb-4 reading-content" dangerouslySetInnerHTML={{ __html: excerpt }} />
       }
       { content && !isPostArchive &&
-        <div className='content pb-4'>{parse(content, { replace: replaceCode })}</div>
+        <div className='content pb-4' itemProp="articleBody">{parse(content, { replace: replaceCode })}</div>
       }
-    </>
+    </article>
   )
 }
 
