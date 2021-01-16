@@ -43,7 +43,7 @@ const PostComponent = ({
     }
   }
 
-  const articleClasses = classNames('post not-full-width block-center px-4', isPostArchive ? 'py-3' : 'pb-5 pt-6')
+  const articleClasses = classNames('post not-full-width block-center', isPostArchive ? 'py-3' : 'px-4 pb-5 pt-6')
 
   return (
     <article className={articleClasses} itemscope itemtype="http://schema.org/Article" >
