@@ -41,7 +41,7 @@ const Post = props => {
         tags={tags}
         featuredImage={featuredImage}
       />
-      <div className='reading-content block-center'>
+      <div className='reading-content block-center px-4'>
         <hr/>
         <DiscussionEmbed {...disqusConfig(postUrl, slug, title)} />
       </div>

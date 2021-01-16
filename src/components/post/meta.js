@@ -23,9 +23,9 @@ const MetaComponent = ({ author, date, dateOverride, modified, categories, tags,
     const fullName = author && `${author.firstName} ${author.lastName}`
 
     return fullName && (
-      <ul className='author flex flex-v-middle ml-0 mr-4 mb-3 mt-3' itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <ul className='author flex flex-v-middle ml-0 mr-4 mb-3 mt-3' itemProp="author" itemScope itemType="http://schema.org/Person">
         <li className="m-0 mr-3 inline"><Link to='/about'><Img fixed={data.image.childImageSharp.fixed} alt='Ian Holden' /></Link></li>
-        <li className="m-0 inline">Written by <span itemprop="name"><Link to='/about'>{fullName}</Link></span></li>
+        <li className="m-0 inline">Written by <span itemProp="name"><Link to='/about'>{fullName}</Link></span></li>
       </ul>
     )
   }
@@ -39,12 +39,12 @@ const MetaComponent = ({ author, date, dateOverride, modified, categories, tags,
       return (
         <ul className={classNames('dates inline-block m-0 mb-3 mr-4 ml-0')}>
           {publishedDate && (
-            <li className="m-0 inline" itemprop="datePublished" content={publishedDate}>
+            <li className="m-0 inline" itemProp="datePublished" content={publishedDate}>
               Published {moment(publishedDate).format('MMMM Do YYYY')}
             </li>
           )}
           {!dateOverride && hasBeenModified && modified && (
-            <li className="m-0 inline" itemprop="dateModified" content={modified}>
+            <li className="m-0 inline" itemProp="dateModified" content={modified}>
               Updated {moment(modified).format('MMMM Do YYYY')}
             </li>
           )}
