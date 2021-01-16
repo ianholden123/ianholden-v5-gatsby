@@ -23,9 +23,9 @@ const MetaComponent = ({ author, date, dateOverride, modified, categories, tags,
     const fullName = author && `${author.firstName} ${author.lastName}`
 
     return fullName && (
-      <ul className='author flex flex-v-middle ml-0 mr-4 mb-3 mt-3'>
+      <ul className='author flex flex-v-middle ml-0 mr-4 mb-3 mt-3' itemprop="author" itemscope itemtype="http://schema.org/Person">
         <li className="m-0 mr-3 inline"><Link to='/about'><Img fixed={data.image.childImageSharp.fixed} alt='Ian Holden' /></Link></li>
-        <li className="m-0 inline">Written by <Link to='/about'>{fullName}</Link></li>
+        <li className="m-0 inline">Written by <span itemprop="name"><Link to='/about'>{fullName}</Link></span></li>
       </ul>
     )
   }
@@ -34,21 +34,17 @@ const MetaComponent = ({ author, date, dateOverride, modified, categories, tags,
     if (date || modified) {
       // Only deem as modified if modification has happened more than 7 days of publish date
       const hasBeenModified = moment(date).diff(moment(modified), 'days') < -7
+      const publishedDate = dateOverride || date
 
       return (
         <ul className={classNames('dates inline-block m-0 mb-3 mr-4 ml-0')}>
-          { dateOverride &&
-            <li className="m-0 inline">
-              Published {moment(dateOverride).format('MMMM Do YYYY')}
-            </li>
-          }
-          {!dateOverride && date && (
-            <li className="m-0 inline">
-              Published {moment(date).format('MMMM Do YYYY')}
+          {publishedDate && (
+            <li className="m-0 inline" itemprop="datePublished" content={publishedDate}>
+              Published {moment(publishedDate).format('MMMM Do YYYY')}
             </li>
           )}
           {!dateOverride && hasBeenModified && modified && (
-            <li className="m-0 inline">
+            <li className="m-0 inline" itemprop="dateModified" content={modified}>
               Updated {moment(modified).format('MMMM Do YYYY')}
             </li>
           )}
