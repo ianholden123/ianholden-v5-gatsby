@@ -2,6 +2,9 @@ import React from 'react'
 import { StaticQuery, graphql, Link } from 'gatsby'
 import './projects.css'
 
+import ProjectTile from './projectTile'
+import BlankProjectTile from './blankProjectTile'
+
 const ProjectsComponent = props => {
   const HOME_PROJECTS_QUERY = graphql`
     query GET_PROJECTS_FOR_HOME {
@@ -43,21 +46,15 @@ const ProjectsComponent = props => {
             <h2 className='text-center mt-6'>Web Projects</h2>
             <div className='horizontalScroll'>
               { projectsToDisplay.map(project => (
-                <div className='hsItem text-center' key={project.id}>
-                  <Link to={project.uri}>
-                    { project.customFields && project.customFields.portraitImage && project.customFields.portraitImage.sourceUrl &&
-                      <>
-                        <img src={project.customFields.portraitImage.sourceUrl} alt={project.customFields.portraitImage.altText} />
-
-                        { project.customFields.logo && project.customFields.logo && project.customFields.logo.sourceUrl &&
-                          <img className='logo' src={project.customFields.logo.sourceUrl} alt={project.customFields.logo.altText} />
-                        }
-                      </>
-                    }
-                    <h3 className='f5 capitalize py-3 px-4' dangerouslySetInnerHTML={{ __html: project.title }} />
-                  </Link>
-                </div>
+                <ProjectTile
+                  id={project.id}
+                  logo={project?.customFields?.logo}
+                  portraitImage={project?.customFields?.portraitImage}
+                  title={project.title}
+                  uri={project.uri}
+                />
               ))}
+              <BlankProjectTile uri='/projects' text='View All Projects' />
             </div>
             <button className='block block-center mb-5 mt-3 uppercase'><Link to='/projects'>View all projects</Link></button>
           </article>
