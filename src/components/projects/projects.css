@@ -15,3 +15,30 @@
 #projectsWrapper .hsItem {
   position: relative;
 }
+
+#projectsWrapper .hsItem img:first-child,
+#projectsWrapper .hsItem.blank {
+  width: 300px;
+  height: 400px;
+}
+
+#projectsWrapper .hsItem.blank {
+  border: 4px dashed grey;
+}
+
+#projectsWrapper .hsItem.blank.link {
+  border-color: var(--colorBlue);
+}
+
+#projectsWrapper .hsItem.blank.link:hover,
+#projectsWrapper .hsItem.blank.link:active,
+#projectsWrapper .hsItem.blank.link:focus {
+ border-color: var(--colorBlueDark);
+}
+
+#projectsWrapper .hsItem.blank p {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
