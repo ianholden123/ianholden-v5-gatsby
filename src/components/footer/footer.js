@@ -10,7 +10,8 @@ const footerLinks = [
   { name: 'Email', url: config.email, icon: 'email' },
   { name: 'LinkedIn', url: config.linkedInUrl, icon: 'linkedin' },
   { name: 'GitHub', url: config.githubUrl, icon: 'github' },
-  { name: 'Twitter', url: config.twitterUrl, icon: 'twitter' }
+  { name: 'Twitter', url: config.twitterUrl, icon: 'twitter' },
+  { name: 'Dev', url: config.devUrl, icon: 'dev' }
 ]
 
 const FooterComponent = () => {

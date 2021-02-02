@@ -1,3 +1,4 @@
+import { decode } from 'html-entities';
 import config from '../config'
 
 export const createLocalLink = (url, stringsToExclude = []) => {
@@ -34,3 +35,7 @@ export const hasCookie = (key) => {
 export const stripHtmlFromString = string => string.replace(/(<([^>]+)>)/gi, '')
 
 export const removeLargeSpacesFromString = string => string.replace(/\s/g, ' ').trim();
+
+export const htmlDecode = (input) => {
+  return decode(input)
+}

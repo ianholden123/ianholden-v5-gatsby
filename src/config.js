@@ -5,6 +5,7 @@ const config = {
   email: 'mailto:ianholdendev@outlook.com',
   githubUrl: 'https://github.com/ianholden123',
   twitterUrl: 'https://twitter.com/IanHoldenDev',
+  devUrl: 'https://dev.to/ianholden',
   cookieNoticeCookieName: '_cookieNoticeDismissed'
 }
 
