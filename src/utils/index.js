@@ -34,3 +34,8 @@ export const hasCookie = (key) => {
 export const stripHtmlFromString = string => string.replace(/(<([^>]+)>)/gi, '')
 
 export const removeLargeSpacesFromString = string => string.replace(/\s/g, ' ').trim();
+
+export const htmlDecode = (input) => {
+  var doc = new DOMParser().parseFromString(input, "text/html");
+  return doc.documentElement.textContent;
+}

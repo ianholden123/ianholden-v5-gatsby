@@ -9,6 +9,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
+import { htmlDecode } from '../utils'
 
 function SEO ({ description, lang, meta, title, pathName }) {
   const { site } = useStaticQuery(
@@ -34,14 +35,14 @@ function SEO ({ description, lang, meta, title, pathName }) {
       htmlAttributes={{
         lang
       }}
-      title={title}
+      title={htmlDecode(title)}
       defaultTitle='Ian Holden | Software Engineer'
       titleTemplate={'%s'}
       link={ canonical ? [{ rel: 'canonical', href: canonical }] : [] }
       meta={[
         {
           name: 'description',
-          content: metaDescription
+          content: htmlDecode(metaDescription)
         },
         {
           property: 'og:title',
@@ -49,7 +50,7 @@ function SEO ({ description, lang, meta, title, pathName }) {
         },
         {
           property: 'og:description',
-          content: metaDescription
+          content: htmlDecode(metaDescription)
         },
         {
           property: 'og:type',
@@ -73,7 +74,7 @@ function SEO ({ description, lang, meta, title, pathName }) {
         },
         {
           name: 'twitter:description',
-          content: metaDescription
+          content: htmlDecode(metaDescription)
         }
       ].concat(meta)}
     />
