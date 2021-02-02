@@ -7,6 +7,7 @@ import AWS from './svg/aws.js'
 import Bootstrap from './svg/bootstrap.js'
 import Category from './svg/category.js'
 import CSS3 from './svg/css3.js'
+import Dev from './svg/dev.js'
 import Docker from './svg/docker.js'
 import Email from './svg/email.js'
 import ExternalLink from './svg/externalLink.js'
@@ -43,6 +44,7 @@ const getIcon = (name, color = '#494949') => {
     case 'bootstrap': return <Bootstrap color={color} />
     case 'category': return <Category color={color} />
     case 'css3': return <CSS3 color={color} />
+    case 'dev': return <Dev color={color} />
     case 'docker': return <Docker color={color} />
     case 'email': return <Email color={color} />
     case 'externallink': return <ExternalLink color={color} />
