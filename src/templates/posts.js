@@ -22,9 +22,9 @@ const Posts = props => {
       />
       <article className='not-full-width block-center px-4 pb-5 pt-6'>
         <h1>Blog Posts</h1>
-        {posts.nodes.map(post => (
+        {posts.nodes.map((post, index) => (
           <PostComponent
-            key={post.id}
+            key={index}
             isPostArchive
             author={post.author}
             date={post.date}

@@ -5,6 +5,7 @@ import HeroComponent from '../components/hero/hero'
 import ProjectsComponent from '../components/projects/projects'
 import ExperienceWrapperComponent from '../components/experience/experience'
 import ContactWrapperComponent from '../components/contact/contact'
+import BlogPosts from '../components/blogPosts/blogPosts'
 
 const IndexPage = () => (
   <Layout>
@@ -15,6 +16,7 @@ const IndexPage = () => (
     />
     <HeroComponent />
     <ProjectsComponent />
+    <BlogPosts />
     <ExperienceWrapperComponent />
     <ContactWrapperComponent isHomePage />
   </Layout>

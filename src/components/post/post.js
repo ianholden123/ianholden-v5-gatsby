@@ -20,7 +20,8 @@ const PostComponent = ({
   categories,
   tags,
   content,
-  isPostArchive
+  isPostArchive,
+  classes
 }) => {
   const getNodeClasses = node => {
     return node.attribs.class || null
@@ -43,7 +44,11 @@ const PostComponent = ({
     }
   }
 
-  const articleClasses = classNames('post not-full-width block-center', isPostArchive ? 'py-3' : 'px-4 pb-5 pt-6')
+  const articleClasses = classNames(
+    'post not-full-width block-center', 
+    classes,
+    isPostArchive ? 'py-3' : 'px-4 pb-5 pt-6'
+  )
 
   return (
     <article className={articleClasses} itemScope itemType="http://schema.org/Article" >
