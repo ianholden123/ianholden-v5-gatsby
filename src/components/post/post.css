@@ -1,5 +1,5 @@
 #projectsWrapper .articles {
-  display: flex;
+  display: block;
 }
 
 #projectsWrapper article.highlight {
@@ -7,13 +7,6 @@
   -webkit-box-shadow: 0 3px 15px rgba(0,0,0,0.2);
   -moz-box-shadow: 0 3px 15px rgba(0,0,0,0.2);;
   padding: 20px;
-}
-
-#projectsWrapper article.highlight:first-child {
-  margin-right: 10px;
-}
-#projectsWrapper article.highlight:last-child {
-  margin-left: 10px;
 }
 
 ul.dates li:after,
@@ -84,3 +77,16 @@ article.post .content figure img {
   -moz-box-shadow: 0 3px 15px rgba(0,0,0,0.2);
 }
  /*******************************************************/
+
+ @media (min-width: 700px) {
+  #projectsWrapper .articles {
+    display: flex;
+  }
+
+  #projectsWrapper article.highlight:first-child {
+    margin-right: 10px;
+  }
+  #projectsWrapper article.highlight:last-child {
+    margin-left: 10px;
+  }
+}

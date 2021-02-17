@@ -74,7 +74,7 @@ const BlogPosts = () => {
                   categories={post.categories}
                   tags={post.tags}
                   title={post.title}
-                  classes="highlight"
+                  classes="highlight mb-5"
                 />
               ))}
             </div>
