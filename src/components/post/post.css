@@ -1,8 +1,11 @@
-#projectsWrapper .articles {
-  display: block;
+.articles {
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: 40px;
+  row-gap: 40px;
 }
 
-#projectsWrapper article.highlight {
+article.highlight {
   box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
   -webkit-box-shadow: 0 3px 15px rgba(0,0,0,0.2);
   -moz-box-shadow: 0 3px 15px rgba(0,0,0,0.2);;
@@ -79,14 +82,7 @@ article.post .content figure img {
  /*******************************************************/
 
  @media (min-width: 700px) {
-  #projectsWrapper .articles {
-    display: flex;
-  }
-
-  #projectsWrapper article.highlight:first-child {
-    margin-right: 10px;
-  }
-  #projectsWrapper article.highlight:last-child {
-    margin-left: 10px;
+  .articles {
+    grid-template-columns: 1fr 1fr;
   }
 }

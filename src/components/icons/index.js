@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
 import AppDev from './svg/appDev.js'
-import AWS from './svg/aws.js'
+import Aws from './svg/aws.js'
 import Bootstrap from './svg/bootstrap.js'
 import Category from './svg/category.js'
-import CSS3 from './svg/css3.js'
+import Css3 from './svg/css3.js'
 import Dev from './svg/dev.js'
 import Docker from './svg/docker.js'
 import Email from './svg/email.js'
@@ -25,10 +25,10 @@ import LinkedIn from './svg/linkedIn.js'
 import MySQL from './svg/mysql.js'
 import Node from './svg/node.js'
 import Photoshop from './svg/photoshop.js'
-import PHP from './svg/php.js'
+import Php from './svg/php.js'
 import ReactIcon from './svg/react.js'
 import Sass from './svg/sass.js'
-import SEO from './svg/seo.js'
+import Seo from './svg/seo.js'
 import Tag from './svg/tag.js'
 import Twitter from './svg/twitter.js'
 import Typescript from './svg/typescript.js'
@@ -40,10 +40,10 @@ const tidy = string => string.toLowerCase().trim()
 const getIcon = (name, color = '#494949') => {
   switch (tidy(name)) {
     case 'appdev': return <AppDev color={color} />
-    case 'aws': return <AWS color={color} />
+    case 'aws': return <Aws color={color} />
     case 'bootstrap': return <Bootstrap color={color} />
     case 'category': return <Category color={color} />
-    case 'css3': return <CSS3 color={color} />
+    case 'css3': return <Css3 color={color} />
     case 'dev': return <Dev color={color} />
     case 'docker': return <Docker color={color} />
     case 'email': return <Email color={color} />
@@ -62,10 +62,10 @@ const getIcon = (name, color = '#494949') => {
     case 'mysql': return <MySQL color={color} />
     case 'node': return <Node color={color} />
     case 'photoshop': return <Photoshop color={color} />
-    case 'php': return <PHP color={color} />
+    case 'php': return <Php color={color} />
     case 'react': return <ReactIcon color={color} />
     case 'sass': return <Sass color={color} />
-    case 'seo': return <SEO color={color} />
+    case 'seo': return <Seo color={color} />
     case 'tag': return <Tag color={color} />
     case 'twitter': return <Twitter color={color} />
     case 'typescript': return <Typescript color={color} />

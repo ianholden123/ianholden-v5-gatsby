@@ -1,7 +1,7 @@
 import React from 'react'
 import MainMenu from '../mainMenu/mainMenu'
 
-const Header = props => (
+const Header = () => (
   <header>
     <MainMenu />
   </header>

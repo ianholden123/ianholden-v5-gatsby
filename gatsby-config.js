@@ -6,57 +6,47 @@ module.exports = {
     author: 'Ian Holden',
     siteUrl: 'https://ianholden.co.uk'
   },
-  pathPrefix: '',
   plugins: [
-    'gatsby-plugin-react-helmet',
+    "gatsby-plugin-image",
     {
-      resolve: 'gatsby-source-graphql',
+      resolve: "gatsby-plugin-google-analytics",
       options: {
-        typeName: 'WPGraphQL',
-        fieldName: 'wpgraphql',
-        url: 'http://ianholdenv5wordpress.local/graphql'
-      }
+        trackingId: "UA-36059287-1",
+      },
+    },
+    "gatsby-plugin-react-helmet",
+    "gatsby-plugin-sitemap",
+    {
+      resolve: "gatsby-plugin-manifest",
+      options: {
+        icon: "src/images/icon.png",
+      },
+    },
+    "gatsby-transformer-remark",
+    "gatsby-plugin-sharp",
+    "gatsby-transformer-sharp",
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "images",
+        path: "./src/images/",
+      },
+      __key: "images",
     },
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: "gatsby-source-filesystem",
       options: {
-        name: 'images',
-        path: `${__dirname}/src/images`
-      }
-    },
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-sharp',
-    {
-      resolve: 'gatsby-plugin-manifest',
-      options: {
-        name: 'ian-holden',
-        short_name: 'Ian Holden',
-        start_url: '/',
-        background_color: '#FFFFFF',
-        theme_color: '#FFFFFF',
-        display: 'minimal-ui',
-        icon: 'src/images/icon.png' // This path is relative to the root of the site.
-      }
+        name: "pages",
+        path: "./src/pages/",
+      },
+      __key: "pages",
     },
     {
-      resolve: 'gatsby-plugin-google-fonts',
+      resolve: `gatsby-source-filesystem`,
       options: {
-        fonts: [
-          'Chivo:Regular 400',
-          'Overpass:Regular 400,Regular 400 italic,Extra-light 200'
-        ]
-      }
+        name: `content`,
+        path: `${__dirname}/src/content`,
+      },
     },
-    {
-      resolve: 'gatsby-plugin-google-analytics',
-      options: {
-        trackingId: 'UA-36059287-1',
-        respectDNT: true
-      }
-    },
-    'gatsby-plugin-sitemap'
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // 'gatsby-plugin-offline',
-  ]
-}
+  ],
+};

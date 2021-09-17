@@ -1,19 +1,45 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+const createPagesForContent = ({ actions, graphql }, pageType) => {
+  const { createPage } = actions
 
-const createPages = require('./gatsby/createPages')
-const createPosts = require('./gatsby/createPosts')
-const createCategories = require('./gatsby/createCategories')
-const createTags = require('./gatsby/createTags')
-const createProjects = require('./gatsby/createProjects')
+  const pageTemplate = require.resolve(`./src/templates/${pageType}Page.js`)
+
+  return graphql(`
+    {
+      allMarkdownRemark(
+        sort: { order: DESC, fields: [frontmatter___date] }
+        filter: {fileAbsolutePath: {regex: "/(${pageType})/.*\.md$/"}}
+        limit: 1000
+      ) {
+        edges {
+          node {
+            frontmatter {
+              slug
+            }
+          }
+        }
+      }
+    }
+  `).then(result => {
+    if (result.errors) {
+      return Promise.reject(result.errors)
+    }
+
+    return result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+      const pagePath = `/${pageType}/${node.frontmatter.slug}`
+      createPage({
+        path: pagePath,
+        component: pageTemplate,
+        context: {
+          // additional data can be passed via context
+          slug: node.frontmatter.slug,
+        },
+      })
+      console.log(`Page created: ${pagePath}`)
+    })
+  })
+}
 
 exports.createPages = async ({ actions, graphql }) => {
-  await createPages({ actions, graphql })
-  await createPosts({ actions, graphql })
-  await createCategories({ actions, graphql })
-  await createTags({ actions, graphql })
-  await createProjects({ actions, graphql })
+  await createPagesForContent({ actions, graphql }, 'blog')
+  await createPagesForContent({ actions, graphql }, 'projects')
 }

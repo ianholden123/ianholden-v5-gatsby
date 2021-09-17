@@ -1,6 +1,5 @@
 import React from 'react'
 import classNames from 'classnames'
-import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import parse, { domToReact } from 'html-react-parser'
 import './post.css'
@@ -10,21 +9,22 @@ import CodeBlock from './codeBlock'
 
 const PostComponent = ({
   author,
-  uri,
-  title,
-  excerpt,
-  date,
-  dateOverride,
-  hideUpdatedDate,
-  modified,
   categories,
-  tags,
+  classes,
   content,
+  date,
+  excerpt,
   isPostArchive,
-  classes
+  modified,
+  tags,
+  title,
+  uri
 }) => {
-  const getNodeClasses = node => {
-    return node.attribs.class || null
+  const getLanguageFromClass = node => {
+    if (node?.attribs?.class) {
+      return node.attribs.class.replace('language-', '')
+    }
+    return null
   }
 
   const getCode = node => {
@@ -35,10 +35,10 @@ const PostComponent = ({
     }
   }
 
-  const replaceCode = node => {
+  const replaceHtmlNode = node => {
     switch (node.name) {
       case 'pre':
-        return node.children.length > 0 && <CodeBlock codeBlockClass={getNodeClasses(node)}>{domToReact(getCode(node))}</CodeBlock>
+        return node.children.length > 0 && <CodeBlock language={getLanguageFromClass(node.children[0])}>{domToReact(getCode(node))}</CodeBlock>
       default:
         return null
     }
@@ -53,48 +53,29 @@ const PostComponent = ({
   return (
     <article className={articleClasses} itemScope itemType="http://schema.org/Article" >
       { title && !isPostArchive &&
-        <h1 className='mb-2' dangerouslySetInnerHTML={{ __html: title }} itemProp="name" />
+        <h1 className='mb-2' itemProp="name">{title}</h1>
       }
       { title && isPostArchive &&
         <Link to={`/blog/${createLocalLink(uri)}`}>
-          <h2 className="mb-2" dangerouslySetInnerHTML={{ __html: title }} itemProp="name" />
+          <h2 className="mb-2" itemProp="name">{title}</h2>
         </Link>
       }
       <MetaComponent
         author={author}
-        date={date}
-        dateOverride={dateOverride}
-        modified={!hideUpdatedDate ? modified : null}
         categories={categories}
-        tags={tags}
+        date={date}
         isPostArchive={isPostArchive}
+        modified={modified}
+        tags={tags}
       />
       { excerpt &&
-        <div className="excerpt pb-4 reading-content" dangerouslySetInnerHTML={{ __html: excerpt }} />
+        <div className="excerpt reading-content">{excerpt}</div>
       }
       { content && !isPostArchive &&
-        <div className='content pb-4' itemProp="articleBody">{parse(content, { replace: replaceCode })}</div>
+        <div className='content pb-4' itemProp="articleBody">{parse(content, { replace: replaceHtmlNode })}</div>
       }
     </article>
   )
-}
-
-PostComponent.propTypes = {
-  author: PropTypes.shape({
-    firstName: PropTypes.string,
-    lastName: PropTypes.string
-  }),
-  uri: PropTypes.string,
-  title: PropTypes.string,
-  excerpt: PropTypes.string,
-  date: PropTypes.string,
-  dateOverride: PropTypes.string,
-  hideUpdatedDate: PropTypes.bool,
-  modified: PropTypes.string,
-  categories: PropTypes.shape(),
-  tags: PropTypes.shape(),
-  content: PropTypes.string,
-  isPostArchive: PropTypes.bool
 }
 
 export default PostComponent
