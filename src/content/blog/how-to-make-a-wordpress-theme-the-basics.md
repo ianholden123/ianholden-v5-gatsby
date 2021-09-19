@@ -1,0 +1,234 @@
+---
+author: "Ian Holden"
+categories: [
+  "Tutorials"
+]
+date: "2013-11-24"
+excerpt: "WordPress is the biggest blogging platform in the world today. Users like it because it is easy to use, highly expansive and best of all, it’s free! This tutorial should help you with the basics of building a custom WordPress theme. When you see how easy it is, you will be making themes in no time at all!"
+featuredImage: ""
+modified: ""
+slug: "how-to-make-a-wordpress-theme-the-basics"
+tags: [
+  "wordpress"
+]
+title: "How to make a WordPress theme – The Basics!"
+---
+
+WordPress is the biggest blogging platform in the world today. Users like it because it is easy to use, highly expansive and best of all, it’s free! This tutorial should help you with the basics of building a custom WordPress theme. When you see how easy it is, you will be making themes in no time at all!
+
+## Assumptions before starting:
+
+Before you begin this tutorial, it is important that you have knowledge of the following:
+
+- HTML & CSS
+- A basic understanding of PHP
+- Setting up and using a local server (XAMPP / WAMP for example)
+
+I will also make the assumption that you have a HTML site and CSS stylesheet available to transform into our WordPress theme. If you do not have these, then it is possible to follow along, however bear in mind that this tutorial will only teach you how to create a WordPress theme and not how to design a website.
+
+## Preparation:
+
+### Download WordPress:
+
+Ok, so let’s begin by first downloading the latest version of WordPress. You can get this from www.wordpress.org. Once on this site, just hit the big, blue ‘download’ button and wait for this to download.
+
+### Using Localhost:
+
+Once you have the WordPress files, extract these to your local server. You will need to go into your preferred browser and open these wordpress files by typing in the URL to your local server which will normally start with “localhost”. If you are having trouble with this step, please look at some tutorials on using your local server.
+
+Once you have reached your URL in the web browser, you will be greeted with WordPress’ installation process. This is something that is fairly self-explanatory on the site however if you have any issues here, there are some really helpful tutorials and videos online to help.
+
+## Let’s get Started!
+
+Once you have finished the preparation steps and have successfully logged into the WordPress admin panel, you are now ready to begin creating your WordPress theme!
+
+First of all, we must know where to save our theme files! In the folder where you saved your WordPress files, you will see three main folders. We will only need to make changes to the ‘wp-content’ folder in this project.
+
+Enter the ‘wp-content’ folder and click through to ‘themes’. In here you should see some existing folders (at the time of writing this, they will be ‘twentytwelve’ and ‘twentythirteen’). You must make a new folder here and name it something meaningful, perhaps the name of the website you are making. This is the folder where all of your new files will be saved in order to create your custom theme.
+
+### The first building block – Index & Style:
+
+In our newly created folder, we want to create two files, these are called: ‘index.php’ & ‘style.css’. Create these files and then open them both in the code editor of your choice.
+
+#### style.css
+
+In the style.css file, add the following code to the top of the document, replacing the information in the angle brackets with your own.
+
+```php
+/*
+Theme Name: <YOUR THEME NAME>
+Theme URI: <THE WEBSITE YOUR CODE WILL BE BUILT FOR>
+Description: <A DESCRIPTION OF YOUR THEME>
+Version: 1.0
+Author: <YOUR NAME>
+*/
+```
+
+There are plenty more tags that can be added to the header of the css file, these can be found in the [WordPress Codex](http://codex.wordpress.org/Theme_Development#CSS).
+
+#### index.php
+
+In this file we don’t have to do much for now. In the next step we can explain more about what goes in this file. For now though, we have our first WordPress theme! If you go into the back-end of your WordPress site, (localhost/<your-site-name>/wp-admin) we can activate this theme right away! Just go to ‘Appearance > Themes’ and then you should see your theme appear under ‘Available Themes’. Click ‘Activate’ and we have our theme live (on the local server). There will not be any data on our webpage but we will build on this in our next step.
+
+## Header & Footer
+
+The header and footer files are very important in WordPress as they allow your site to have a structured and static area to your website that will appear on every page. In the Header file we would normally store our meta data, doctype, script files and navigation. In the Footer file we would normally see the information that you would like to appear at the bottom of your website (sitemaps, links, copyright etc).
+
+### Header.php
+
+So, for this part we need to first create a file called ‘header.php’ and save this to our local server (in the same folder as our index.php and style.css files). Once this is complete, we can open this file in our text editor and start adding some code to our site.
+
+#### Doctype, Html and Head
+
+We will add some simple code that will give us a template for our header file.
+
+```php
+<!DOCTYPE html>
+<html <?php language_attributes(); >>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title><?php wp_title ( '|', true, 'right' ); ?></title>
+    <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>" type="text/css" media="screen" />
+    <?php wp_head(); ?>
+  </head>
+```
+
+The important lines in this code are lines 6-10. Lines 6-8 give us a dynamic webpage title which changes depending on the page that the user is viewing. Line 9 attaches our style.css file to the WordPress page. Line 10 is an action hook which can be referred to in other parts of the site if needed (this won’t be useful in our project however it is useful if it is called by any plugins that you later choose to install).
+
+#### Navigation
+
+In most web projects that you work on, it is common to see the code for the site’s main navigation appear in the header file. This is because the main navigation of your site should be the same throughout the site. With this in mind we are going to include this in the header file too. Just below your end </head> tag, add the following:
+
+```php
+<body>
+  <nav>
+    <?php
+      $args = array(
+        'menu' => 'top-nav',
+        'menu_id' => '',
+        'menu_class' => '',
+        'before' => '',
+        'after' => ''
+      );
+      wp_nav_menu( $args );
+    ?>
+  </nav>
+```
+
+To explain the following code sample, I have started a body tag and in this, I have set up an associative array called $args (short for arguments) and have supplied this as a parameter to the wp_nav_menu() function. This allows us to set up a menu within the backend of WordPress and it will dynamically pull through to the front end of our website.
+
+You may have noticed that we have closed all our tags except for the <body> tag. This is important as we will close this in the footer.php file later! Don’t forget, the body of the webpage will always follow the header file and this forms part of the body of the site.
+
+### Footer.php
+Our next step is to create a file called ‘footer.php’. This can be a fairly short file depending on the information you want to put here.
+
+For now, we are going to keep our header short and sweet, by adding the following code:
+
+```php
+    <footer>
+      <hr/>
+      <p>&copy; Ian Holden <?php echo date('Y'); ?></p>
+    </footer>
+    <?php wp_footer(); ?>
+  </body>
+</html>
+```
+
+### Connecting Header & Footer to Index.php
+
+If you have tried testing your website, you will see that is is still a blank page. To fix this, we must connect our header and footer to our index.php file. This is very simple!
+
+Go to your index.php file (which should still be blank) and add the following code:
+
+```php
+<?php get_header(); ?>
+  <!-- SPACE FOR OUR WEBSITE CODE -->
+<?php get_footer(); ?>
+```
+
+You should notice a list of the current webpages that are set up in the back-end. If you have not added or removed any pages since the install of WordPress, you should be left with a page called “Sample Page”.  This represents everything that is currently in our header.php file.
+
+Below this you should see a horizontal line dividing the page with a copyright notice below. This represents the contents of the footer.php file.
+
+At this stage of the project, it is a good idea to test that your css file is connected to the website by quickly adding a rule and seeing if it makes an effect on the front-end of the site. If you can’t think of anything, I normally write something like:
+
+```css
+body {
+    margin-left: 300px;
+}
+```
+
+After adding this rule, you should see your webpage shifted to the right by 300 pixels. If this has happened, your stylesheet has connected successfully. Now we can remove this rule with the confidence that our style sheets are working as expected.
+
+## Using the WordPress Loop
+
+The WordPress Loop is a piece of code that allows you to retrieve your website posts. A very simple example of the loop can be added to our index.php page. Use the following code in between the get_header() and get_footer() functions like so:
+
+```php
+<?php get_header(); ?>
+<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+  <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+  <h6>Written by <?php the_author();?> on <?php the_time('F j, Y'); ?>.</h6>
+  <p><?php the_excerpt(); ?></p>
+<?php endwhile; else: ?>
+  <p>There are currently no posts</p>
+<?php endif; ?>
+<?php get_footer(); ?>
+```
+
+Your blog posts should appear listed below your header content and above your footer content. Here are some useful code snippets to use within the loop that you may find useful:
+
+- `the_author()` – Display the Author of the post.
+- `the_content()` – Display the content of the post in its entirety.
+- `the_title()` – Display the title of the post.
+- `the_excerpt()` – Display a short excerpt from the content.
+- `the_category()` – Display the category that is attached to the post.
+- `the_date()` – Display the date that the post was written.
+
+View the WordPress codex for more simple snippets that can be used within the Loop.
+
+## How to implement a separate home page
+
+There are two common ways to implement a custom home page in order to offer something different to your index.php page. To offer some explanation, WordPress will always use the index.php file as the template for any page that does not have an overriding template available. We haven’t spoken about any other file templates in this tutorial yet and the only one we will go through for this particular section will be the front-page.php file! So without further ado, here is the first way to implement a separate home page:
+
+### Front-page.php
+
+First, we will need to create a new file called front-page.php.  Once you have created this, you should immediately notice that when you now link to your test site URL, the home page will now be blank. This is because the site is now showing the contents of your front-page.php file which should still be empty (unless you have jumped ahead a few steps). Now you can simply add any code here that you wish to display for the home page of the site.
+
+### Static Front Page
+
+Another method of developing a different home page is by doing the following:
+
+- Create a new page in the back-end of WordPress and call it something useful like “Home”.
+- Go to settings in the menu of the WordPress admin panel, find the ‘Reading’ section and select the second option in the “Front page displays” area.
+- Once you have selected “A static page”, select the front page that you would like to display as your home page and select the page template that will display your posts.
+
+Once you have employed one of these methods, you should see your new front-page appearing as the home page for your site.
+
+## Connecting the front-end to the back-end
+
+This is a very important step so that you can utilise WordPress as a CMS and use its excellent admin panel to edit content instead of having to dip into the source code. For this part of the tutorial, we will be using the `get_post()` function.
+
+The `get_post()` function can take three parameters or none at all. We will not be using any parameters for this tutorial as we want to focus on the current post by default. When you use this function, it will return an object including data relevant to the current post/page.
+
+Note: To use this method, you must set a static front page and a static posts page. This is very simple and you may have already done this in the section above. Make sure you have two pages set up in the back-end of WordPress and assign each of these as the front page and posts page of your site. By  doing this, your static front page will now execute the code in your front-page.php file and your static posts page will execute the code in your index.php file.
+
+In your front-page.php file, write the following:
+
+```php
+<?php get_header(); ?>
+  <h1><?php $post = get_post(); echo $post->post_title; ?></h1>
+  <p><?php echo $post->post_content; ?></p>
+<?php get_footer(); ?>
+```
+
+Now try your new home page. You should notice that the page is pulling through the data from the back-end of WordPress.
+
+Note: If you want to use a WordPress Loop on your front-page.php file, you will need to call the `wp_reset_query()` function. If you fail to do this, you may see some obscure information being pulled through to your front-end.
+
+## Summary
+
+And that’s all there is to it. You now have your first WordPress theme with a fully functioning WordPress loop and a unique home page. This WordPress theme tutorial should help you understand the simplest way of starting your own theme with which you can build upon to create a more complex and practical theme. One of WordPress’ greatest features is that you don’t have to write a lot of code to build your own site.
+
+My best recommendation when building your first site with WordPress would be to create a design, write this into HTML & CSS and then identify which areas need to be dynamic and handled by WordPress. Once you have all this information, building the WordPress site should be easy. The more you practice building with WordPress, the quicker it becomes to create more and more sites.
