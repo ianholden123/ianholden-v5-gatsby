@@ -13,14 +13,13 @@ import PostComponent from '../components/post/post'
 export default function Template({
   data
 }) {
-  const { mdx: { frontmatter, body } } = data
+  const { mdx: { frontmatter, body, slug } } = data
   const {
     author,
     categories,
     date,
     featuredImage,
     modified,
-    slug,
     tags,
     title
   } = frontmatter
@@ -29,7 +28,7 @@ export default function Template({
     <Layout>
       <SEO
         title={`${title} | Ian Holden`}
-        pathName={`/blog/${slug}/`}
+        pathName={slug}
       />
       <PostComponent
         title={title}
@@ -59,10 +58,10 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         featuredImage
         modified
-        slug
         tags
         title
-      }
+      },
+      slug
     }
   }
 `

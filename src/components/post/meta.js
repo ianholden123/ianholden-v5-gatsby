@@ -29,10 +29,11 @@ const MetaComponent = ({ author, categories, date, isPostArchive, modified, tags
   const renderDate = ({ date, modified }) => {
     const publishedDate = modified || date
     if (publishedDate) {
+      const formattedDate = new Date(publishedDate).toDateString()
       return (
         <ul className={classNames('dates inline-block m-0 mb-3 mr-4 ml-0')}>
           <li className="m-0 inline" itemProp="datePublished" content={publishedDate}>
-            { date && (`Published on ${date}`)}
+            { date && (`Published on ${formattedDate}`)}
           </li>
         </ul>
       )

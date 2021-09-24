@@ -17,9 +17,9 @@ const BlogPosts = () => {
             author
             date
             excerpt
-            slug
             title
           }
+          slug
         }
       }
     }
@@ -47,7 +47,7 @@ const BlogPosts = () => {
                   modified={post.frontmatter.modified}
                   tags={post.frontmatter.tags}
                   title={post.frontmatter.title}
-                  uri={post.frontmatter.slug}
+                  uri={post.slug}
                 />
               ))}
             </div>

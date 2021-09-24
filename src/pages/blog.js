@@ -33,7 +33,7 @@ const PostsPage = ({
                 modified={post.frontmatter.modified}
                 tags={post.frontmatter.tags}
                 title={post.frontmatter.title}
-                uri={post.frontmatter.slug}
+                uri={post.slug}
               />
             ))
           : (
@@ -61,9 +61,9 @@ export const query = graphql`
           author
           date
           excerpt
-          slug
           title
         }
+        slug
       }
     }
   }

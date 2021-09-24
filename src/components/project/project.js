@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import Icon from '../icons'
@@ -49,7 +48,7 @@ const ProjectComponent = ({
     }
     { isPostArchive &&
       <>
-        <Link to={`${uri}/`}>
+        <Link to={`/${uri}/`}>
           <img
             className='px-5'
             src={archiveImage.sourceUrl}
@@ -57,7 +56,7 @@ const ProjectComponent = ({
           />
         </Link>
         <p className='uppercase f-thin color-dark-grey m-0' dangerouslySetInnerHTML={{ __html: type }} />
-        <Link to={`${uri}/`}>
+        <Link to={`/${uri}/`}>
           <h2 className="mb-2" dangerouslySetInnerHTML={{ __html: title }} />
         </Link>
       </>
@@ -95,32 +94,5 @@ const ProjectComponent = ({
     }
   </>
 )
-
-ProjectComponent.propTypes = {
-  title: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
-  excerpt: PropTypes.string,
-  content: PropTypes.string,
-  uri: PropTypes.string,
-  colours: PropTypes.shape({
-    primary: PropTypes.string,
-    secondary: PropTypes.string,
-    tertiary: PropTypes.string
-  }),
-  toolsUsed: PropTypes.array,
-  isPostArchive: PropTypes.bool,
-  link: PropTypes.string,
-  state: PropTypes.string,
-  featuredImage: PropTypes.shape({
-    altText: PropTypes.string,
-    sourceUrl: PropTypes.string,
-    srcSet: PropTypes.string
-  }),
-  contributors: PropTypes.string,
-  archiveImage: PropTypes.shape({
-    altText: PropTypes.string,
-    sourceUrl: PropTypes.string
-  })
-}
 
 export default ProjectComponent

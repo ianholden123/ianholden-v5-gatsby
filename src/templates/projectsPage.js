@@ -6,7 +6,7 @@ import SEO from '../components/seo/seo'
 import '../components/project/project.css'
 
 const Projects = ({ data }) => {
-  const { mdx: { frontmatter, body } } = data
+  const { mdx: { frontmatter, body, slug } } = data
   const {
     colourScheme,
     contributors,
@@ -14,7 +14,6 @@ const Projects = ({ data }) => {
     featuredImage,
     linkToProject,
     state,
-    slug,
     title,
     toolsUsed,
     typeOfProject
@@ -24,7 +23,7 @@ const Projects = ({ data }) => {
     <Layout>
       <SEO
         title={`${title} | Projects | Ian Holden`}
-        pathName={`/projects/${slug}/`}
+        pathName={slug}
       />
       <article className='post not-full-width block-center px-4 pb-5 pt-6'>
         <ProjectComponent
@@ -66,11 +65,11 @@ export const pageQuery = graphql`
         featuredImage
         linkToProject
         state
-        slug
         title
         toolsUsed
         typeOfProject
-      }
+      },
+      slug
     }
   }
 `

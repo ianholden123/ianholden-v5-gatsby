@@ -1,7 +1,6 @@
 import React from 'react'
 import config from '../../config'
 import { OutboundLink } from 'gatsby-plugin-google-analytics'
-import PropTypes from 'prop-types'
 
 const buttons = [
   { name: 'Email', url: `mailto:${config.email}` },
@@ -30,7 +29,3 @@ const ContactWrapperComponent = ({ isContactPage = false }) => (
 )
 
 export default ContactWrapperComponent
-
-ContactWrapperComponent.propTypes = {
-  isContactPage: PropTypes.bool
-}

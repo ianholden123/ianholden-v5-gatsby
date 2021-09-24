@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'gatsby'
 import classNames from 'classnames'
-import { createLocalLink } from '../../utils'
 import './mainMenu.css'
 
 const MainMenu = () => {
@@ -9,7 +8,7 @@ const MainMenu = () => {
   
   const renderMenuItem = (item) => (
     <li className="m-4" key={item.id}>
-      <Link to={createLocalLink(item.url)}>{item.label}</Link>
+      <Link to={item.url}>{item.label}</Link>
     </li>
   )
 
@@ -29,7 +28,7 @@ const MainMenu = () => {
   return (
     <nav className={classNames('primary-navigation', isMenuOpen ? 'show' : '')}>
       <div className='main-bar p-4 not-full-width block-center'>
-        <Link to={createLocalLink('/')}>
+        <Link to='/'>
           <button className='brand uppercase'>Ian Holden</button>
         </Link>
         <button onClick={toggleMenu}>

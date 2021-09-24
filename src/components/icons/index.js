@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
 import AppDev from './svg/appDev.js'
@@ -84,11 +83,5 @@ const Icons = ({
     {getIcon(tidy(name), color)}
   </div>
 )
-
-Icons.propTypes = {
-  name: PropTypes.string,
-  classes: PropTypes.string,
-  color: PropTypes.string
-}
 
 export default Icons

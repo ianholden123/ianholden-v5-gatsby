@@ -27,7 +27,6 @@ const Projects = ({
               featuredImage,
               linkToProject,
               state,
-              slug,
               title,
               toolsUsed,
               typeOfProject
@@ -51,7 +50,7 @@ const Projects = ({
                   title={title}
                   toolsUsed={toolsUsed || null}
                   type={typeOfProject}
-                  uri={slug}
+                  uri={project.slug}
                 />
               </div>
             )
@@ -85,11 +84,11 @@ export const pageQuery = graphql`
           linkToProject
           portraitImage
           state
-          slug
           title
           toolsUsed
           typeOfProject
         }
+        slug
       }
     }
   }

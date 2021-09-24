@@ -23,7 +23,6 @@ const createPagesForContent = ({ actions, graphql }, pageType) => {
     }
 
     return result.data.allMdx.edges.forEach(({ node }) => {
-      // const pagePath = `${node.slug}`
       createPage({
         path: node.slug,
         component: pageTemplate,

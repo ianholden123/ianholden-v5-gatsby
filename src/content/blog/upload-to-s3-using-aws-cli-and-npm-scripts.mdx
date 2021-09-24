@@ -1,0 +1,112 @@
+---
+author: "Ian Holden"
+categories: [
+  "Tutorials"
+]
+date: "2020-05-15"
+excerpt: "Automate the deployment of your static websites with Amazon S3 and NPM scripts. I have created a simple script to help you quickly upload your site to Amazon S3 by running one simple command in your project terminal."
+featuredImage: ""
+modified: ""
+tags: [
+  "AWS",
+  "CLI",
+  "S3"
+]
+title: "Upload to Amazon S3 using AWS CLI and NPM scripts"
+---
+
+Static websites are a brilliant way to create performant sites. My website is built using Gatsby and hosted on Amazon S3. I have created a simple script to help you quickly upload your site to S3 by running one simple command in your project terminal.
+
+## Prerequisites
+
+Before we start, you must ensure that you have completed the following:
+
+- [Install AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html) (Amazon Web Services Command Line Interface) on your machine.
+- Create a bucket in Amazon S3 (this is where we will be uploading our project files to).
+
+This guide assumes that you have some familiarity navigating the AWS Console and each Amazon Web Service.
+
+## Configuring our Amazon services
+
+Amazon S3 is the primary service that we will use for this tutorial. I like to create new users when I work with different projects using Amazon’s CLI so we will be using Amazon IAM (Identity and Access Management) too.
+
+### Create a user for our project
+
+Sign in to the [AWS Console](https://aws.amazon.com/) and find the IAM service under the services dropdown.
+
+In the IAM service, create a new user, give them a name and grant them **Programmatic access**.
+
+When setting permissions for this user, we want to ‘Attach existing policies directly’ and **Create policy**.
+
+Using the JSON editor, we can paste the following policy. You must **replace ‘ianholden.co.uk’** with the name of the S3 bucket that you want to copy your project files to:
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "VisualEditor0",
+      "Effect": "Allow",
+      "Action": [
+        "s3:PutObject",
+        "s3:ListBucket",
+        "s3:DeleteObject"
+      ],
+      "Resource": [
+        "arn:aws:s3:::ianholden.co.uk/",
+        "arn:aws:s3:::ianholden.co.uk"
+      ]
+    }
+  ]
+}
+```
+
+Save this policy against your new user and you should be presented with an **Access Key ID** and a **Secret Access Key**. You must keep these credentials safe as they will be needed later.
+
+### Add our new user as a named profile
+
+With the user that we have just created, we need to add this user to our system’s AWS CLI configuration. Follow these instructions for creating [named profiles](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html). In your local AWS configuration file, add a new named profile called ‘**testUser**‘.
+
+Doing this will require us to specify the user that we want to use when we use the AWS CLI. As this will be scripted later, we can include this in the script that we write.
+
+## Create a script
+
+This part of the guide will occur in our project’s directory. This method will work for any NPM project that uses a *package.json* file to control project dependencies and NPM scripts. Examples of these are React, Angular and Vue projects, to name a few.
+
+### Create script file
+
+Open your web project in a code editor and create a file at the root of this project called *upload-to-s3.sh*. Enter the following code, replacing ‘ianholden.co.uk’ with the name of your S3 bucket. Replace ‘project-files’ with the relative directory that you want to upload to your S3 bucket:
+
+```bash
+#!/bin/bash
+# Empty the S3 bucket
+aws s3 rm s3://ianholden.co.uk --recursive --profile testUser
+
+# Upload our project files to the S3 bucket
+aws s3 cp project-files/ s3://ianholden.co.uk --recursive --profile testUser
+Update package.json file
+```
+
+In your project’s *package.json* file, add the following attribute to your ‘scripts’ object:
+
+```json
+scripts: {
+  "upload-to-s3": "./upload-to-s3.sh"
+}
+```
+
+This addition now allows us to run the following command in our terminal which will execute the new script that we have just created:
+
+```bash
+npm run upload-to-s3
+```
+
+## That’s it!
+
+If everything has worked, you should now be able to log into your AWS Console again, view your S3 bucket and find that your project files have been uploaded. This helpful script is very simple and it will save you a lot of time doing these tasks manually.
+
+If you have any issues, it could be that you have not setup your AWS user correctly. Your terminal will normally give you an error message if something hasn’t worked correctly.
+
+In many cases, you might only use one user for your AWS account. If that is the case, you do not need to create a named profile, you can just set up the AWS CLI using default credentials. I would recommend using multiple users across each project because it gives you the ability to finely tune that user’s access to your services which makes it more secure.
+
+I hope you have found this helpful.

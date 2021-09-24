@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 const Icon = ({ color }) => (
   <svg xmlns="https://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -19,9 +18,5 @@ const Icon = ({ color }) => (
     <path fill={color} d="M351.977,320.588a80,80,0,1,0-80-80A80.091,80.091,0,0,0,351.977,320.588Zm0-144a64,64,0,1,1-64,64A64.073,64.073,0,0,1,351.977,176.588Z"/>
   </svg>
 )
-
-Icon.propTypes = {
-  color: PropTypes.string.isRequired
-}
 
 export default Icon

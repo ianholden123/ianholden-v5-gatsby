@@ -18,8 +18,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-mdx",
       options: {
-        extensions: [`.mdx`, `.md`],
-        gatsbyRemarkPlugins: []
+        extensions: [`.mdx`, `.md`]
       }
     },
     "gatsby-plugin-react-helmet",

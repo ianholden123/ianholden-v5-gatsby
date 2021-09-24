@@ -4,7 +4,6 @@ import { Link } from 'gatsby'
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import parse, { domToReact } from 'html-react-parser'
 import './post.css'
-import { createLocalLink } from '../../utils'
 import MetaComponent from './meta'
 import CodeBlock from './codeBlock'
 
@@ -57,7 +56,7 @@ const PostComponent = ({
         <h1 className='mb-2' itemProp="name">{title}</h1>
       }
       { title && isPostArchive &&
-        <Link to={`/blog/${createLocalLink(uri)}`}>
+        <Link to={`/${uri}`}>
           <h2 className="mb-2" itemProp="name">{title}</h2>
         </Link>
       }
