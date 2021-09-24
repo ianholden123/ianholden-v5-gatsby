@@ -8,7 +8,7 @@ import SEO from '../components/seo/seo'
 const PostsPage = ({
   data
  }) => {
-  const posts = data?.allMarkdownRemark?.nodes || []
+  const posts = data?.allMdx?.nodes || []
 
   return (
     <Layout>
@@ -51,7 +51,7 @@ const PostsPage = ({
 
 export const query = graphql`
   query BlogPageQuery {
-    allMarkdownRemark(
+    allMdx(
       filter: {fileAbsolutePath: {regex: "/blog/.*.(md|mdx)$/"}}
       limit: 100
       sort: {order: DESC, fields: [frontmatter___date]}

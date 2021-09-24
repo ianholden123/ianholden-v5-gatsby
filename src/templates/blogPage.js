@@ -13,8 +13,7 @@ import PostComponent from '../components/post/post'
 export default function Template({
   data
 }) {
-  const { markdownRemark } = data
-  const { frontmatter, html } = markdownRemark
+  const { mdx: { frontmatter, body } } = data
   const {
     author,
     categories,
@@ -34,7 +33,7 @@ export default function Template({
       />
       <PostComponent
         title={title}
-        content={html}
+        content={body}
         date={date}
         modified={modified}
         author={author}
@@ -52,8 +51,8 @@ export default function Template({
 
 export const pageQuery = graphql`
   query($slug: String!) {
-    markdownRemark(frontmatter: { slug: { eq: $slug } }) {
-      html
+    mdx(slug: { eq: $slug }) {
+      body
       frontmatter {
         author
         categories

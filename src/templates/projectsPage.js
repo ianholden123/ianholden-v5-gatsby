@@ -6,8 +6,7 @@ import SEO from '../components/seo/seo'
 import '../components/project/project.css'
 
 const Projects = ({ data }) => {
-  const { markdownRemark } = data
-  const { frontmatter, html } = markdownRemark
+  const { mdx: { frontmatter, body } } = data
   const {
     colourScheme,
     contributors,
@@ -30,7 +29,7 @@ const Projects = ({ data }) => {
       <article className='post not-full-width block-center px-4 pb-5 pt-6'>
         <ProjectComponent
           title={title}
-          content={html}
+          content={body}
           excerpt={excerpt}
           featuredImage={featuredImage}
           contributors={contributors || null}
@@ -54,8 +53,8 @@ export default Projects
 
 export const pageQuery = graphql`
   query($slug: String!) {
-    markdownRemark(frontmatter: { slug: { eq: $slug } }) {
-      html
+    mdx(slug: { eq: $slug }) {
+      body
       frontmatter {
         colourScheme {
           primary

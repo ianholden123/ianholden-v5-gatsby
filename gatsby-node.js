@@ -5,16 +5,14 @@ const createPagesForContent = ({ actions, graphql }, pageType) => {
 
   return graphql(`
     {
-      allMarkdownRemark(
+      allMdx(
         sort: { order: DESC, fields: [frontmatter___date] }
-        filter: {fileAbsolutePath: {regex: "/(${pageType})/.*\.md$/"}}
+        filter: {fileAbsolutePath: {regex: "/(${pageType})/.*\.mdx$/"}}
         limit: 1000
       ) {
         edges {
           node {
-            frontmatter {
-              slug
-            }
+            slug
           }
         }
       }
@@ -24,17 +22,17 @@ const createPagesForContent = ({ actions, graphql }, pageType) => {
       return Promise.reject(result.errors)
     }
 
-    return result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-      const pagePath = `/${pageType}/${node.frontmatter.slug}`
+    return result.data.allMdx.edges.forEach(({ node }) => {
+      // const pagePath = `${node.slug}`
       createPage({
-        path: pagePath,
+        path: node.slug,
         component: pageTemplate,
         context: {
           // additional data can be passed via context
-          slug: node.frontmatter.slug,
+          slug: node.slug,
         },
       })
-      console.log(`Page created: ${pagePath}`)
+      console.log(`Page created: ${node.slug}`)
     })
   })
 }

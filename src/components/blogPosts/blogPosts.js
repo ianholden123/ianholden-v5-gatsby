@@ -7,7 +7,7 @@ const BlogPosts = () => {
 
   const HOME_BLOG_POSTS_QUERY = graphql`
     query GET_BLOG_POSTS_FOR_HOME {
-      allMarkdownRemark(
+      allMdx(
         filter: {fileAbsolutePath: {regex: "/blog/.*.(md|mdx)$/"}}
         limit: 2
         sort: {order: DESC, fields: [frontmatter___date]}
@@ -29,7 +29,7 @@ const BlogPosts = () => {
     <StaticQuery
       query={HOME_BLOG_POSTS_QUERY}
       render={({
-        allMarkdownRemark: { nodes: postItems }
+        allMdx: { nodes: postItems }
       }) => {
         return (
           <article id='projectsWrapper' className='not-full-width block-center px-4 pt-0 py-6'>

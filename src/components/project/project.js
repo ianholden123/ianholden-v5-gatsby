@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
+import { MDXRenderer } from "gatsby-plugin-mdx"
 import Icon from '../icons'
 import { OutboundLink } from 'gatsby-plugin-google-analytics'
 
@@ -88,7 +89,9 @@ const ProjectComponent = ({
       </ul>
     }
     { !isPostArchive && content &&
-      <div className='content pb-4' dangerouslySetInnerHTML={{ __html: content }} />
+      <div className='content pb-4'>
+        <MDXRenderer>{content}</MDXRenderer>
+      </div>
     }
   </>
 )

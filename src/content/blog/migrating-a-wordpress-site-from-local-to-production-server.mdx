@@ -1,0 +1,68 @@
+---
+author: "Ian Holden"
+categories: [
+  "Tutorials"
+]
+date: "2014-08-10"
+excerpt: "Migrating a WordPress site is something that every WordPress developer needs to understand before they can fully deploy and launch any WordPress site on a number of platforms. This example will run you through the essential steps needed to launch a test site from a test environment (using a local server such as XAMPP or WAMPP) to your production environment."
+featuredImage: ""
+modified: ""
+slug: "migrating-a-wordpress-site-from-local-to-production-server"
+tags: [
+  "wordpress"
+]
+title: "Migrating a WordPress site from Local to Production Server"
+---
+
+Migrating a WordPress site is something that every WordPress developer needs to understand before they can fully deploy and launch any WordPress site on a number of platforms. This example will run you through the essential steps needed to launch a test site from a test environment (using a local server such as XAMPP, MAMPP or Local by WP Engine for example) to your production environment.
+
+To move a WordPress site from a test environment to a live site, you must fulfill the following steps:
+
+1. Export the test environment’s database.
+1. Create a database on the live server.
+1. Replace all URLs that point to the test environment with the URL of the live site.
+1. Import the test environment’s database (with replaced URLs) to the live server.
+1. Transfer all WordPress files to live server via FTP.
+1. Update wp-config file with the new database information.
+1. Update permalinks.
+
+Put simply, this forms the basis of our migration process. Below, I will explain what you need to do to complete each step.
+
+## 1. Export the test environment’s database
+This step requires you to access your database in the local server setup that you are using. I use XAMPP to build my local WordPress sites, so for me, I simply go to “http://localhost/phpmyadmin/” which will then allow me to see the databases that I currently have set up on my local server.
+
+Here you will need to find your database name on the left hand side, select it and then click export in the top-bar which displays all the options for that database. I normally use the default settings to export a database, these are “Export Method: Quick” and “Format: SQL”.
+
+## 2. Create a database on the live server
+To create a database on your live server, you will need to log into your web hosting account and find the area in cpanel (or which ever dashboard that you are provided with by your host) which allows you to add a database. Give this database a logical name that you will remember as you will need to use this in step 6.
+
+## 3. Replace all URLs that point to the test environment with the URL of the live site
+In your preferred code editor, open up your SQL file that you exported in Step 1. This SQL file will create the tables that your WordPress site needs to function on your live server. Using Find and Replace, find all occurrences of your test site URL and replace it with the URL of the live site that your WordPress site is going to be migrated to.
+
+For example, if my test site is found at “http://localhost/my-test-site” I would find and replace all instances of “http://localhost/my-test-site” in my SQL file, and replace it with the URL of my live site, “https://ianholden.co.uk”.
+
+## 4. Import the test environment’s database (with replaced URLs) to the live server
+Now that we have replaced all our test site URLs with those of the live site, we can import this SQL file into the new database that we created in step 2.
+
+Once inside the database on our live server, select the new database (that was created in step 2) and find the import function. Upload your SQL file and click import your SQL. You should receive a success message after doing so.
+
+## 5. Transfer all WordPress files to live server via FTP
+In your favoured FTP client (I recommend FileZilla), open a connection to your live server and send the WordPress files in your test site’s directory to your live site directory. This step could take a long time, especially if your site is using plug-ins, you may have to be patient and wait for this to finish.
+
+## 6. Update wp-config file with the new database information
+Once all files have been sent across to your live site, open the wp-config.php file (found in the root of your WordPress file structure). Here you will need to update the ‘DB_NAME’, ‘DB_USER’, ‘DB_PASSWORD’ and ‘DB_HOST’ information.
+
+These fields will relate to your database information that you have for your live server setup. Each field requires the following:
+
+DB_NAME: The name of the database that you created in step 2.
+DB_USER: The main user account with access to the database on your live server.
+DB_PASSWORD: The password of the user with access to the database.
+DB_HOST: Host information for your live server. For more hosts, this will be ‘localhost’ but if not, this will be specified by your hosting provider.
+Finally, you will need to save this information and overwrite your wp-config file that is currently uploaded to the server. If this has completed successfully and the information is correct, you should see your website appear when you visit the live URL.
+
+Note: If you see a message that reads: “Error establishing database connection” when you visit your live site, this often signifies that the information entered in the wp-config file is incorrect. Check that this information is correct and try again.
+
+## 7. Update permalinks
+Once step 6 has been completed and you are able to view the front-end of your site, you may notice that some of the links are broken. To fix this, you need to access the back-end by logging in to your site and going to the permalinks option under the “Settings” navigation item. Once you are here, select the permalink structure that you want (if this is already selected, leave it as it is) and click Update.
+
+Your website should now be setup on your production server.

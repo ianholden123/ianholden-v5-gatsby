@@ -68,7 +68,7 @@ There are plenty more tags that can be added to the header of the css file, thes
 
 #### index.php
 
-In this file we don’t have to do much for now. In the next step we can explain more about what goes in this file. For now though, we have our first WordPress theme! If you go into the back-end of your WordPress site, (localhost/<your-site-name>/wp-admin) we can activate this theme right away! Just go to ‘Appearance > Themes’ and then you should see your theme appear under ‘Available Themes’. Click ‘Activate’ and we have our theme live (on the local server). There will not be any data on our webpage but we will build on this in our next step.
+In this file we don’t have to do much for now. In the next step we can explain more about what goes in this file. For now though, we have our first WordPress theme! If you go into the back-end of your WordPress site, (localhost/your-site-name/wp-admin) we can activate this theme right away! Just go to ‘Appearance > Themes’ and then you should see your theme appear under ‘Available Themes’. Click ‘Activate’ and we have our theme live (on the local server). There will not be any data on our webpage but we will build on this in our next step.
 
 ## Header & Footer
 
@@ -98,7 +98,7 @@ The important lines in this code are lines 6-10. Lines 6-8 give us a dynamic web
 
 #### Navigation
 
-In most web projects that you work on, it is common to see the code for the site’s main navigation appear in the header file. This is because the main navigation of your site should be the same throughout the site. With this in mind we are going to include this in the header file too. Just below your end </head> tag, add the following:
+In most web projects that you work on, it is common to see the code for the site’s main navigation appear in the header file. This is because the main navigation of your site should be the same throughout the site. With this in mind we are going to include this in the header file too. Just below your end `</head>` tag, add the following:
 
 ```php
 <body>
@@ -118,7 +118,7 @@ In most web projects that you work on, it is common to see the code for the site
 
 To explain the following code sample, I have started a body tag and in this, I have set up an associative array called $args (short for arguments) and have supplied this as a parameter to the wp_nav_menu() function. This allows us to set up a menu within the backend of WordPress and it will dynamically pull through to the front end of our website.
 
-You may have noticed that we have closed all our tags except for the <body> tag. This is important as we will close this in the footer.php file later! Don’t forget, the body of the webpage will always follow the header file and this forms part of the body of the site.
+You may have noticed that we have closed all our tags except for the `<body>` tag. This is important as we will close this in the footer.php file later! Don’t forget, the body of the webpage will always follow the header file and this forms part of the body of the site.
 
 ### Footer.php
 Our next step is to create a file called ‘footer.php’. This can be a fairly short file depending on the information you want to put here.

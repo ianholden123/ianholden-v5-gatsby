@@ -7,7 +7,7 @@ import SEO from '../components/seo/seo'
 const Projects = ({
   data
 }) => {
-  const projects = data?.allMarkdownRemark?.nodes || []
+  const projects = data?.allMdx?.nodes || []
 
   return (
     <Layout>
@@ -66,7 +66,7 @@ export default Projects
 
 export const pageQuery = graphql`
   query ProjectsPageQuery {
-    allMarkdownRemark(
+    allMdx(
       filter: {fileAbsolutePath: {regex: "/projects/.*.(md|mdx)$/"}}
       limit: 100
       sort: {order: DESC, fields: [frontmatter___date]}

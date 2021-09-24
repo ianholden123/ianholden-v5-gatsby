@@ -1,6 +1,7 @@
 import React from 'react'
 import classNames from 'classnames'
 import { Link } from 'gatsby'
+import { MDXRenderer } from "gatsby-plugin-mdx"
 import parse, { domToReact } from 'html-react-parser'
 import './post.css'
 import { createLocalLink } from '../../utils'
@@ -72,7 +73,8 @@ const PostComponent = ({
         <div className="excerpt reading-content">{excerpt}</div>
       }
       { content && !isPostArchive &&
-        <div className='content pb-4' itemProp="articleBody">{parse(content, { replace: replaceHtmlNode })}</div>
+        // <div className='content pb-4' itemProp="articleBody">{parse(content, { replace: replaceHtmlNode })}</div>
+        <div className='content pb-4' itemProp="articleBody"><MDXRenderer>{content}</MDXRenderer></div>
       }
     </article>
   )

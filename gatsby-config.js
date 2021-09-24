@@ -7,12 +7,20 @@ module.exports = {
     siteUrl: 'https://ianholden.co.uk'
   },
   plugins: [
+    "gatsby-plugin-feed-mdx",
     "gatsby-plugin-image",
     {
       resolve: "gatsby-plugin-google-analytics",
       options: {
         trackingId: "UA-36059287-1",
       },
+    },
+    {
+      resolve: "gatsby-plugin-mdx",
+      options: {
+        extensions: [`.mdx`, `.md`],
+        gatsbyRemarkPlugins: []
+      }
     },
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
@@ -22,7 +30,6 @@ module.exports = {
         icon: "src/images/icon.png",
       },
     },
-    "gatsby-transformer-remark",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     {
