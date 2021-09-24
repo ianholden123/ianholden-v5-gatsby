@@ -1,0 +1,64 @@
+---
+author: "Ian Holden"
+categories: [
+  "Tools"
+]
+date: "2021-02-02"
+excerpt: "JavaScript is one of the most popular programming languages in the world. It is a language that frequently offers new ways to write code and perform functions over time. I wanted to write a post about how you can start using future JavaScript features in your projects today."
+featuredImage: ""
+modified: ""
+tags: [
+  "Babel",
+  "JavaScript",
+]
+title: "Future JavaScript – Stay ahead of the curve by using new JavaScript features today (1/4 – Intro)"
+---
+
+import { Link } from 'gatsby'
+
+JavaScript is one of the most popular programming languages in the world. It is frequently changing to offer new ways of writing code and performing functions over time.
+
+If you imagine a graph that pins the average number of tools in today’s JavaScript engineer’s toolkit, you might find yourself wanting to learn more about some of the latest features. I wanted to write this post to show you how you can start using future JavaScript features in your projects today.
+
+## What future JavaScript features are we going to look at?
+
+Last December, the [State of JS 2020 survey](https://2020.stateofjs.com/en-US/) published their results. The survey questioned which new JavaScript features are being used in the projects of its correspondents. I wanted to try some of the lesser-used features and explain how you can use them in your projects.
+
+The survey returned many categorised results. I have created a series of posts to explore three of these categories further. These categories are:
+
+- Syntax
+- Language
+- Data Structures
+
+I have selected a few results from each category that have not been adopted as much as others, according to the State of JS survey. By doing this, I hope that you can learn about how simple it is to pick these up and become knowledgeable about them which will help put you ahead of the curve as a JavaScript engineer.
+
+## How can we use future JavaScript features?
+
+Let’s start with a definition. What do I mean by ‘future JavaScript’?
+
+Periodically, ECMA script will release a new edition of their specification. When this happens, browsers that run JavaScript will work to support these new features. Browsers adopt these features at different rates which can make it difficult to use them in our projects. We may come across issues where one browser supports the new feature but another does not.
+
+We can get around this problem by using a **compiler**.
+
+To translate one flavour of something to another flavour of something, we need a compiler. In JavaScript, our compiler needs to be responsible for transforming future JavaScript code (ES6+) into JavaScript code that is supported by all browsers (ES5).
+
+Thankfully, [Babel](https://2020.stateofjs.com/en-US/) is a compiler that will help us.
+
+## Setting up a JavaScript compiler for your project
+
+Babel is designed to help us in a number of environments. Our project might be a webpage that uses JavaScript in a web browser or it might be running JavaScript on a server that supports Node.js. Whatever our task, it is likely that Babel has the setup option to help us get started.
+
+<figure>
+  <img src="https://s3-eu-west-2.amazonaws.com/ianholden.co.uk-wordpress-media/wp-content/uploads/2021/02/01170531/Screenshot-2021-02-01-at-17.05.13.png" alt="Babel setup webpage" />
+  <figcaption>The current list of tools that Babel supports (as of February 2020)</figcaption>
+</figure>
+
+Because the Babel website has such a long list of setup options and tutorials, I am not going to explain how we can set up our project with Babel in this article.
+
+If you are using a framework to build your project, you may find that your project uses Babel without you knowing. Frameworks like create-react-app, Gatsby and Parcel, all have Babel configured as soon as you start a project.
+
+## Up next
+
+In the <Link to='/blog/future-javascript-stay-ahead-of-the-curve-by-using-new-javascript-features-today-2/'>next article</Link>, we will explore some of the future JavaScript features outlined in the State of JS survey.
+
+Please, let me know in the comments if there are any features that you would like to read about in greater detail.

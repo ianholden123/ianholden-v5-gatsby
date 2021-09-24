@@ -7,7 +7,7 @@ const createPagesForContent = ({ actions, graphql }, pageType) => {
     {
       allMdx(
         sort: { order: DESC, fields: [frontmatter___date] }
-        filter: {fileAbsolutePath: {regex: "/(${pageType})/.*\.mdx$/"}}
+        filter: {fileAbsolutePath: {regex: "/(${pageType})/.*\.(mdx|md)$/"}}
         limit: 1000
       ) {
         edges {

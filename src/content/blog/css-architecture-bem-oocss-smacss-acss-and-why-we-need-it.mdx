@@ -1,0 +1,170 @@
+---
+author: "Ian Holden"
+categories: [
+  "Tools"
+]
+date: "2021-01-11"
+excerpt: "Have you ever worked on a large project where there is a clear structure in place for the JavaScript source files, but when you need to make a change to the CSS, you are greeted with a mess of unstructured CSS?"
+featuredImage: ""
+modified: ""
+tags: [
+  "ACSS",
+  "Architecture",
+  "BEM",
+  "CSS",
+  "OOCSS",
+  "PostCSS",
+  "SMACSS"
+]
+title: "CSS Architecture (BEM, OOCSS, SMACSS & ACSS) and why we need it"
+---
+
+Have you ever worked on a large project where there is a clear structure in place for the JavaScript source files, but when you need to make a change to the CSS, you are greeted with a mess of unstructured CSS?
+
+You know what CSS attribute you need to add or amend but in the code, you are cautious because there are CSS attributes being overridden in multiple places and in some cases, there are `!important` flags being used. You are scared to make a change to the code in fear of breaking some existing styles. So naturally, you create a new rule which has high specificity and just adds to the mess that you were greeted with in the first place.
+
+This is a problem that a lot of projects suffer from.
+
+Understanding how to organise CSS in your project’s codebase can be invaluable when your project begins to scale or when new frontend engineers join the team. I would like to walk you through different ideas that can help you create stronger CSS architecture.
+
+## Why do we need strong CSS Architecture?
+
+The foundations of a solid CSS architecture can uphold the project as it begins to scale and grow. If these foundations have not been constructed with any thought or planning, it is very likely that in the future, your project could metaphorically fall over.
+
+What I mean by this metaphor is; although CSS will not likely break your system like a JavaScript error might, it can create different issues that make working on the project very difficult. If you have a team of engineers who are not confident in adding or changing CSS in the project, they are more likely to introduce bugs. These bugs will find their way to your end-users and the project’s success may be affected because of this.
+
+It is essential to begin a project with a solid CSS architecture in place because **it is much easier to write bad CSS than it is to remove it**.
+
+My impression is that CSS is not as widely respected in the front-end space as other disciplines are. Why do we take so much time in learning about the latest JavaScript frameworks but also insist on getting by with a loose understanding of CSS? HTML and CSS are the building blocks of the web, yet we settle for an average understanding.
+
+This is something that I think we have all been guilty of! It is something that I would like to change.
+
+## What CSS architectures can we use?
+
+There were a number of CSS architectures that stood out when I started researching this topic. They were:
+
+- BEM (Block Element Modifier)
+- OOCSS (Object-Oriented CSS)
+- SMACSS (Scalable and Modular Architecture for CSS)
+- ACSS (Atomic CSS)
+
+I do not want to describe these in too much detail as there are some excellent resources available online already. Instead, you can find a brief description of each one below and a link to more information about each methodology.
+
+## What is BEM (Block Element Modifier)?
+
+BEM stands for Block Element Modifier and is a way of architecting CSS to encourage the use of a consistent naming convention when creating your style classes.
+
+The naming convention that is recommended by BEM is `block-name__element-name--modifier-name` where:
+
+- `block-name` describes the block that it should style. For example: `photo`.
+- `__element-name` describes the element within that block that should be styled. For example: `photo__image` or `photo__caption`.
+- `--modifier-name` describes the modifier of the block or element that is being styled. For example: `photo--large` or `photo__image--black-and-white`.
+
+For more information on BEM, i would recommend reading BEM 101.
+
+## What is OOCSS (Object-Oriented CSS)?
+
+OOCSS stands for Object-Oriented CSS and is a way of architecting CSS to encourage the use of abstraction to separate structural and visual styling as well as to remove duplication from your CSS.
+
+OOCSS would encourage you to change the following example from something like this…
+
+```css
+.button {
+    padding: 10px 16px;
+    color: blue;
+}
+.h1 {
+    font-size: 2em;
+    color: blue;
+}
+```
+
+…to something like this…
+
+```css
+.button {
+    padding: 10px 16px;
+}
+.h1 {
+    font-size: 2em;
+}
+.primary {
+    color: blue;
+}
+```
+
+With our new abstraction, we can assign the ‘primary‘ class to both `<button>` and `<h1>` elements and it will be given a colour of ‘blue‘. This helps us keep our stylesheets nice and DRY (Don’t Repeat Yourself).
+
+For a more detailed guide on OOCSS, I would recommend reading [An Introduction To Object Oriented CSS (OOCSS)](https://www.smashingmagazine.com/2011/12/an-introduction-to-object-oriented-css-oocss/).
+
+## What is SMACSS (Scalable and Modular Architecture for CSS)?
+
+SMACSS stands for Scalable and Modular Architecture for CSS. It requires styles to be built under five different categories: base, layout, module, state and theme.
+
+- **Base** styles should hold your default CSS styles. These styles will be used on all elements of the website/app.
+- **Layout** styles should hold the styles for elements that are designed to separate the page into its structural components. Styles for elements like header, footer and grids should be defined here.
+- **Module** styles should hold the styles for reusable elements across the website/app.
+- **State** styles should define the various states of different elements across your website/app. Styles such as ‘is-active’, ‘is-disabled’ and ‘is-success’ should be found here.
+- **Theme** styles should dictate how your elements look. They should go beyond the Base styles and start injecting your project’s branding and style into the website/app.
+
+For a comprehensive look at SMACSS, read the online guide from its’ creator at [SMACSS.com](http://smacss.com/).
+
+## What is ACSS (Atomic CSS)?
+
+ACSS stands for Atomic CSS and focuses on creating many small CSS utility classes for you to use in your HTML. It is similar to OOCSS in that they both recommend separating duplicate property-value pairs into their own rules. ACSS could be seen as a more extreme version of OOCSS though, as it encourages you to create styles at the smallest possible level.
+
+Here is an example of some style rules that you might find in a project that uses Atomic CSS:
+
+```css
+/* Colours */
+.color-primary { color: blue; }
+.color-secondary { color: purple; }
+
+/* Margins */
+.mt-1 { margin-top: 5px; }
+.mt-2 { margin-top: 10px; }
+.mb-1 { margin-bottom: 5px; }
+.mb-2 { margin-bottom: 10px; }
+```
+
+ACSS is also different to OOCSS in that it recommends the use of CSS properties in the naming convention of CSS selectors. For example, in OOCSS, you might target a selector named .primaryto change the colour of your elements to a nice shade of blue. In ACSS, you might target a selector named .color-primary.
+
+To find out more about ACSS, I would recommend reading [Let’s Define Exactly What Atomic CSS is](https://css-tricks.com/lets-define-exactly-atomic-css/).
+
+## Which CSS architecture should we choose?
+
+The short answer — it doesn’t matter.
+
+There are positives and negatives to each different architecture described above. Different people will have different views over which they prefer.
+
+The most important thing is to ensure that your team have agreed on a consistent format to use before you begin writing CSS. This format can be one of the architectures mentioned above, a blend of different architectures or something that you come up with yourself.
+
+The engineering team that work on the project should understand this format so that any new CSS that is written, adheres to the style that you have chosen to follow. Preferably, the architecture should be explained in written documentation. New engineers that join the team should be able to find out about your chosen architecture quickly and easily.
+
+## Enforcing consistent styling
+
+Once you have set some rules for how your styles should be written, you will want to enforce them. Whether this is done manually or via an automated process, you will want to ensure that the CSS in your codebase is written consistently over time.
+
+### Manually enforcing your code style
+
+You can do this manually by checking new additions to the codebase when you are reviewing pull requests in your git workflow. If you can see that a new CSS rule is being added that uses the !importantflag or creates new code instead of using an existing utility function that will give you the same outcome, you should probably advise that this code is changed.
+
+It is optimistic to assume that every member of your team will have a complete understanding of your chosen CSS architecture. Humans make mistakes and it is impossible to ensure that every Pull Request will be reviewed without any code smells slipping through.
+
+We need something more reliable.
+
+### Automating the enforcement of your code style
+
+Much like we can use linters to review our JavaScript code, we can now do the same for CSS. PostCSS is a tool that is helping engineers write CSS and use plugins to improve or enhance it. PostCSS offers a host of plugins that include tooling to help us do all sorts of things to our CSS like auto prefixing, linting, minification and many more.
+
+Automating your processes like this will help reduce the amount of issues that slip through your manual code checks and give the team more time to focus on the code that they are working with.
+
+I would recommend finding out more about PostCSS by visiting the [PostCSS repository](https://github.com/postcss/postcss).
+
+## Summary
+
+However you choose to architect your project, you must ensure that you do not forget about your CSS. You must try and maintain a consistent style to your CSS code that makes it easier for new engineers to pick up and allows them to make changes confidently. Make sure that these rules are documented and enforced, preferably in an automated way.
+
+The initial time spent creating a strong set of rules that govern the way you write CSS will far outweigh the problems that you might face in the long run if you don’t invest this time now. You want new code to produce new features. Don’t let small bugs take up the majority of your engineer’s time and energy.
+
+What new CSS architectures and tools are you discovering currently? I would love to hear your thoughts in the comment section.
