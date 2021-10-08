@@ -21,6 +21,7 @@ import Ionic from './svg/ionic.js'
 import JavaScript from './svg/javascript.js'
 import JQuery from './svg/jQuery.js'
 import LinkedIn from './svg/linkedIn.js'
+import Markdown from './svg/markdown.js'
 import MySQL from './svg/mysql.js'
 import Node from './svg/node.js'
 import Photoshop from './svg/photoshop.js'
@@ -58,6 +59,7 @@ const getIcon = (name, color = '#494949') => {
     case 'javascript': return <JavaScript color={color} />
     case 'jquery': return <JQuery color={color} />
     case 'linkedin': return <LinkedIn color={color} />
+    case 'markdown': return <Markdown color={color} />
     case 'mysql': return <MySQL color={color} />
     case 'node': return <Node color={color} />
     case 'photoshop': return <Photoshop color={color} />

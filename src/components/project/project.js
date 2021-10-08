@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import Icon from '../icons'
 import { OutboundLink } from 'gatsby-plugin-google-analytics'
@@ -17,6 +18,10 @@ const renderTools = tools => {
   )
 }
 
+const components = {
+  Link
+}
+
 const ProjectComponent = ({
   archiveImage,
   colours,
@@ -32,14 +37,13 @@ const ProjectComponent = ({
   type,
   uri,
 }) => (
-  <>
+  <MDXProvider components={components}>
     { !isPostArchive &&
       <>
-        { featuredImage && featuredImage.sourceUrl &&
+        { featuredImage && featuredImage.src &&
           <img
-            src={featuredImage.sourceUrl}
-            alt={featuredImage.altText}
-            srcSet={featuredImage.srcSet}
+            src={featuredImage.src}
+            alt={featuredImage.alt}
             className='featured-image block-center block'
           />
         }
@@ -51,8 +55,8 @@ const ProjectComponent = ({
         <Link to={`/${uri}/`}>
           <img
             className='px-5'
-            src={archiveImage.sourceUrl}
-            alt={archiveImage.altText}
+            src={archiveImage.src}
+            alt={archiveImage.alt}
           />
         </Link>
         <p className='uppercase f-thin color-dark-grey m-0' dangerouslySetInnerHTML={{ __html: type }} />
@@ -92,7 +96,7 @@ const ProjectComponent = ({
         <MDXRenderer>{content}</MDXRenderer>
       </div>
     }
-  </>
+  </MDXProvider>
 )
 
 export default ProjectComponent

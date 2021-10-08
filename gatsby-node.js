@@ -22,7 +22,7 @@ const createPagesForListing = ({ actions, graphql }, pageType) => {
     const numberOfPagesToCreate = totalCount ? Math.ceil(totalCount / numberOfItemsPerPage) : 0
 
     for(let pageNumber = 1; pageNumber <= numberOfPagesToCreate; pageNumber++) {
-      const pagePath = `/${pageType}/page/${pageNumber}`
+      const pagePath = `${pageType}/page/${pageNumber}`
       createPage({
         path: pagePath,
         component: pageTemplate,
@@ -34,7 +34,6 @@ const createPagesForListing = ({ actions, graphql }, pageType) => {
         },
       })
       console.log(`Page created: ${pagePath}`)
-      console.log(`number of pages to create`, numberOfPagesToCreate)
     }
   })
 }

@@ -56,7 +56,10 @@ export const pageQuery = graphql`
         author
         categories
         date(formatString: "MMMM DD, YYYY")
-        featuredImage
+        featuredImage {
+          alt
+          src
+        }
         modified
         tags
         title

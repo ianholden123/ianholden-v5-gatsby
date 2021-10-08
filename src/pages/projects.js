@@ -72,7 +72,10 @@ export const pageQuery = graphql`
     ) {
       nodes {
         frontmatter {
-          archiveImage
+          archiveImage {
+            alt
+            src
+          }
           colourScheme {
             primary
             secondary
@@ -80,9 +83,11 @@ export const pageQuery = graphql`
           }
           contributors
           excerpt
-          featuredImage
           linkToProject
-          portraitImage
+          portraitImage {
+            alt
+            src
+          }
           state
           title
           toolsUsed

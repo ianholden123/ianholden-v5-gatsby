@@ -1,0 +1,79 @@
+---
+archiveImage: {
+  alt: "Maths Number Bonds project on a computer screen",
+  src: "https://s3-eu-west-2.amazonaws.com/ianholden.co.uk-wordpress-media/wp-content/uploads/2020/05/01134141/Maths-Number-Bonds.png"
+}
+colourScheme: {
+  primary: "#82d943",
+  secondary: "#f2b705",
+  tertiary: "#f0f2b6"
+}
+contributors: ""
+date: "2019-08-01"
+excerpt: "Maths Number Bonds is an open-source project. The idea was given to me by a primary school teacher and close friend of mine. The functionality was simple but the benefits of this application could greatly improve the efficiency of performing a task like this in schools."
+featuredImage: {
+  alt: "",
+  src: ""
+}
+linkToProject: "https://mathsnumberbonds.com/"
+logo: {
+  alt: "",
+  src: ""
+}
+portraitImage: {
+  alt: "",
+  src: ""
+}
+showOnHomepage: true
+state: "Live"
+title: "Maths Number Bonds"
+toolsUsed: [
+  "React"
+]
+typeOfProject: "Web Application"
+---
+
+The requirements were simple: create a system that enabled users to practice number bonds and provide a report at the end that a teacher can print/export to PDF for later review. Another useful feature is the ability to see how much time a user took to answer each question. This time is reflected in the final report also.
+
+I started by implementing the phase data as a static JSON object in the application. This does not need to change for our initial requirements but can be changed in the future if you wanted to add some new number bond pairings. The JSON object also controls the colour used to display each phase, as well as the name and description of each phase. These can all be changed to suit the end user’s needs.
+
+<figure>
+  <img src="https://s3-eu-west-2.amazonaws.com/ianholden.co.uk-wordpress-media/wp-content/uploads/2020/05/05083305/Screenshot-2020-05-05-at-09.32.33-1024x781.png" alt="JSON example from the phases JSON object" />
+  <figcaption>I needed to define what a ‘phase’ was in order to dictate how the rest of the system would be built.</figcaption>
+</figure>
+
+As this project is designed to be used in schools, one of my first concerns were the potential GDPR and data protection issues that could become apparent if we started storing user data. I decided that it would be best to not store any data about the users. Instead, the system requires that users enter their initials before they can begin an assessment. These initials are visible on the final reports.
+
+Another nice feature is the teacher’s ability to be able to configure each assessment for each pupil from the URL. Due to the way I have configured routing in this project, the web application is smart enough to navigate straight to the assessment page with all required configuration in place by supplying a few URL parameters.
+
+<figure>
+  <img src="https://s3-eu-west-2.amazonaws.com/ianholden.co.uk-wordpress-media/wp-content/uploads/2020/05/01142522/Screenshot-2020-05-01-at-15.22.36-1024x107.png" alt="An example of the project's URL when run locally" />
+  <figcaption>An example of the project’s URL when running locally. You can specify certain URL parameters to jump straight into the assessment.</figcaption>
+</figure>
+
+The users are able to complete the assessment in one of many ways. They can use their keyboard or mouse to submit answers to the application. This is important as it offers multiple options and therefore caters for a range of technical abilities.
+
+<figure>
+  <img src="https://s3-eu-west-2.amazonaws.com/ianholden.co.uk-wordpress-media/wp-content/uploads/2020/05/01144123/Screenshot-2020-05-01-at-15.31.20-1024x624.png" alt="The Maths Number Bonds assessment screen" />
+  <figcaption>Users can use their keyboard or mouse to submit their answers to the web application.</figcaption>
+</figure>
+
+When a user completes all questions, they will see their results. The results screen is a grid made up of every possible question and highlighted on the grid are the questions that the user has answered. The answered questions will be highlighted with a green or red border to indicate whether they answered the question correctly or incorrectly. A diagonal line through a question indicates that the user answered the question quickly.
+
+<figure>
+  <img src="https://s3-eu-west-2.amazonaws.com/ianholden.co.uk-wordpress-media/wp-content/uploads/2020/05/01144753/Screenshot-2020-05-01-at-14.39.04-1024x903.png" alt="The Maths Number Bonds results screen" />
+  <figcaption>The application displays the results on a grid with indicators to tell us whether the user answered the questions correctly and quickly.</figcaption>
+</figure>
+
+How do we set the time that is used to determine whether a user has answered a question quickly? This is an arbitrary number that can be configured in the code’s configuration file. It’s up to the user of the system how long they think it should take another user to answer a question. With some technical know-how, this is configurable and documented in the open source repository on GitHub.
+
+Once users have completed their assessment, the application has been optimised for printing their final assessment reports. I had to use some SVG trickery to ensure that the backgrounds appeared in the print layout. The user is then able to Save to PDF if they wish or print a physical copy of the report with ease.
+
+<figure>
+  <img src="https://s3-eu-west-2.amazonaws.com/ianholden.co.uk-wordpress-media/wp-content/uploads/2020/05/01145428/Screenshot-2020-05-01-at-15.54.13-1024x679.png" alt="Print preview of a completed assessment" />
+  <figcaption>The print preview for a completed assessment maintains the background colours for each question.</figcaption>
+</figure>
+
+## How can you contribute to this project?
+
+This project is open source so if you would like to get involved in this project, please find more information at [GitHub](https://github.com/ianholden123/maths-number-bonds/blob/staging/CONTRIBUTING.md). You can find the current master branch of this project running at https://mathsnumberbonds.com.

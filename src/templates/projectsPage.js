@@ -62,7 +62,10 @@ export const pageQuery = graphql`
         }
         contributors
         excerpt
-        featuredImage
+        featuredImage {
+          alt
+          src
+        }
         linkToProject
         state
         title
