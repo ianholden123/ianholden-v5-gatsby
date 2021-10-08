@@ -1,12 +1,13 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-// import Pagination from '../components/pagination'
+import Pagination from '../components/pagination/pagination'
 import Layout from '../components/layout/layout'
 import PostComponent from '../components/post/post'
 import SEO from '../components/seo/seo'
 
 const PostsPage = ({
-  data
+  data,
+  pageContext
  }) => {
   const posts = data?.allMdx?.nodes || []
 
@@ -20,40 +21,50 @@ const PostsPage = ({
         <h1>Blog Posts</h1>
         <p className="reading-content">I occasionally like to write about things that I have learnt and things that I may want to learn about. While there is no subject matter that I will write about exclusively, it is most likely that you will find posts about front-end software engineering on this page.</p>
         <section className="articles">
-          {posts.length ? 
-            posts.map((post, index) => (
-              <PostComponent
-                author={post.frontmatter.author}
-                categories={post.frontmatter.categories}
-                classes="highlight"
-                date={post.frontmatter.date}
-                excerpt={post.frontmatter.excerpt}
-                isPostArchive
-                key={index}
-                modified={post.frontmatter.modified}
-                tags={post.frontmatter.tags}
-                title={post.frontmatter.title}
-                uri={post.slug}
-              />
-            ))
-          : (
-            <>
-              <h2>That's odd...</h2>
-              <p>My blog posts seem to have been misplaced. When I find where they have gone, I will bring them back.</p>
-            </>
-          )}
+          {posts.length ? posts.map((post, index) => (
+            <PostComponent
+              author={post.frontmatter.author}
+              categories={post.frontmatter.categories}
+              classes="highlight"
+              date={post.frontmatter.date}
+              excerpt={post.frontmatter.excerpt}
+              isPostArchive
+              key={index}
+              modified={post.frontmatter.modified}
+              tags={post.frontmatter.tags}
+              title={post.frontmatter.title}
+              uri={post.slug}
+            />
+          )) : ''}
         </section>
-        {/* <Pagination pageNumber={pageNumber} hasNextPage={hasNextPage} /> */}
+        {(!posts || !posts.length) && (
+          <>
+            <h2>That's odd...</h2>
+            <p className='reading-content'>My blog posts seem to have been misplaced. When I find where they have gone, I will bring them back.</p>
+          </>
+        )}
+        <Pagination
+          hasNextPage={pageContext?.hasNextPage ?? true} // @TODO: Defaulting this to true is a little hacky - we should use something more dynamic
+          navClasses='mt-6 mb-4'
+          nextLabel='Older Posts &rarr;'
+          pageNumber={pageContext?.pageNumber || 1}
+          pageType='blog'
+          prevLabel='&larr; More Recent Posts'
+        />
       </article>
     </Layout>
   )
 }
 
 export const query = graphql`
-  query BlogPageQuery {
+  query BlogPageQuery(
+    $limit: Int = 10
+    $skip: Int = 0
+  ) {
     allMdx(
       filter: {fileAbsolutePath: {regex: "/blog/.*.(md|mdx)$/"}}
-      limit: 100
+      limit: $limit
+      skip: $skip
       sort: {order: DESC, fields: [frontmatter___date]}
     ) {
       nodes {

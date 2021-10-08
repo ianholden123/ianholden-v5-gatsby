@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'gatsby'
 import { setCookie, hasCookie } from '../../utils'
-import config from '../../config'
+import config from '../../../config'
 import './cookieNotice.css'
 
 const CookieNotice = () => {

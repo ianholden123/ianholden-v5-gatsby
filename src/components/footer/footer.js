@@ -1,7 +1,7 @@
 import React from 'react'
 import { OutboundLink } from 'gatsby-plugin-google-analytics'
 import './footer.css'
-import config from '../../config'
+import config from '../../../config'
 import { getRandomInt } from '../../utils'
 import Icon from '../icons'
 
