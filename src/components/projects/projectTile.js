@@ -18,17 +18,17 @@ const ProjectTile = ({
   return (
     <div className='hsItem text-center' key={id}>
       <Link to={uri}>
-        { portraitImage?.sourceUrl &&
+        { portraitImage?.src &&
           <>
             <img
-              alt={portraitImage?.altText}
+              alt={portraitImage?.alt}
               onLoad={() => { setRectangle(imgElement.current.clientHeight)}}
               ref={imgElement}
-              src={portraitImage?.sourceUrl}
+              src={portraitImage.src}
             />
 
-            { logo?.sourceUrl &&
-              <img className='logo' src={logo?.sourceUrl} alt={logo?.altText} />
+            { logo?.src &&
+              <img className='logo' src={logo?.src} alt={logo?.alt} />
             }
           </>
         }
