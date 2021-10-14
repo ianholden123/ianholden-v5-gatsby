@@ -1,0 +1,177 @@
+---
+author: "Ian Holden"
+categories: [
+  "Tutorials"
+]
+date: "2021-02-14"
+excerpt: "In this post, I am going to show you some of the future JavaScript features that you can use today. Our focus will be on language features that were outlined as less commonly used in 2020’s State of JS survey."
+featuredImage: {
+  alt: "",
+  src: ""
+}
+modified: ""
+tags: [
+  "JavaScript",
+]
+title: "Future JavaScript – Stay ahead of the curve by using new JavaScript features today (3/4 – Language)"
+---
+
+In this post, I am going to show you some of the future JavaScript features that you can use today. Our focus will be on language features that were outlined as less commonly used in [2020’s State of JS survey](https://2020.stateofjs.com/en-US/features/language/).
+
+This post is the third in a series focussing on using future JavaScript features. If you would like to know more about using <Link to='/blog/future-javascript-stay-ahead-of-the-curve-by-using-new-javascript-features-today-2'>new syntax features</Link> or what tools you will need to <Link to='/blog/future-javascript-stay-ahead-of-the-curve-by-using-new-javascript-features-today-1'>begin using future JavaScript</Link> features, I would recommend viewing the previous posts in this series.
+
+Please be aware, if you have not read the first post in this series and would like to try these features for yourself, you will need a compiler like Babel. For your convenience, I have embedded a Code Sandbox playground with all examples at the bottom of this post.
+
+## Getting Started
+
+Firstly, we will explore how we can use **proxies** in JavaScript to intercept and change the functionality of a predefined object.
+
+Secondly, we are going to look at **decorators** and how they can be used to add additional functionality to class methods and attributes.
+
+Last but not least, we will explore the **allSettled** method of Promises. This will allow us to continue execution of code once we have received a response from every member of an array of Promises.
+
+Let’s begin with proxies.
+
+## Proxies
+
+The Proxy feature allows you to change the functionality of an existing object by defining new behaviour. It requires two parameters, `target` and `handler`.
+
+- The `target` parameter should contain the object that we wish to proxy.
+- The `handler` parameter should contain a function that tells our system how we should handle the `target` object. You can use the following [handler functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy#handler_functions) to modify the target.
+
+Let’s start with a code example:
+
+```javascript
+const target = {
+  message1: "hello",
+  message2: "everyone"
+};
+
+const handler = {
+  get: function (target, prop, receiver) {
+    if (prop === "message2") {
+      return "world";
+    }
+  }
+};
+
+const proxy = new Proxy(target, handler);
+
+console.log(proxy.message1) // undefined
+console.log(proxy.message2) // "world"
+```
+
+This code defines a `proxy` variable and hands it the targetobject and the `handler` object as its parameters. The `handler` object has one property `get` which looks for a `prop` named `message2` and if found, returns `“world”`.
+
+You may have noticed that when we accessed the `message1` attribute, we are returned `undefined`. This is because we have only told the `get` function to return something if the `message2` prop is accessed.
+
+We can return all other properties unchanged by using the global `Reflect` object. Examine the amended example below:
+
+```javascript
+const target = {
+  message1: "hello",
+  message2: "everyone"
+};
+
+const handler = {
+  get: function (target, prop, receiver) {
+    if (prop === "message2") {
+      return "world";
+    }
+    return Reflect.get(...arguments); // <-- This is our addition
+  }
+};
+
+const proxy = new Proxy(target, handler);
+
+console.log(proxy.message1) // "hello"
+console.log(proxy.message2) // "world"
+```
+
+We can now see that our proxy object returns the original value in the `message1` attribute.
+
+This is proxies in a nutshell. There are many more features available to us and I would recommend viewing the official [documentation on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) for more advanced examples.
+
+## Decorators
+
+Decorators are a JavaScript feature that allows you to decorate existing class functionality by adding additional functionality to it. We can identify decorators by using the `@` prefix before a class or its methods.
+
+### Babel config
+Currently (as of February 2021 – at the time of writing this post), I needed to install a couple of plugins for Babel and update its config to use this feature.
+
+Let’s start by installing the required plugins:
+
+```bash
+npm install @babel/plugin-proposal-decorators @babel/plugin-proposal-class-properties --save-dev
+```
+
+Next, we can update our `.babelrc` config file to include these new plugins. Here is what mine looks like:
+
+```json
+{
+  "presets": [
+    "@babel/env"
+  ],
+  "plugins": [
+    ["@babel/plugin-proposal-decorators", {"legacy": true}],
+    ["@babel/plugin-proposal-class-properties", {"loose": true}]
+  ],
+  "parserOpts": {
+    "plugins": [
+      "dynamicImport"
+    ]
+  }
+}
+```
+
+Once these plugins are installed, you should see error messages in your IDE disappear when using this feature.
+
+### An example
+
+Take a look at the following example for a demonstration of how we can add some simple, additional functionality to a class.
+
+```javascript
+function setSomeProperty(target) {
+  target.prototype.someProperty = "I am set by the decorator.";
+}
+
+@setSomeProperty
+class MyClass {}
+
+const test = new MyClass();
+
+console.log(test.someProperty) // "I am set by the decorator"
+```
+
+In this example, we have a simple function that accepts a target object and adds a property to it. We have also defined a JavaScript class without any methods or properties. This class has a decorator before its definition which references our function.
+
+We can see that when we log `someProperty` on our `test` class, we have been returned the value that we set in our function.
+
+## Promise.allSettled
+
+With `allSettled`, we can ensure that we continue code execution when all our asynchronous functions have completed or failed.
+
+Here is how it can be used:
+
+```javascript
+const promise1 = Promise.resolve("FOO");
+const promise2 = Promise.reject("BAR");
+const promises = [promise1, promise2];
+
+Promise.allSettled(promises).then((results) => {
+  console.log(results[0]) // { status: 'fulfilled', value: 'FOO' }
+  console.log(results[1]) // { status: 'rejected', reason: 'BAR' }
+})
+```
+
+Our example above shows the returned response from the allSettledfunction. This function really comes into its own when you have a more realistic asynchronous operation which is returns a response at different times.
+
+If you would like to know more about Promises, I would recommend this detailed article by [Jake Archibald](https://web.dev/promises/).
+
+## Live Example
+
+If you would like to play with these features in a live environment, I have created a Code Sandbox for you to clone and tamper with at your leisure. It is a Node sandbox that uses the Console to log the output from all of the examples that you have seen in this post. To view these logs, you may need to run `yarn start` in the Console.
+
+## Up Next
+
+Thank you for reading my post. If you have enjoyed it, stay tuned as there will be one final instalment in this series next week. <Link to='/blog/future-javascript-stay-ahead-of-the-curve-by-using-new-javascript-features-today-4'>Data structures</Link> are the topic of next weeks tutorial. I look forward to seeing you then.

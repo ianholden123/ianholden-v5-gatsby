@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Icon from '../icons'
 
 const ExperiencePanelComponent = ({
@@ -25,13 +24,5 @@ const ExperiencePanelComponent = ({
       style={imagePanelImage && { backgroundImage: `url(${imagePanelImage})` }}
     />
   )
-
-ExperiencePanelComponent.propTypes = {
-  isImagePanel: PropTypes.bool,
-  imagePanelImage: PropTypes.string,
-  iconName: PropTypes.string,
-  panelTitle: PropTypes.string,
-  panelParagraph: PropTypes.string
-}
 
 export default ExperiencePanelComponent

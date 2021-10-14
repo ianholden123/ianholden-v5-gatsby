@@ -1,6 +1,6 @@
 import React from 'react'
 import Layout from '../components/layout/layout'
-import SEO from '../components/seo'
+import SEO from '../components/seo/seo'
 import Icon from '../components/icons'
 import ContactComponent from '../components/contact/contact'
 import './about.css'
@@ -32,24 +32,27 @@ const AboutPage = () => (
         </div>
       </div>
       <h2 className='mt-6 px-4 not-full-width block-center'>Technologies that I have experience with</h2>
+      <h3 className='px-4 not-full-width block-center'>Most Experience With</h3>
+      <div id='technologies' className='grid not-full-width'>
+        { outputTechnology('css3', 'CSS3') }
+        { outputTechnology('git', 'Git') }
+        { outputTechnology('html5', 'HTML5') }
+        { outputTechnology('javascript', 'JavaScript') }
+        { outputTechnology('node', 'Node.js') }
+        { outputTechnology('react', 'React') }
+      </div>
+      <h3 className='mt-3 px-4 not-full-width block-center'>Some Experience With</h3>
       <div id='technologies' className='grid not-full-width'>
         { outputTechnology('aws', 'AWS') }
-        { outputTechnology('css3', 'CSS3') }
         { outputTechnology('gatsby', 'Gatsby') }
-        { outputTechnology('git', 'Git') }
-        { outputTechnology('handlebars', 'Handlebars') }
-        { outputTechnology('html5', 'HTML5') }
         { outputTechnology('illustrator', 'Illustrator') }
         { outputTechnology('ionic', 'Ionic') }
-        { outputTechnology('javascript', 'Javascript') }
         { outputTechnology('jquery', 'jQuery') }
         { outputTechnology('mysql', 'MySQL') }
-        { outputTechnology('node', 'Node.js') }
         { outputTechnology('photoshop', 'Photoshop') }
         { outputTechnology('php', 'PHP') }
-        { outputTechnology('react', 'React') }
         { outputTechnology('sass', 'Sass') }
-        { outputTechnology('typescript', 'Typescript') }
+        { outputTechnology('typescript', 'TypeScript') }
         { outputTechnology('wordpress', 'WordPress') }
       </div>
 

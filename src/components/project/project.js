@@ -1,50 +1,49 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
-import { createLocalLink } from '../../utils'
+import { MDXProvider } from "@mdx-js/react"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 import Icon from '../icons'
 import { OutboundLink } from 'gatsby-plugin-google-analytics'
 
 const renderTools = tools => {
   return (
     <ul className='tools reading-content block-center text-center'>
-      { tools.split(',').map((tool, index) => {
-        tool = tool.trim()
-        if (!tool) return ''
-        return (
-          <li className='tool inline-block mx-4' key={index}>
-            <Icon name={tool} classes='icon-small block-center' />
-            {tool}
-          </li>
-        )
-      })}
+      { tools.map((tool, index) => (
+        <li className='tool inline-block mx-4' key={index}>
+          <Icon name={tool} classes='icon-small block-center' />
+          {tool}
+        </li>
+      ))}
     </ul>
   )
 }
 
+const components = {
+  Link
+}
+
 const ProjectComponent = ({
-  uri,
-  title,
-  excerpt,
+  archiveImage,
+  colours,
   content,
-  featuredImage,
   contributors,
+  excerpt,
+  featuredImage,
+  isPostArchive,
   link,
   state,
+  title,
   toolsUsed,
-  isPostArchive,
-  colours,
   type,
-  archiveImage
+  uri,
 }) => (
-  <>
+  <MDXProvider components={components}>
     { !isPostArchive &&
       <>
-        { featuredImage && featuredImage.sourceUrl &&
+        { featuredImage && featuredImage.src &&
           <img
-            src={featuredImage.sourceUrl}
-            alt={featuredImage.altText}
-            srcSet={featuredImage.srcSet}
+            src={featuredImage.src}
+            alt={featuredImage.alt}
             className='featured-image block-center block'
           />
         }
@@ -53,15 +52,15 @@ const ProjectComponent = ({
     }
     { isPostArchive &&
       <>
-        <Link to={createLocalLink(uri, ['projects/'])}>
+        <Link to={`/${uri}/`}>
           <img
             className='px-5'
-            src={archiveImage.sourceUrl}
-            alt={archiveImage.altText}
+            src={archiveImage.src}
+            alt={archiveImage.alt}
           />
         </Link>
         <p className='uppercase f-thin color-dark-grey m-0' dangerouslySetInnerHTML={{ __html: type }} />
-        <Link to={createLocalLink(uri, ['projects/'])}>
+        <Link to={`/${uri}/`}>
           <h2 className="mb-2" dangerouslySetInnerHTML={{ __html: title }} />
         </Link>
       </>
@@ -93,38 +92,11 @@ const ProjectComponent = ({
       </ul>
     }
     { !isPostArchive && content &&
-      <div className='content pb-4' dangerouslySetInnerHTML={{ __html: content }} />
+      <div className='content pb-4'>
+        <MDXRenderer>{content}</MDXRenderer>
+      </div>
     }
-  </>
+  </MDXProvider>
 )
-
-ProjectComponent.propTypes = {
-  title: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
-  excerpt: PropTypes.string,
-  content: PropTypes.string,
-  uri: PropTypes.string,
-  categories: PropTypes.shape(),
-  tags: PropTypes.shape(),
-  colours: PropTypes.shape({
-    primary: PropTypes.string,
-    secondary: PropTypes.string,
-    tertiary: PropTypes.string
-  }),
-  toolsUsed: PropTypes.string,
-  isPostArchive: PropTypes.bool,
-  link: PropTypes.string,
-  state: PropTypes.string,
-  featuredImage: PropTypes.shape({
-    altText: PropTypes.string,
-    sourceUrl: PropTypes.string,
-    srcSet: PropTypes.string
-  }),
-  contributors: PropTypes.string,
-  archiveImage: PropTypes.shape({
-    altText: PropTypes.string,
-    sourceUrl: PropTypes.string
-  })
-}
 
 export default ProjectComponent

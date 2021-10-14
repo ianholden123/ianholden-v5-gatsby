@@ -7,42 +7,19 @@ const BlogPosts = () => {
 
   const HOME_BLOG_POSTS_QUERY = graphql`
     query GET_BLOG_POSTS_FOR_HOME {
-      wpgraphql {
-        posts(first:2) {
-          nodes {
-            categories {
-              edges {
-                node {
-                  name
-                  uri
-                  id
-                }
-              }
-            }
-            author {
-              firstName
-              lastName
-            }
-            excerpt(format: RENDERED)
-            title
-            uri
+      allMdx(
+        filter: {fileAbsolutePath: {regex: "/blog/.*.(md|mdx)$/"}}
+        limit: 2
+        sort: {order: DESC, fields: [frontmatter___date]}
+      ) {
+        nodes {
+          frontmatter {
+            author
             date
-            modified
-            id
-            tags {
-              edges {
-                node {
-                  name
-                  uri
-                  id
-                }
-              }
-            }
-            customFields {
-              publishedDateOverride
-              hideUpdatedDate
-            }
+            excerpt
+            title
           }
+          slug
         }
       }
     }
@@ -52,9 +29,7 @@ const BlogPosts = () => {
     <StaticQuery
       query={HOME_BLOG_POSTS_QUERY}
       render={({
-        wpgraphql: {
-          posts: { nodes: postItems }
-        }
+        allMdx: { nodes: postItems }
       }) => {
         return (
           <article id='projectsWrapper' className='not-full-width block-center px-4 pt-0 py-6'>
@@ -62,19 +37,17 @@ const BlogPosts = () => {
             <div className="articles py-5">
               {postItems.map((post, index) => (
                 <PostComponent
-                  key={index}
+                  author={post.frontmatter.author}
+                  categories={post.frontmatter.categories}
+                  classes="highlight"
+                  date={post.frontmatter.date}
+                  excerpt={post.frontmatter.excerpt}
                   isPostArchive
-                  author={post.author}
-                  date={post.date}
-                  dateOverride={post.customFields && post.customFields.publishedDateOverride}
-                  hideUpdatedDate={post.customFields && post.customFields.hideUpdatedDate}
-                  modified={post.modified}
-                  uri={post.uri}
-                  excerpt={post.excerpt}
-                  categories={post.categories}
-                  tags={post.tags}
-                  title={post.title}
-                  classes="highlight mb-5"
+                  key={index}
+                  modified={post.frontmatter.modified}
+                  tags={post.frontmatter.tags}
+                  title={post.frontmatter.title}
+                  uri={post.slug}
                 />
               ))}
             </div>

@@ -1,0 +1,83 @@
+---
+author: "Ian Holden"
+categories: [
+  "Tools"
+]
+date: "2015-11-29"
+excerpt: "WordPress is the biggest blogging platform in the world today. Users like it because it is easy to use, highly expansive and best of all, it’s free! This tutorial should help you with the basics of building a custom WordPress theme. When you see how easy it is, you will be making themes in no time at all!"
+featuredImage: {
+  alt: "",
+  src: ""
+}
+modified: ""
+tags: [
+  "Open Source",
+  "Template",
+  "WordPress"
+]
+title: "WordPress theme files – A stripped back starter template"
+---
+
+WordPress theme developers often like to start with a theme template and amend this theme to suit the needs of their particular project. This can be a great time-saver as it prevents you from reinventing the wheel every time you start a WordPress build! However, when you are learning about theme development, starting with a blank slate can often aid your journey towards becoming a theme developer. I have created a stripped back template that can be used to remove the effort of creating all the core files required for your web build.
+
+## Download the starter template from GitHub:
+
+[Starter Template on Github](https://github.com/ianholden123/WpStarterTheme)
+
+## What’s inside?
+
+Inside this repository contains a set of files that can be used to start your next WordPress theme. They do not contain a substantial amount of code and will not provide a lot of functionality out of the box. However, with this starter kit, you will be able to save the time that you would normally spend creating files, copy and pasting `get_header()`, searching WordPress.org for snippets that we always forget and overall, remove all the laborious tasks that come with starting a new project in WordPress so that you can get to the good stuff as quickly as possible. This starter template lets you:
+
+- Start a new theme without the hassle of creating core theme files.
+- Remember the theme blurb at the beginning of style.css (because it’s already there) =D.
+- Use and expand on the basic `<head>` template that comes in the kit.
+- Run with the core theme files without forgetting to call `get_header()` or `get_footer()`.
+- The pack comes with jQuery already referenced (and can be easily removed from the header.php file).
+
+The files that this template come with are:
+
+- 404.php
+- archive.php
+- footer.php
+- front-page.php
+- functions.php
+- header.php
+- home.php
+- index.php
+- page.php
+- search.php
+- sidebar.php
+- single.php
+- style.css
+- tag.php
+- taxonomy.php
+
+Each file contains a small description of the file’s purpose within the WordPress theme directory. This helps me because I can never remember the difference between page.php and home.php. I hope that this can help others in the same way.
+
+## What it does not contain
+This starter template will not give you any noticeable functionality out of the box. I have purposely not included the WordPress loop in the index.php file for example, otherwise I would be creating a small theme which was not the point of this little project. These files are primarily intended for scaffolding your theme.
+
+It does not come with any useful JS libraries (except for jQuery). JQuery was thrown in initially because I always require it in my projects, especially when using a framework such as Bootstrap or Foundation. JQuery is pulled from a CDN which helps with your project’s load speed and also keeps your project’s file system nice and light.
+
+There are still some files in the WordPress theme file directory that can be added to this kit. For example, you could also add:
+
+- search.php
+- author.php
+- category.php
+- date.php
+- …many more
+
+For a full and illustrated list of theme files that can be added to your WordPress theme, you can view this [template hierarchy diagram](https://developer.wordpress.org/files/2014/10/template-hierarchy.png) or read the [template hierarchy documentation](https://developer.wordpress.org/themes/basics/template-hierarchy/).
+
+## What do I do with these files?
+
+To use these files, simply start a new theme in your WordPress project as you normally would and paste these files into the theme folder that you create. In more detail, do the following:
+
+1. Navigate to “wp-content/themes” in your WordPress directory.
+1. Create a new folder here and give it a name
+1. Download the files from the [git repository](https://github.com/ianholden123/WpStarterTheme)
+1. Place the files into “wp-content/themes/YOUR-THEME-FOLDER”
+
+That is it! I hope you find these files useful. If you would like to contribute to this repository, please feel free to fork the repository and upload a pull request. I’d be glad to see what improvements you think it could benefit from.
+
+Happy theming!

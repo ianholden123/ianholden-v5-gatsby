@@ -1,0 +1,150 @@
+---
+author: "Ian Holden"
+categories: [
+  "Tools"
+]
+date: "2020-07-22"
+excerpt: "Have you ever wanted to gather and expose data via an API or use your gathered data in your own application? For a long while, I have wanted to build my own application that uses web scrapers to do this and I have finally made a start."
+featuredImage: {
+  alt: "",
+  src: ""
+}
+modified: ""
+tags: [
+  "Scraping",
+  "Test Driven Development"
+]
+title: "Practising TDD by building an application to scrape sports players data"
+---
+
+Have you ever wanted to gather and expose data via an API or use your gathered data in your own application? For a long while, I have wanted to build my own application that uses web scrapers to do this and I have finally made a start.
+
+With this project, I wanted to make sure that I was practising TDD (Test Driven Development) – something that I would like to practice more often when I am writing code. I needed a simple project to practice with and this one was perfect.
+
+I wanted to scrape data from rugby teams that I follow. Being an avid rugby fan, I figured that this would be the best way to keep me engaged while I was working on the project.
+
+I started by getting a basic example of a scraper working using [Axios](https://github.com/axios/axios) and [Cheerio](https://github.com/cheeriojs/cheerio). After doing so, I was able to establish an idea of the type of data that I would be able to capture from my first webpage – Wasps RFC.
+
+<figure>
+  <img src="https://s3-eu-west-2.amazonaws.com/ianholden.co.uk-wordpress-media/wp-content/uploads/2020/07/22142026/Screenshot-2020-07-22-at-15.19.50-1024x466.png" alt="The Wasps RFC Senior Squad page" />
+  <figcaption> The Wasps RFC Senior Squad page. Here you can see that we have player’s names, positions, images and links to player profile pages available to us.</figcaption>
+</figure>
+
+Once I loaded the [Wasps rugby team webpage](https://www.wasps.co.uk/players-staff/senior-squad/), I was able to see that I could extract player names, player images, links to player profile pages and player positions. This gave me a good indication of how my player object would look.
+
+Using TDD, your process of writing code should look something like this:
+
+- Write your tests (which will fail because we haven’t written our code yet).
+- Write code that will satisfy your tests (all of your tests should pass).
+- Refactor this code to make your code cleaner and more efficient (if required).
+
+Using TDD, I outlined the first function that I will need – formPlayerObject. The purpose of this function is to ensure that all players’ data that we collect, is processed and transformed into a consistent data structure that we can apply across other teams and websites that we need to pull data from. This function’s tests looked something like this:
+
+```JavaScript
+// index.test.js
+
+describe('formPlayerObject', () => {
+  test('supplying zero parameters', () => {
+    const expectedResult = {
+      team: null,
+      name: null,
+      position: null,
+      playerLink: null,
+      image: null
+    };
+
+    expect(formPlayerObject()).toEqual(expectedResult);
+    expect(formPlayerObject({})).toEqual(expectedResult);
+  });
+
+  test('supplying incorrect parameters should return null for that field', () => {
+    const expectedResult = {
+      team: null,
+      name: null,
+      position: null,
+      playerLink: null,
+      image: null
+    };
+
+    expect(formPlayerObject({ team: {} })).toEqual(expectedResult);
+    expect(formPlayerObject({ name: {} })).toEqual(expectedResult);
+    expect(formPlayerObject({ position: {} })).toEqual(expectedResult);
+    expect(formPlayerObject({ playerLink: {} })).toEqual(expectedResult);
+    expect(formPlayerObject({ image: {} })).toEqual(expectedResult);
+    
+    expect(formPlayerObject({ team: [] })).toEqual(expectedResult);
+    expect(formPlayerObject({ name: [] })).toEqual(expectedResult);
+    expect(formPlayerObject({ position: [] })).toEqual(expectedResult);
+    expect(formPlayerObject({ playerLink: [] })).toEqual(expectedResult);
+    expect(formPlayerObject({ image: [] })).toEqual(expectedResult);
+
+    expect(formPlayerObject({ team: 0 })).toEqual(expectedResult);
+    expect(formPlayerObject({ name: 0 })).toEqual(expectedResult);
+    expect(formPlayerObject({ position: 0 })).toEqual(expectedResult);
+    expect(formPlayerObject({ playerLink: 0 })).toEqual(expectedResult);
+    expect(formPlayerObject({ image: 0 })).toEqual(expectedResult);
+
+    expect(formPlayerObject({ team: undefined })).toEqual(expectedResult);
+    expect(formPlayerObject({ name: undefined })).toEqual(expectedResult);
+    expect(formPlayerObject({ position: undefined })).toEqual(expectedResult);
+    expect(formPlayerObject({ playerLink: undefined })).toEqual(expectedResult);
+    expect(formPlayerObject({ image: undefined })).toEqual(expectedResult);
+  });
+  
+  test('supplying correct object values should return that object\'s value', () => {
+    expect(formPlayerObject({ team: 'Wasps' })).toMatchObject({ team: 'Wasps' });
+    expect(formPlayerObject({ name: 'Joe Launchbury' })).toMatchObject({ name: 'Joe Launchbury' });
+    expect(formPlayerObject({ position: 'Second Row' })).toMatchObject({ position: 'Second Row' });
+    expect(formPlayerObject({ playerLink: 'https://...' })).toMatchObject({ playerLink: 'https://...' });
+    expect(formPlayerObject({ image: 'https://...' })).toMatchObject({ image: 'https://...' });
+  });
+
+  test('supplying unsupported object keys should not return in the object\'s response', () => {
+    expect(formPlayerObject({ somethingUnsupported: 'SOME VALUE' })).not.toMatchObject({ somethingUnsupported: 'SOME VALUE' });
+  });
+})
+```
+
+Once I had established what my function should do and how it should respond with different parameters being passed in, I knew that I had created a robust function that was capable of performing the exact purpose that I had intended it to. Using TDD helped me think about some of the edge cases that I might need to cater for which ultimately helped make the function even more robust.
+
+With this test file in place, I then began to write the function like so:
+
+```javascript
+// index.js
+
+/**
+ * Return a standardised object of a player
+ * @param {string} team The team that the player belongs to
+ * @param {string} name The name of the player
+ * @param {string} position The position that the player plays in
+ * @param {string} playerLink The link to the player info page
+ * @param {string} image The link to the image of the player
+ */
+formPlayerObject = ({
+  team = null,
+  name = null,
+  position = null,
+  playerLink = null,
+  image = null
+} = {}) => {
+  if (typeof team !== 'string') team = null
+  if (typeof name !== 'string') name = null
+  if (typeof position !== 'string') position = null
+  if (typeof playerLink !== 'string') playerLink = null
+  if (typeof image !== 'string') image = null
+
+  return {
+    team,
+    name,
+    position,
+    playerLink,
+    image
+  };
+};
+```
+
+I continued using this process throughout this project and subsequently, the benefits of this process became more evident as my functions became more complex. I feel that my code benefited by becoming more robust and well-thought-out. As a practice, it is something that I would like to continue.
+
+----
+
+If you would like to see this project in its fullest form, you can check out the repository on GitHub. I will continue to work on this project as and when. If you feel that there is something that you could add, please feel free to submit an Issue or Pull Request. I would love to see your suggestions.

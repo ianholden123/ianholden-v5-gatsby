@@ -1,0 +1,121 @@
+---
+author: "Ian Holden"
+categories: [
+  "Tutorials"
+]
+date: "2021-02-21"
+excerpt: "In this post, I am going to show you some of the future JavaScript features that you can use today. Our focus will be on data structures within JavaScript that were outlined as less commonly used in 2020’s State of JS survey."
+featuredImage: {
+  alt: "",
+  src: ""
+}
+modified: ""
+tags: [
+  "JavaScript",
+]
+title: "Future JavaScript – Stay ahead of the curve by using new JavaScript features today (4/4 – Data Structures)"
+---
+
+In this post, I am going to show you some of the future JavaScript features that you can use today. Our focus will be on data structures within JavaScript that were outlined as less commonly used in 2020’s State of JS survey.
+
+This post is the fourth and final in a series focussing on using future JavaScript features. If you would like to know more about what tools you will need to <Link to='/blog/future-javascript-stay-ahead-of-the-curve-by-using-new-javascript-features-today-1/'>begin using future JavaScript features</Link>, using <Link to='/blog/future-javascript-stay-ahead-of-the-curve-by-using-new-javascript-features-today-2/'>new syntax features</Link> or <Link to='/blog/future-javascript-stay-ahead-of-the-curve-by-using-new-javascript-features-today-3/'>using new JavaScript language features</Link>, I would recommend viewing the previous posts in this series.
+
+## Getting Started
+
+Firstly, we will explore how the **map** object gives us an opportunity to store key-value pairs.
+
+Secondly, we are going to see how we can use **sets** to store a unique set of values.
+
+Finally, we will explore the `flat()` method of JavaScript Arrays. This allows us to pull arrays from inside of an array and move them “up a level” within the array so-to-speak.
+
+Let’s begin with maps.
+
+## Maps
+
+Similar to objects, maps allow us to store key-value pairs. The difference is, maps allow us to store any type of value as a key. We could have a boolean key and a corresponding value which is an object if we wanted!
+
+Maps also come with a host of helpful functions. We can count the number of elements within a Map object or check for the existence of a given key. We also have the CRUD-style (create, read, update and delete) operations too.
+
+To explain how we can use Map objects, let’s begin with an example. Let’s set up a map named `myMap` and then add some key-value pairs to it.
+
+```javascript
+let myMap = new Map();
+
+let keyString = "a string";
+let keyObj = {};
+let keyFunc = function () {};
+
+myMap.set(keyString, "value associated with 'a string'");
+myMap.set(keyObj, "value associated with keyObj");
+myMap.set(keyFunc, "value associated with keyFunc");
+We can use the in-built functions like so:
+
+myMap.size // 3
+myMap.get(keyString) // "value associated with 'a string'"
+myMap.get(keyObj) // "value associated with keyObj"
+myMap.get(keyFunc) // "value associated with keyFunc"
+myMap.has("a string") // true
+myMap.has("string") // false
+```
+
+Next up, let’s take a look at Sets.
+
+## Sets
+
+Sets allow us to create collections of unique values of any type. The easiest way to illustrate this is with some examples:
+
+```javascript
+let mySet = new Set();
+
+mySet.add(1);
+mySet.add(2);
+mySet.add(2);
+mySet.add("three");
+let o = { a: 1, b: 2 };
+mySet.add(o);
+```
+
+After adding these values to our set, let’s try out some functions to see what is happening inside our set object:
+
+```javascript
+mySet.size // 5
+mySet.has(1) // true
+mySet.has(2) // true
+mySet.has(Math.sqrt(4)) // true
+mySet.has("Three") // false
+mySet.has("Three".toLowerCase()) // true
+mySet.has(o) // true
+```
+
+Did you notice that we tried to add the number 2 twice? Our set will only contain one value for the number 2 because it will only add unique values.
+
+## Array.prototype.flat()
+
+The `Array.prototype.flat` function can be useful when you need to ‘flatten’ an array. If our array has values that are arrays, we can bring those arrays up a level towards the parent array. It is similar to destructuring the child array inside of its parent.
+
+Here is a simple example of how you can use it:
+
+```javascript
+const myArray = [0, [1], [[2]], [[[3]]]];
+
+myArray.flat() // [0, 1, [2], [[3]]]
+myArray.flat(2) // [0, 1, 2, [3]]
+myArray.flat(3) // [0, 1, 2, 3]
+```
+
+## Live Example
+
+If you would like to play with these features in a live environment, I have created a Code Sandbox for you to clone and tamper with at your leisure. It is a Node sandbox that uses the Console to log the output from all of the examples that you have seen in this post. To view these logs, you may need to run `yarn start` in the Console.
+
+<iframe src="https://codesandbox.io/embed/future-javascript-2020-data-structures-bsg9d?fontsize=14&hidenavigation=1&theme=dark"
+  style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+  title="Future JavaScript 2020 - Data Structures"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
+
+## To Conclude
+
+Thank you for reading my post. If you have enjoyed this series, please let me know in the comments. I have learnt a lot about these new language features and will be looking to use them in future projects, where appropriate.
+
+Are there any other features of JavaScript that you would like to know more about in a future post or another future series perhaps? Let me know in the comments and be sure to continue for more JavaScript posts.

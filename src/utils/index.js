@@ -1,15 +1,4 @@
 import { decode } from 'html-entities';
-import config from '../config'
-
-export const createLocalLink = (url, stringsToExclude = []) => {
-  if (!url || url === '#') return '/'
-  if (Array.isArray(stringsToExclude) && stringsToExclude.length > 0) {
-    stringsToExclude.forEach(string => {
-      if (typeof string === 'string') url = url.replace(string, '')
-    })
-  }
-  return url.replace(config.wordPressURL, '')
-}
 
 export const getRandomInt = (max = 1, min = 0) => {
   return (Math.floor(Math.random() * Math.floor(max + 1))) + min
