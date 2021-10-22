@@ -21,10 +21,6 @@ export const hasCookie = (key) => {
   return false
 }
 
-export const stripHtmlFromString = string => string.replace(/(<([^>]+)>)/gi, '')
-
-export const removeLargeSpacesFromString = string => string.replace(/\s/g, ' ').trim();
-
 export const htmlDecode = (input) => {
   return decode(input)
 }
