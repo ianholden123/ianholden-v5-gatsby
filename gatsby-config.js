@@ -7,7 +7,6 @@ module.exports = {
     siteUrl: 'https://ianholden.co.uk'
   },
   plugins: [
-    "gatsby-plugin-feed-mdx",
     "gatsby-plugin-image",
     {
       resolve: "gatsby-plugin-google-analytics",
@@ -51,7 +50,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `content`,
-        path: `${__dirname}/src/content`,
+        path: `${__dirname}/src/content/`,
       },
     },
   ],

@@ -1,26 +1,24 @@
 import React from 'react'
-import { Link, useStaticQuery, graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import { Link } from 'gatsby'
+import { StaticImage } from "gatsby-plugin-image"
 import Icon from '../icons'
 import classNames from 'classnames'
 
 const MetaComponent = ({ author, categories, date, isPostArchive, modified, tags }) => {
   const renderAuthor = (author) => {
-    const data = useStaticQuery(graphql`
-      query {
-        image: file(relativePath: { eq: "ianHeadshot.jpg" }) {
-          childImageSharp {
-            fixed(width: 50, height: 50) {
-              ...GatsbyImageSharpFixed
-            }
-          }
-        }
-      }
-    `)
-
     return author && (
       <ul className='author flex flex-v-middle ml-0 mr-4 mb-3 mt-3' itemProp="author" itemScope itemType="http://schema.org/Person">
-        <li className="m-0 mr-3 inline"><Link to='/about'><Img fixed={data.image.childImageSharp.fixed} alt='Ian Holden' /></Link></li>
+        <li className="m-0 mr-3 inline">
+          <Link to='/about'>
+            <StaticImage
+              alt='Ian Holden'
+              height={50}
+              placeholder="blurred"
+              src='../../images/ianHeadshot.jpg'
+              width={50}
+            />
+          </Link>
+        </li>
         <li className="m-0 inline">Written by <span itemProp="name"><Link to='/about'>{author}</Link></span></li>
       </ul>
     )

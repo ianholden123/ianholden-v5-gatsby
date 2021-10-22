@@ -56,19 +56,3 @@ gatsby build
 ```
 
 Once you have run `gatsby build`, upload the generated files from your `/build/` directory to your chosen hosting solution (S3, GCS, private web host, etc...).
-
-### Deploy from CLI
-
-⚠️ You must have [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html) installed and you must have a user profile configured in your `~/.aws/credentials` file. This profile requires adequate permissions to upload and delete files from your S3 bucket.
-
-⚠️ The `./scripts/build-and-upload-to-s3.sh` script must have permissions to execute. Change these permissions like so: 
-
-```
-chmod +x ./scripts/build-and-upload-to-s3.sh
-```
-
-
-To build the project and upload it to your S3 bucket, run the following command:
-```bash
-npm run build-and-upload-to-s3
-```
