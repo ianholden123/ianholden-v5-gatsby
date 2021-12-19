@@ -32,7 +32,7 @@ const AboutPage = () => (
         </div>
       </div>
       <h2 className='mt-6 px-4 not-full-width block-center'>Technologies that I have experience with</h2>
-      <h3 className='px-4 not-full-width block-center'>Most Experience With</h3>
+      <h3 className='px-4 not-full-width block-center'>I am most experienced with</h3>
       <div id='technologies' className='grid not-full-width'>
         { outputTechnology('css3', 'CSS3') }
         { outputTechnology('git', 'Git') }
@@ -41,7 +41,7 @@ const AboutPage = () => (
         { outputTechnology('node', 'Node.js') }
         { outputTechnology('react', 'React') }
       </div>
-      <h3 className='mt-3 px-4 not-full-width block-center'>Some Experience With</h3>
+      <h3 className='mt-3 px-4 not-full-width block-center'>I also have experience with</h3>
       <div id='technologies' className='grid not-full-width'>
         { outputTechnology('aws', 'AWS') }
         { outputTechnology('gatsby', 'Gatsby') }
