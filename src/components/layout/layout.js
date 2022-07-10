@@ -1,18 +1,24 @@
 import React from 'react'
-import Header from '../header/header'
+import { ThemeProvider } from 'styled-components';
+import theme from '../../config/theme';
+import GlobalStyle from '../../GlobalStyles'
+import MainMenu from '../mainMenu/mainMenu'
 import FooterComponent from '../footer/footer'
 import CookieNotice from '../cookieNotice/cookieNotice'
 
-import '../../index.css'
-
 const Layout = ({ children }) => {
   return (
-    <>
-      <Header />
-      <main>{children}</main>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <header>
+        <MainMenu />
+      </header>
+      <main>
+        {children}
+      </main>
       <FooterComponent />
       <CookieNotice />
-    </>
+    </ThemeProvider>
   )
 }
 

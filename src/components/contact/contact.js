@@ -1,6 +1,7 @@
 import React from 'react'
-import config from '../../../config'
+import config from '../../config'
 import { OutboundLink } from 'gatsby-plugin-google-analytics'
+import Button from '../button/button'
 
 const buttons = [
   { name: 'Email', url: `mailto:${config.email}` },
@@ -19,11 +20,11 @@ const ContactWrapperComponent = ({ isContactPage = false }) => (
       to help! Get in touch by using one of the following channels below:
     </p>
     { buttons.map((button, index) => (
-      <button className='mr-5 uppercase' key={index}>
+      <Button className='mr-5 uppercase' key={index}>
         <OutboundLink href={button.url} target='_blank' rel='noreferrer noopener'>
           {button.name}
         </OutboundLink>
-      </button>
+      </Button>
     ))}
   </article>
 )

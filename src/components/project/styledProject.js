@@ -1,3 +1,6 @@
+import styled from 'styled-components'
+
+export default styled.div`
 #projects .grid {
   grid-template-columns: 1fr;
   grid-gap: 0;
@@ -19,3 +22,4 @@
     grid-template-columns: 1fr 1fr;
   }
 }
+`

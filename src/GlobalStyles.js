@@ -1,3 +1,6 @@
+import { createGlobalStyle } from 'styled-components';
+
+export default createGlobalStyle`
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -445,7 +448,7 @@ blockquote{
 
 blockquote::before{
   font-family:Arial;
-  content: "\201C";
+  content: &#8220;
   color: var(--colorBlue);
   font-size:4em;
   position: absolute;
@@ -678,7 +681,6 @@ h1, h2, h3, h4, h5, h6 {
 .f-3 { font-size: 1.5rem; }
 .f-4 { font-size: 1.25rem; }
 .f-5 { font-size: 1rem; }
-.f-6 { font-size: .875rem; }
 
 .f-thin { font-weight: 200; }
 
@@ -689,7 +691,6 @@ h1, h2, h3, h4, h5, h6 {
 .p-3 { padding: .5rem; }
 .p-4 { padding: 1rem; }
 .p-5 { padding: 2rem; }
-.p-6 { padding: 4rem; }
 
 .px-0 { padding-left: 0; padding-right: 0; }
 .px-1 { padding-left: .125rem; padding-right: .125rem; }
@@ -721,7 +722,6 @@ h1, h2, h3, h4, h5, h6 {
 .pb-3 { padding-bottom: .5rem; }
 .pb-4 { padding-bottom: 1rem; }
 .pb-5 { padding-bottom: 2rem; }
-.pb-6 { padding-bottom: 4rem; }
 
 .pl-0 { padding-left: 0; }
 .pl-1 { padding-left: .125rem; }
@@ -729,7 +729,6 @@ h1, h2, h3, h4, h5, h6 {
 .pl-3 { padding-left: .5rem; }
 .pl-4 { padding-left: 1rem; }
 .pl-5 { padding-left: 2rem; }
-.pl-6 { padding-left: 4rem; }
 
 .pr-0 { padding-right: 0; }
 .pr-1 { padding-right: .125rem; }
@@ -737,7 +736,6 @@ h1, h2, h3, h4, h5, h6 {
 .pr-3 { padding-right: .5rem; }
 .pr-4 { padding-right: 1rem; }
 .pr-5 { padding-right: 2rem; }
-.pr-6 { padding-right: 4rem; }
 
 /* MARGIN *******************************************/
 .m-0 { margin: 0; }
@@ -746,7 +744,6 @@ h1, h2, h3, h4, h5, h6 {
 .m-3 { margin: .5rem; }
 .m-4 { margin: 1rem; }
 .m-5 { margin: 2rem; }
-.m-6{ margin: 4rem; }
 
 .mx-0 { margin-left: 0; margin-right: 0; }
 .mx-1 { margin-left: .125rem; margin-right: .125rem; }
@@ -754,7 +751,6 @@ h1, h2, h3, h4, h5, h6 {
 .mx-3 { margin-left: .5rem; margin-right: .5rem; }
 .mx-4 { margin-left: 1rem; margin-right: 1rem; }
 .mx-5 { margin-left: 2rem; margin-right: 2rem; }
-.mx-6 { margin-left: 4rem; margin-right: 4rem; }
 
 .my-0 { margin-top: 0; margin-bottom: 0; }
 .my-1 { margin-top: .125rem; margin-bottom: .125rem; }
@@ -762,7 +758,6 @@ h1, h2, h3, h4, h5, h6 {
 .my-3 { margin-top: .5rem; margin-bottom: .5rem; }
 .my-4 { margin-top: 1rem; margin-bottom: 1rem; }
 .my-5 { margin-top: 2rem; margin-bottom: 2rem; }
-.my-6 { margin-top: 4rem; margin-bottom: 4rem; }
 
 .mt-0 { margin-top: 0; }
 .mt-1 { margin-top: .125rem; }
@@ -778,7 +773,6 @@ h1, h2, h3, h4, h5, h6 {
 .mb-3 { margin-bottom: .5rem; }
 .mb-4 { margin-bottom: 1rem; }
 .mb-5 { margin-bottom: 2rem; }
-.mb-6 { margin-bottom: 4rem; }
 
 .ml-0 { margin-left: 0; }
 .ml-1 { margin-left: .125rem; }
@@ -786,7 +780,6 @@ h1, h2, h3, h4, h5, h6 {
 .ml-3 { margin-left: .5rem; }
 .ml-4 { margin-left: 1rem; }
 .ml-5 { margin-left: 2rem; }
-.ml-6 { margin-left: 4rem; }
 
 .mr-0 { margin-right: 0; }
 .mr-1 { margin-right: .125rem; }
@@ -794,7 +787,6 @@ h1, h2, h3, h4, h5, h6 {
 .mr-3 { margin-right: .5rem; }
 .mr-4 { margin-right: 1rem; }
 .mr-5 { margin-right: 2rem; }
-.mr-6 { margin-right: 4rem; }
 
 /* DISPLAY ******************************************/
 .block { display: block; }
@@ -802,7 +794,6 @@ h1, h2, h3, h4, h5, h6 {
 .inline-block { display: inline-block; }
 .inline { display: inline; }
 .flex-v-middle { align-items: center; }
-.w-100 { width: 100%; }
 
 /* BLOCKS *******************************************/
 .block-center { margin-left: auto; margin-right: auto; }
@@ -810,165 +801,97 @@ h1, h2, h3, h4, h5, h6 {
 .reading-content { max-width: var(--articleContentWidth); }
 
 /* TEXT *********************************************/
-.italic { font-style: italic; }
-.bold { font-weight: bold; }
-.underline { text-decoration: underline; }
-.strike { text-decoration: line-through; }
 .capitalize { text-transform: capitalize; }
 .uppercase { text-transform: uppercase; }
 .text-center { text-align: center; }
 
 /* BACKGROUND COLOURS *******************************/
 .bg-white { background-color: var(--colorWhite); }
-.bg-grey { background-color: var(--colorGrey); }
 .bg-light-grey { background-color: var(--colorLightGrey); }
-.bg-dark-grey { background-color: var(--colorDarkGrey); }
-.bg-black { background-color: var(--colorBlack); }
 
 /* COLOURS ******************************************/
 .color-white { color: var(--colorWhite) }
 .color-grey { color: var(--colorGrey); }
 .color-dark-grey { color: var(--colorDarkGrey); }
-.color-light-grey { color: var(--colorLightGrey); }
 .color-black { color: var(--colorBlack) }
-
-/* BORDER RADIUS ************************************/
-.br-0 { border-radius: 0; }
-.br-1 { border-radius: .25rem; }
-.br-2 { border-radius: 1rem; }
-.br-pill { border-radius: 9999px; }
 
 /* ICONS ********************************************/
 .icon-tiny { width: 13px; }
 .icon-smaller { width: 20px; }
 .icon-small { width: 75px; }
-.icon-medium { width: 200px; }
-.icon-large { width: 500px; }
-
-/* POSITION ****************************************/
-.pos-rel { position: relative; }
-.top-4 { top: 4px; }
 
 /*****************************************************************
-* COMMON ELEMENTS ***********************************************
+* ARTICLE - CONTENT *********************************************
 *****************************************************************/
-
-button {
-  border: 3px solid var(--colorBlue);
-  color: var(--colorBlue);
-  font-family: inherit;
-  font-size: inherit;
-  background: none;
-  cursor: pointer;
-  display: inline-block;
-  letter-spacing: 1px;
-  font-weight: 700;
-  outline: none;
-  position: relative;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  transition: all 0.3s;
-  overflow: hidden;
-  z-index: 1;
+article.highlight {
+  box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+  -webkit-box-shadow: 0 3px 15px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0 3px 15px rgba(0,0,0,0.2);;
+  padding: 20px;
 }
 
-button a {
-  display: inline-block;
-  padding: .5rem 1rem;
-  text-decoration: none;
+ul.dates li:after,
+ul.category li:after,
+ul.tags li:after {
+  content: ', ';
 }
 
-button:hover, button:active {
-  color: var(--colorWhite);
-  background-color: var(--colorBlueDark);
-  border-color: var(--colorBlueDark);
-}
-
-button a:hover, button a:active {
-  color: var(--colorWhite);
-  text-decoration: none;
-}
-
-/*****************************************************************
-* GRID **********************************************************
-*****************************************************************/
-.grid {
-  /* Flex - fallback for browsers that do not support grid yet. */
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.grid-panel {
-  /* Flex - fallback for browsers that do not support grid yet. */
-  margin-left: 5px;
-  margin-right: 5px;
-  flex: 1 1 200px;
-}
-
-.grid {
-  margin: 0 auto;
-  display: grid;
-  grid-gap: var(--gridGap);
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-}
-
-@supports (display: grid) {
-  .grid>* {
-      /* We need to set the margin used on flex items to 0 as we have gaps in grid. */
-      margin: 0;
-  }
-}
-
-.grid.two-col {
-  grid-template-columns: auto auto;
-}
-
-/*****************************************************************
-* HORIZONTAL SCROLL *********************************************
-*****************************************************************/
-.horizontalScroll {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  justify-content: center;
-  -webkit-overflow-scrolling: touch;
-}
-
-.horizontalScroll::-webkit-scrollbar {
-  display: none;
-}
-
-.horizontalScroll:before, .horizontalScroll:after {
+ul.dates li:last-child:after,
+ul.category li:last-child:after,
+ul.tags li:last-child:after {
   content: '';
-  padding: 0 1px;
 }
 
-.horizontalScroll .hsItem {
-  flex: 0 0 auto;
-  margin: 20px;
-  width: 70%;
-  max-width: 300px;
+ul.author li img {
+  border-radius: 100%;
+  border: 3px solid var(--colorDarkGrey);
 }
 
-.horizontalScroll .hsItem:first-child {
-  margin-left: calc(var(--gutter) * 2);
+ul.author li a img {
+  border: 3px solid var(--colorBlue);
 }
 
-.horizontalScroll .hsItem:last-child {
-  margin-right: calc(var(--gutter) * 2);
+article.post img.featured-image {
+  max-height: 500px;
 }
 
-.horizontalScroll .hsItem img {
-  max-width: 100%;
+article.post .content h2,
+article.post .content h3,
+article.post .content h4,
+article.post .content h5,
+article.post .content h6,
+article.post .content p,
+article.post .content ul,
+article.post .content ol,
+article.post .content hr,
+article.post .content blockquote {
+  max-width: var(--articleContentWidth);
+  margin-left: auto; margin-right: auto;
+}
+ 
+article.post .content p,
+article.post .content figure {
+  margin-top: 2rem; margin-bottom: 2rem;
 }
 
-/* 
- * It would be nice to find a more dynamic solution than this.
- * If we change the number of projects that we display on the 
- * front-end, we need to change the max-width value. Not ideal.
- */
-@media (max-width: 1403px) { 
-  .horizontalScroll {
-    justify-content: normal;
-  }
+article.post .content ul {
+  padding-left: 20px;
 }
+
+article.post .content figure figcaption {
+  font-style: italic;
+  font-weight: 200;
+  color: var(--colorDarkGrey);
+  max-width: var(--articleContentWidth);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+article.post .content figure img {
+  display: block;
+  margin: 10px auto;
+  box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+  -webkit-box-shadow: 0 3px 15px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0 3px 15px rgba(0,0,0,0.2);
+}
+`

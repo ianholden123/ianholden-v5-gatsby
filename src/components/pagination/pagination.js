@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import Button from '../button/button'
 
 const Pagination = ({
   hasNextPage,
@@ -24,14 +25,14 @@ const Pagination = ({
   return (
     <nav className={navClasses}>
       {prevLink && (
-        <button className='mr-4 uppercase'>
+        <Button className='mr-4 uppercase'>
           <Link to={prevLink}>{prevLabel}</Link>
-        </button>
+        </Button>
       )}
       {nextLink && (
-        <button className='uppercase'>
+        <Button className='uppercase'>
           <Link to={nextLink}>{nextLabel}</Link>
-        </button>
+        </Button>
       )}
     </nav>
   )

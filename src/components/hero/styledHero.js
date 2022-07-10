@@ -1,9 +1,15 @@
+import styled from 'styled-components'
+import ian from '../../images/ian.jpg';
+import ian800 from '../../images/ian800.jpg';
+import ian1200 from '../../images/ian1200.jpg';
+
+export default styled.article`
 .hero {
   display: table;
   height: 100vh;
   text-align: center;
   width: 100%;
-  background-image: url('../../images/ian800.jpg');
+  background-image: url(${ian800});
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
@@ -47,9 +53,10 @@
 }
 
 @media (min-width: 700px) {
-  .hero { background-image: url('../../images/ian1200.jpg') }
+  .hero { background-image: url(${ian1200}) }
 }
 
 @media (min-width: 1000px) {
-  .hero { background-image: url('../../images/ian.jpg') }
+  .hero { background-image: url(${ian}) }
 }
+`

@@ -1,38 +1,42 @@
-#projectsWrapper img.logo {
+import styled from 'styled-components'
+
+export default styled.article`
+img.logo {
   position: absolute;
   z-index: 2;
   top: 10%;
   left: 0;
 }
 
-#projectsWrapper img:first-child {
+img:first-child {
   margin: 0;
   box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
   -webkit-box-shadow: 0 3px 15px rgba(0,0,0,0.2);
   -moz-box-shadow: 0 3px 15px rgba(0,0,0,0.2);
 }
 
-#projectsWrapper .hsItem {
+.hsItem {
   position: relative;
 }
 
-#projectsWrapper .hsItem.blank {
+.hsItem.blank {
   border: 4px dashed grey;
 }
 
-#projectsWrapper .hsItem.blank.link {
+.hsItem.blank.link {
   border-color: var(--colorBlue);
 }
 
-#projectsWrapper .hsItem.blank.link:hover,
-#projectsWrapper .hsItem.blank.link:active,
-#projectsWrapper .hsItem.blank.link:focus {
+.hsItem.blank.link:hover,
+.hsItem.blank.link:active,
+.hsItem.blank.link:focus {
  border-color: var(--colorBlueDark);
 }
 
-#projectsWrapper .hsItem.blank p {
+.hsItem.blank p {
   display: flex;
   height: 100%;
   align-items: center;
   justify-content: center;
 }
+`

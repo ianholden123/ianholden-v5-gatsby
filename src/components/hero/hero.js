@@ -1,8 +1,8 @@
 import React from 'react'
-import './hero.css'
+import StyledHero from './styledHero'
 
 const HeroComponent = () => (
-  <article id='heroWrapper'>
+  <StyledHero id='heroWrapper'>
     <div className='hero'>
       <div className='content'>
         <div className='name inline-block px-4 py-3' itemScope itemType='http://schema.org/Person'>
@@ -20,7 +20,7 @@ const HeroComponent = () => (
         <div className='arrow-down'></div>
       </div>
     </div>
-  </article>
+  </StyledHero>
 )
 
 export default HeroComponent
