@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'gatsby'
 import classNames from 'classnames'
+import Button from '../button/button'
 import StyledMainMenu from './styledMainMenu'
 
 const MainMenu = () => {
@@ -29,11 +30,11 @@ const MainMenu = () => {
     <StyledMainMenu className={classNames(isMenuOpen ? 'show' : '')}>
       <div className='main-bar p-4 not-full-width block-center'>
         <Link to='/'>
-          <button className='brand uppercase'>Ian Holden</button>
+          <Button className='brand uppercase'>Ian Holden</Button>
         </Link>
-        <button onClick={toggleMenu}>
+        <Button onClick={toggleMenu}>
           <div className='nav-icon'><div></div></div>
-        </button>
+        </Button>
       </div>
       <div className='menu-items bg-white text-center'>
         <div className='not-full-width block-center'>

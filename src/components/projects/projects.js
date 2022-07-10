@@ -4,6 +4,8 @@ import StyledProjects from './styledProjects'
 
 import ProjectTile from './projectTile'
 import BlankProjectTile from './blankProjectTile'
+import Button from '../button/button'
+import HorizontalScroll from '../horizontalScroll/horizontalScroll'
 
 const ProjectsComponent = props => {
   const [rectangle, setRectangle] = useState(null);
@@ -43,7 +45,7 @@ const ProjectsComponent = props => {
           return (
             <StyledProjects className='px-0 m-0 py-5'>
               <h2 className='text-center mt-6'>Web Projects</h2>
-              <div className='horizontalScroll'>
+              <HorizontalScroll>
                 { projectsToDisplay.map((project, index) => (
                   <ProjectTile
                     id={project.frontmatter.id}
@@ -61,10 +63,10 @@ const ProjectsComponent = props => {
                   text='View All Projects'
                   heightPx={rectangle}
                 />
-              </div>
-              <button className='block block-center mb-5 mt-3 uppercase'>
+              </HorizontalScroll>
+              <Button className='block block-center mb-5 mt-3 uppercase'>
                 <Link to='/projects'>View all projects</Link>
-              </button>
+              </Button>
             </StyledProjects>
           )
         }

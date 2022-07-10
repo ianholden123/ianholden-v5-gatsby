@@ -16,7 +16,7 @@ const CookieNotice = () => {
     hasBeenDismissed ? (
       ''
     ) : (
-      <StyledCookieNotice className='bg-light-grey w-100'>
+      <StyledCookieNotice className='bg-light-grey'>
         <div className='p-4 not-full-width block-center'>
           <p>
             This site uses cookies. Close this dialog to confirm you are happy to continue or find out more in my <Link to='/cookie-policy'>cookie policy document</Link>.

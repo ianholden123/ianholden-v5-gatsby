@@ -5,12 +5,20 @@ export default styled.article`
   z-index: 0;
 
   .grid {
+    display: grid;
     grid-template-columns: 1fr;
     grid-gap: 0
   }
 
   .image-panel {
     background-color: var(--colorLightGrey);
+  }
+
+  .grid-panel {
+    /* Flex - fallback for browsers that do not support grid yet. */
+    margin-left: 5px;
+    margin-right: 5px;
+    flex: 1 1 200px;
   }
 
   .grid-panel:nth-child(2):before {

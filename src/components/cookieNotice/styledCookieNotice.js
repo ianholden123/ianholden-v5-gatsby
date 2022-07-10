@@ -7,4 +7,5 @@ export default styled.div`
   position: fixed;
   bottom: 0;
   z-index: 2;
+  width: 100%;
 `

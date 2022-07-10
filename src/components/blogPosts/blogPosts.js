@@ -1,6 +1,7 @@
 import React from 'react'
 import { StaticQuery, graphql, Link } from 'gatsby'
 import GridComponent from '../grid/grid'
+import Button from '../button/button'
 
 
 import PostComponent from '../post/post'
@@ -54,7 +55,7 @@ const BlogPosts = () => {
               ))}
             </GridComponent>
 
-            <button className='block block-center mb-5 mt-3 uppercase'><Link to='/blog'>View all posts</Link></button>
+            <Button className='block block-center mb-5 mt-3 uppercase'><Link to='/blog'>View all posts</Link></Button>
           </article>
         )
       }}
