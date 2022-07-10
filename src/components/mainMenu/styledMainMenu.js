@@ -1,11 +1,12 @@
-.primary-navigation {
-  width: 100%;
-  z-index: 100;
-  position: absolute;
-  top: 0;
-}
+import styled from 'styled-components'
 
-.primary-navigation.show {
+export default styled.nav`
+width: 100%;
+z-index: 100;
+position: absolute;
+top: 0;
+
+&.show {
   background-color: var(--colorWhite);
   border-bottom: 1px solid var(--colorDarkGrey);
   -webkit-box-shadow: 0 10px 6px -6px rgba(0,0,0,0.2);
@@ -13,25 +14,25 @@
   box-shadow: 0 10px 6px -6px rgba(0,0,0,0.2);
 }
 
-.primary-navigation .main-bar {
+.main-bar {
   display: flex;
   justify-content: space-between;
 }
 
-.primary-navigation .brand {
+.brand {
   letter-spacing: 0;
 }
 
-.primary-navigation .menu-items {
+.menu-items {
   display: none;
 }
 
-.primary-navigation.show .menu-items {
+&.show .menu-items {
   display: block;
 }
 
-.primary-navigation ul,
-.primary-navigation ul li {
+ul,
+ul li {
   list-style: none;
 }
 
@@ -42,9 +43,9 @@
   width: 20px;
 }
 
-.primary-navigation button .nav-icon:after,
-.primary-navigation button .nav-icon:before,
-.primary-navigation button .nav-icon div {
+button .nav-icon:after,
+button .nav-icon:before,
+button .nav-icon div {
   background-color: var(--colorBlue);
   border-radius: 3px;
   content: '';
@@ -54,23 +55,24 @@
   transition: all .2s ease-in-out;
 }
 
-.primary-navigation.show .nav-icon:before {
+&.show .nav-icon:before {
   transform: translateY(7px) rotate(135deg);
 }
 
-.primary-navigation.show .nav-icon:after {
+&.show .nav-icon:after {
   transform: translateY(-7px) rotate(-135deg);
 }
 
-.primary-navigation.show .nav-icon div {
+&.show .nav-icon div {
   transform: scale(0);
 }
 
-.primary-navigation button:hover .nav-icon:after,
-.primary-navigation button:active .nav-icon:after,
-.primary-navigation button:hover .nav-icon:before,
-.primary-navigation button:active .nav-icon:before,
-.primary-navigation button:hover .nav-icon div,
-.primary-navigation button:active .nav-icon div {
+button:hover .nav-icon:after,
+button:active .nav-icon:after,
+button:hover .nav-icon:before,
+button:active .nav-icon:before,
+button:hover .nav-icon div,
+button:active .nav-icon div {
   background-color: var(--colorWhite);
 }
+`

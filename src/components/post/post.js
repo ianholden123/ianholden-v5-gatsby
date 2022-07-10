@@ -3,7 +3,6 @@ import classNames from 'classnames'
 import { Link } from 'gatsby'
 import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
-import './post.css'
 import MetaComponent from './meta'
 import CodeBlock from './codeBlock'
 

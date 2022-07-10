@@ -1,9 +1,9 @@
 import React from 'react'
-import './experience.css'
+import StyledExperience from './styledExperience'
 import ExperiencePanelComponent from './experiencePanel'
 
 const ExperienceWrapperComponent = () => (
-  <article id='experienceWrapper' className='px-0 m-0 py-5'>
+  <StyledExperience className='px-0 m-0 py-5'>
     <h2 className='text-center'>Experience</h2>
     <div className='grid'>
       <ExperiencePanelComponent
@@ -25,7 +25,7 @@ const ExperienceWrapperComponent = () => (
       />
       <ExperiencePanelComponent isImagePanel />
     </div>
-  </article>
+  </StyledExperience>
 )
 
 export default ExperienceWrapperComponent

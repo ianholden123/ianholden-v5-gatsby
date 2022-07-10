@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import { Link } from 'gatsby'
 import classNames from 'classnames'
-import './mainMenu.css'
+import StyledMainMenu from './styledMainMenu'
 
 const MainMenu = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   
   const renderMenuItem = (item) => (
-    <li className="m-4" key={item.id}>
+    <li className="m-4" key={item.url}>
       <Link to={item.url}>{item.label}</Link>
     </li>
   )
@@ -18,15 +18,15 @@ const MainMenu = () => {
   }
 
   const menu = [
-    { id: 0, label: 'Home', url: '/'},
-    { id: 1, label: 'Projects', url: '/projects/'},
-    { id: 2, label: 'About', url: '/about/'},
-    { id: 3, label: 'Blog', url: '/blog/'},
-    { id: 4, label: 'Contact', url: '/contact/'},
+    { label: 'Home', url: '/'},
+    { label: 'Projects', url: '/projects/'},
+    { label: 'About', url: '/about/'},
+    { label: 'Blog', url: '/blog/'},
+    { label: 'Contact', url: '/contact/'},
   ]
 
   return (
-    <nav className={classNames('primary-navigation', isMenuOpen ? 'show' : '')}>
+    <StyledMainMenu className={classNames(isMenuOpen ? 'show' : '')}>
       <div className='main-bar p-4 not-full-width block-center'>
         <Link to='/'>
           <button className='brand uppercase'>Ian Holden</button>
@@ -42,7 +42,7 @@ const MainMenu = () => {
           </ul>
         </div>
       </div>
-    </nav>
+    </StyledMainMenu>
   )
 }
 

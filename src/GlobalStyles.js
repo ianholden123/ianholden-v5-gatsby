@@ -1,3 +1,6 @@
+import { createGlobalStyle } from 'styled-components';
+
+export default createGlobalStyle`
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -445,7 +448,7 @@ blockquote{
 
 blockquote::before{
   font-family:Arial;
-  content: "\201C";
+  content: &#8220;
   color: var(--colorBlue);
   font-size:4em;
   position: absolute;
@@ -890,38 +893,80 @@ button a:hover, button a:active {
 }
 
 /*****************************************************************
-* GRID **********************************************************
+* ARTICLE - CONTENT *********************************************
 *****************************************************************/
-.grid {
-  /* Flex - fallback for browsers that do not support grid yet. */
-  display: flex;
-  flex-wrap: wrap;
+article.highlight {
+  box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+  -webkit-box-shadow: 0 3px 15px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0 3px 15px rgba(0,0,0,0.2);;
+  padding: 20px;
 }
 
-.grid-panel {
-  /* Flex - fallback for browsers that do not support grid yet. */
-  margin-left: 5px;
-  margin-right: 5px;
-  flex: 1 1 200px;
+ul.dates li:after,
+ul.category li:after,
+ul.tags li:after {
+  content: ', ';
 }
 
-.grid {
-  margin: 0 auto;
-  display: grid;
-  grid-gap: var(--gridGap);
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+ul.dates li:last-child:after,
+ul.category li:last-child:after,
+ul.tags li:last-child:after {
+  content: '';
 }
 
-@supports (display: grid) {
-  .grid>* {
-      /* We need to set the margin used on flex items to 0 as we have gaps in grid. */
-      margin: 0;
-  }
+ul.author li img {
+  border-radius: 100%;
+  border: 3px solid var(--colorDarkGrey);
 }
 
-.grid.two-col {
-  grid-template-columns: auto auto;
+ul.author li a img {
+  border: 3px solid var(--colorBlue);
 }
+
+article.post img.featured-image {
+  max-height: 500px;
+}
+
+article.post .content h2,
+article.post .content h3,
+article.post .content h4,
+article.post .content h5,
+article.post .content h6,
+article.post .content p,
+article.post .content ul,
+article.post .content ol,
+article.post .content hr,
+article.post .content blockquote {
+  max-width: var(--articleContentWidth);
+  margin-left: auto; margin-right: auto;
+}
+ 
+article.post .content p,
+article.post .content figure {
+  margin-top: 2rem; margin-bottom: 2rem;
+}
+
+article.post .content ul {
+  padding-left: 20px;
+}
+
+article.post .content figure figcaption {
+  font-style: italic;
+  font-weight: 200;
+  color: var(--colorDarkGrey);
+  max-width: var(--articleContentWidth);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+article.post .content figure img {
+  display: block;
+  margin: 10px auto;
+  box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+  -webkit-box-shadow: 0 3px 15px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0 3px 15px rgba(0,0,0,0.2);
+}
+
 
 /*****************************************************************
 * HORIZONTAL SCROLL *********************************************
@@ -972,3 +1017,4 @@ button a:hover, button a:active {
     justify-content: normal;
   }
 }
+`

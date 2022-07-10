@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import Layout from '../components/layout/layout'
 import ProjectComponent from '../components/project/project'
 import SEO from '../components/seo/seo'
+import GridComponent from '../components/grid/grid'
 
 const Projects = ({
   data
@@ -17,7 +18,7 @@ const Projects = ({
       />
       <article id='projects' className='pb-5 pt-6'>
         <h1 className='px-4 not-full-width block-center'>Projects</h1>
-        <div className='grid not-full-width'>
+        <GridComponent className='not-full-width'>
           {projects.map((project, index) => {
             const {
               archiveImage,
@@ -55,7 +56,7 @@ const Projects = ({
               </div>
             )
           })}
-        </div>
+        </GridComponent>
       </article>
     </Layout>
   )

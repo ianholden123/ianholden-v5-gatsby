@@ -1,5 +1,3 @@
-const { numberOfItemsPerPage } = require('./config')
-
 const createPagesForListing = ({ actions, graphql }, pageType) => {
   const { createPage } = actions
 
@@ -19,6 +17,7 @@ const createPagesForListing = ({ actions, graphql }, pageType) => {
     }
 
     const totalCount = result?.data?.allMdx?.totalCount
+    const numberOfItemsPerPage = 10
     const numberOfPagesToCreate = totalCount ? Math.ceil(totalCount / numberOfItemsPerPage) : 0
 
     for(let pageNumber = 1; pageNumber <= numberOfPagesToCreate; pageNumber++) {
@@ -28,7 +27,7 @@ const createPagesForListing = ({ actions, graphql }, pageType) => {
         component: pageTemplate,
         context: {
           limit: numberOfItemsPerPage,
-          skip: (pageNumber - 1) * 10,
+          skip: (pageNumber - 1) * numberOfItemsPerPage,
           pageNumber,
           hasNextPage: pageNumber < numberOfPagesToCreate
         },

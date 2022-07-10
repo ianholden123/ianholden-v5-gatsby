@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { StaticQuery, graphql, Link } from 'gatsby'
-import './projects.css'
+import StyledProjects from './styledProjects'
 
 import ProjectTile from './projectTile'
 import BlankProjectTile from './blankProjectTile'
@@ -41,7 +41,7 @@ const ProjectsComponent = props => {
           const projectsToDisplay = projects.filter(project => project.frontmatter.showOnHomepage)
           
           return (
-            <article id='projectsWrapper' className='px-0 m-0 py-5'>
+            <StyledProjects className='px-0 m-0 py-5'>
               <h2 className='text-center mt-6'>Web Projects</h2>
               <div className='horizontalScroll'>
                 { projectsToDisplay.map((project, index) => (
@@ -65,7 +65,7 @@ const ProjectsComponent = props => {
               <button className='block block-center mb-5 mt-3 uppercase'>
                 <Link to='/projects'>View all projects</Link>
               </button>
-            </article>
+            </StyledProjects>
           )
         }
       }

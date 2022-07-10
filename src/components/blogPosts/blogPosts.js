@@ -1,5 +1,7 @@
 import React from 'react'
 import { StaticQuery, graphql, Link } from 'gatsby'
+import GridComponent from '../grid/grid'
+
 
 import PostComponent from '../post/post'
 
@@ -34,7 +36,7 @@ const BlogPosts = () => {
         return (
           <article id='projectsWrapper' className='not-full-width block-center px-4 pt-0 py-6'>
             <h2 className='text-center mt-6'>Blog Posts</h2>
-            <div className="articles py-5">
+            <GridComponent className="py-5">
               {postItems.map((post, index) => (
                 <PostComponent
                   author={post.frontmatter.author}
@@ -50,7 +52,7 @@ const BlogPosts = () => {
                   uri={post.slug}
                 />
               ))}
-            </div>
+            </GridComponent>
 
             <button className='block block-center mb-5 mt-3 uppercase'><Link to='/blog'>View all posts</Link></button>
           </article>

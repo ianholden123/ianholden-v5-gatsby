@@ -3,7 +3,6 @@ import { graphql } from 'gatsby'
 import Layout from '../components/layout/layout'
 import ProjectComponent from '../components/project/project'
 import SEO from '../components/seo/seo'
-import '../components/project/project.css'
 
 const Projects = ({ data }) => {
   const { mdx: { frontmatter, body, slug } } = data
