@@ -8,11 +8,15 @@
     "gatsby"
   ],
   "scripts": {
-    "develop": "gatsby develop",
-    "start": "gatsby develop",
     "build": "gatsby build",
+    "clean": "gatsby clean",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "cy:runVisualRegression": "percy exec -- cypress run",
+    "develop": "gatsby develop",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "start": "gatsby develop",
+    "test:e2e": "start-server-and-test develop http://localhost:8000 cy:runVisualRegression"
   },
   "dependencies": {
     "@mdx-js/mdx": "^1.6.22",
@@ -42,5 +46,14 @@
   },
   "resolutions": {
     "styled-components": "^5"
+  },
+  "devDependencies": {
+    "@percy/cli": "^1.6.0",
+    "@percy/cypress": "^3.1.2",
+    "@testing-library/cypress": "^8.0.3",
+    "axe-core": "^4.4.2",
+    "cypress": "^10.3.0",
+    "cypress-axe": "^1.0.0",
+    "start-server-and-test": "^1.14.0"
   }
 }

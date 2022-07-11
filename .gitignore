@@ -69,3 +69,9 @@ yarn-error.log
 .pnp.js
 # Yarn Integrity file
 .yarn-integrity
+
+# CypressIO
+cypress/results/*
+cypress/reports/*
+cypress/screenshots/*
+cypress/videos/*
