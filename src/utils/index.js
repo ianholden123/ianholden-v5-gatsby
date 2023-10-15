@@ -1,8 +1,4 @@
-import { decode } from 'html-entities';
-
-export const getRandomInt = (max = 1, min = 0) => {
-  return (Math.floor(Math.random() * Math.floor(max + 1))) + min
-}
+import { decode } from 'html-entities'
 
 export const setCookie = (key, value) => {
   // Requiring function causes error during builds as the code tries to reference document
@@ -16,7 +12,9 @@ export const setCookie = (key, value) => {
 export const hasCookie = (key) => {
   // Requiring function causes error during builds as the code tries to reference document
   if (typeof document !== 'undefined') {
-    return document.cookie.split(';').some((item) => item.trim().startsWith(key))
+    return document.cookie
+      .split(';')
+      .some((item) => item.trim().startsWith(key))
   }
   return false
 }
