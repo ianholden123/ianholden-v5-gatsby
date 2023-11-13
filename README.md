@@ -2,7 +2,7 @@
   Ian Holden V5 - Gatsby
 </h1>
 <p>
-  This repository hosts the Gatsby site for Ian Holden's professional website.
+  This repository hosts the Gatsby site for Ian Holden's professional website: <a href='https://ianholden.co.uk'>https://ianholden.co.uk</a>
 </p>
 
 ## 📖 Quick start
