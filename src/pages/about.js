@@ -36,23 +36,24 @@ const AboutPage = () => (
       <h3 className='px-4 not-full-width block-center'>I am most experienced with</h3>
       <div id='technologies' className='block-center not-full-width'>
         { outputTechnology('css3', 'CSS3') }
-        { outputTechnology('git', 'Git') }
         { outputTechnology('html5', 'HTML5') }
         { outputTechnology('javascript', 'JavaScript') }
+        { outputTechnology('nextjs', 'Next.js') }
         { outputTechnology('node', 'Node.js') }
         { outputTechnology('react', 'React') }
       </div>
       <h3 className='mt-3 px-4 not-full-width block-center'>I also have experience with</h3>
       <div id='technologies' className='block-center not-full-width'>
-        { outputTechnology('aws', 'AWS') }
         { outputTechnology('gatsby', 'Gatsby') }
-        { outputTechnology('illustrator', 'Illustrator') }
+        { outputTechnology('git', 'Git') }
         { outputTechnology('ionic', 'Ionic') }
+        { outputTechnology('jest', 'Jest') }
         { outputTechnology('jquery', 'jQuery') }
         { outputTechnology('mysql', 'MySQL') }
-        { outputTechnology('photoshop', 'Photoshop') }
         { outputTechnology('php', 'PHP') }
         { outputTechnology('sass', 'Sass') }
+        { outputTechnology('storybook', 'Storybook') }
+        { outputTechnology('tailwindcss', 'Tailwind CSS') }
         { outputTechnology('typescript', 'TypeScript') }
         { outputTechnology('wordpress', 'WordPress') }
       </div>
