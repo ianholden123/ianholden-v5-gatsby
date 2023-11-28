@@ -16,6 +16,8 @@ position: relative;
 transition: all 0.3s;
 overflow: hidden;
 z-index: 1;
+text-shadow: 1px 1px 1px var(--colorWhite); // Make buttons more accessible over darker backgrounds
+box-shadow: 1px 1px 1px var(--colorWhite); // Make buttons more accessible over darker backgrounds
 
 a {
   display: inline-block;

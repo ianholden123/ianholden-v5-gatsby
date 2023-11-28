@@ -1,14 +1,8 @@
 import React from "react"
 import { graphql } from "gatsby"
-// import { DiscussionEmbed } from 'disqus-react'
 import Layout from '../components/layout/layout'
 import SEO from '../components/seo/seo'
 import PostComponent from '../components/post/post'
-
-// const disqusConfig = (url, slug, title) => ({
-//   shortname: process.env.GATSBY_DISQUS_NAME,
-//   config: { url, identifier: slug, title }
-// })
 
 export default function Template({
   data
@@ -40,10 +34,6 @@ export default function Template({
         tags={tags}
         featuredImage={featuredImage}
       />
-      {/* <div className='reading-content block-center px-4'>
-        <hr/>
-        <DiscussionEmbed {...disqusConfig(postUrl, slug, title)} />
-      </div> */}
     </Layout>
   )
 }
