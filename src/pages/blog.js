@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Pagination from '../components/pagination/pagination'
 import Layout from '../components/layout/layout'
-import PostComponent from '../components/post/post'
+import PostCardComponent from '../components/post/post-card'
 import SEO from '../components/seo/seo'
 import GridComponent from '../components/grid/grid'
 
@@ -24,13 +24,11 @@ const PostsPage = ({
         <section className="articles">
           <GridComponent>
             {posts.length ? posts.map((post, index) => (
-              <PostComponent
-                author={post.frontmatter.author}
+              <PostCardComponent
                 categories={post.frontmatter.categories}
                 classes="highlight"
                 date={post.frontmatter.date}
                 excerpt={post.frontmatter.excerpt}
-                isPostArchive
                 key={index}
                 modified={post.frontmatter.modified}
                 tags={post.frontmatter.tags}

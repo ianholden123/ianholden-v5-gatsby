@@ -15,16 +15,14 @@ const PostComponent = ({
   content,
   date,
   excerpt,
-  isPostArchive, // @TODO: Need to refactor into two components instead of using conditional logic.
   modified,
   tags,
   title,
   uri
 }) => {
   const articleClasses = classNames(
-    'post not-full-width block-center', 
-    classes,
-    isPostArchive ? 'py-3' : 'px-4 pb-5 pt-6'
+    'post not-full-width block-center px-4 pb-5 pt-6', 
+    classes
   )
 
   const components = {
@@ -36,13 +34,8 @@ const PostComponent = ({
     <div itemScope itemType="http://schema.org/Article">
       <MDXProvider components={components}>
         <article className={articleClasses} >
-          { title && !isPostArchive &&
+          { title &&
             <h1 className='mb-2' itemProp="name">{title}</h1>
-          }
-          { title && isPostArchive &&
-            <Link to={`/${uri}`}>
-              <h2 className="mb-2" itemProp="name">{title}</h2>
-            </Link>
           }
           <MetaComponent
             categories={categories}
@@ -50,15 +43,12 @@ const PostComponent = ({
             modified={modified}
             tags={tags}
           />
-          { excerpt &&
-            <div className="excerpt reading-content">{excerpt}</div>
-          }
-          { content && !isPostArchive &&
+          { content &&
             <div className='content pb-4' itemProp="articleBody"><MDXRenderer>{content}</MDXRenderer></div>
           }
         </article>
       </MDXProvider>
-      { author && !isPostArchive && (
+      { author && (
         <div className='py-6 px-4 text-center bg-light-grey' itemProp="author" itemScope itemType="http://schema.org/Person">
           <div className="mb-4 f-4 f-thin">
             This post was written by <Link to='/'><span className='bold' itemProp="name">{author}</span></Link>
@@ -77,7 +67,7 @@ const PostComponent = ({
           </p>
         </div>
       )}
-      {!isPostArchive && (<ContactWrapperComponent />)}
+      <ContactWrapperComponent />
     </div>
   )
 }
