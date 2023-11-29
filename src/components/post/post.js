@@ -14,11 +14,9 @@ const PostComponent = ({
   classes,
   content,
   date,
-  excerpt,
   modified,
   tags,
   title,
-  uri
 }) => {
   const articleClasses = classNames(
     'post not-full-width block-center px-4 pb-5 pt-6', 

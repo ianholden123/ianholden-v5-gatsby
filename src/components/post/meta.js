@@ -8,12 +8,13 @@ const MetaComponent = ({ categories, date, modified, tags }) => {
     const publishedDate = modified || date
     if (!publishedDate) return <></>
 
+    const dateString = new Date(publishedDate).toLocaleDateString('en-gb', { year:"numeric", month:"short", day:"numeric"})
     const dateISOString = new Date(publishedDate).toISOString()
 
     return (
       <ul className={classNames('dates inline-block m-0 mb-3 mr-4 ml-0')}>
         <li className="m-0 inline" itemProp="datePublished" content={publishedDate}>
-          { date && (<>Published on <time dateTime={dateISOString}>{publishedDate}</time></>)}
+          { date && (<>Published on <time dateTime={dateISOString}>{dateString}</time></>)}
         </li>
       </ul>
     )
