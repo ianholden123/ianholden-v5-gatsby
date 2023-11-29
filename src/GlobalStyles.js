@@ -47,6 +47,7 @@ a {
   -webkit-text-decoration-skip: objects;
   color: var(--colorBlue);
   text-decoration: none;
+  text-shadow: 1px 1px 1px var(--colorWhite); // Make links more accessible over darker backgrounds
 }
 a:active,
 a:hover {
@@ -691,6 +692,7 @@ h1, h2, h3, h4, h5, h6 {
 .p-3 { padding: .5rem; }
 .p-4 { padding: 1rem; }
 .p-5 { padding: 2rem; }
+.p-6 { padding: 4rem; }
 
 .px-0 { padding-left: 0; padding-right: 0; }
 .px-1 { padding-left: .125rem; padding-right: .125rem; }
@@ -788,6 +790,9 @@ h1, h2, h3, h4, h5, h6 {
 .mr-4 { margin-right: 1rem; }
 .mr-5 { margin-right: 2rem; }
 
+/* BORDERS ******************************************/
+.border-radius-100 { border-radius: 100%; }
+
 /* DISPLAY ******************************************/
 .block { display: block; }
 .flex { display: flex; }
@@ -803,6 +808,7 @@ h1, h2, h3, h4, h5, h6 {
 /* TEXT *********************************************/
 .capitalize { text-transform: capitalize; }
 .uppercase { text-transform: uppercase; }
+.bold { font-weight: bold; }
 .text-center { text-align: center; }
 
 /* BACKGROUND COLOURS *******************************/
@@ -840,15 +846,6 @@ ul.dates li:last-child:after,
 ul.category li:last-child:after,
 ul.tags li:last-child:after {
   content: '';
-}
-
-ul.author li img {
-  border-radius: 100%;
-  border: 3px solid var(--colorDarkGrey);
-}
-
-ul.author li a img {
-  border: 3px solid var(--colorBlue);
 }
 
 article.post img.featured-image {

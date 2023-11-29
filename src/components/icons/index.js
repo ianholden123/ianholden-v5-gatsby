@@ -1,7 +1,6 @@
 import React from 'react'
 import classNames from 'classnames'
 
-import AppDev from './svg/appDev.js'
 import Bootstrap from './svg/bootstrap.js'
 import Category from './svg/category.js'
 import Css3 from './svg/css3.js'
@@ -11,7 +10,6 @@ import ExternalLink from './svg/externalLink.js'
 import Gatsby from './svg/gatsby.js'
 import Git from './svg/git.js'
 import GitHub from './svg/github.js'
-import Handlebars from './svg/handlebars.js'
 import Html5 from './svg/html5.js'
 import Ionic from './svg/ionic.js'
 import JavaScript from './svg/javascript.js'
@@ -25,20 +23,16 @@ import Node from './svg/node.js'
 import Php from './svg/php.js'
 import ReactIcon from './svg/react.js'
 import Sass from './svg/sass.js'
-import Seo from './svg/seo.js'
 import Storybook from './svg/storybook.js'
 import Tag from './svg/tag.js'
 import TailwindCss from './svg/tailwindCss.js'
 import Typescript from './svg/typescript.js'
-import WebDev from './svg/webDev.js'
 import WordPress from './svg/wordpress.js'
 
 const tidy = (string) => string.toLowerCase().trim()
 
 const getIcon = (name, color = '#494949') => {
   switch (tidy(name)) {
-    case 'appdev':
-      return <AppDev color={color} />
     case 'bootstrap':
       return <Bootstrap color={color} />
     case 'category':
@@ -59,8 +53,6 @@ const getIcon = (name, color = '#494949') => {
       return <Git color={color} />
     case 'github':
       return <GitHub color={color} />
-    case 'handlebars':
-      return <Handlebars color={color} />
     case 'html5':
       return <Html5 color={color} />
     case 'ionic':
@@ -87,8 +79,6 @@ const getIcon = (name, color = '#494949') => {
       return <ReactIcon color={color} />
     case 'sass':
       return <Sass color={color} />
-    case 'seo':
-      return <Seo color={color} />
     case 'tag':
       return <Tag color={color} />
     case 'storybook':
@@ -97,8 +87,6 @@ const getIcon = (name, color = '#494949') => {
       return <TailwindCss color={color} />
     case 'typescript':
       return <Typescript color={color} />
-    case 'webdev':
-      return <WebDev color={color} />
     case 'wordpress':
       return <WordPress color={color} />
     default:

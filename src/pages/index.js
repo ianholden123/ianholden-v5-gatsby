@@ -3,9 +3,9 @@ import Layout from '../components/layout/layout'
 import Seo from '../components/seo/seo'
 import HeroComponent from '../components/hero/hero'
 import ProjectsComponent from '../components/projects/projects'
-import ExperienceWrapperComponent from '../components/experience/experience'
 import ContactWrapperComponent from '../components/contact/contact'
 import BlogPosts from '../components/blogPosts/blogPosts'
+import TechnologiesComponent from "../components/technologies/technologies"
 
 const IndexPage = () => (
   <Layout>
@@ -16,9 +16,9 @@ const IndexPage = () => (
     />
     <HeroComponent />
     <ProjectsComponent />
+    <TechnologiesComponent />
     <BlogPosts />
-    <ExperienceWrapperComponent />
-    <ContactWrapperComponent isHomePage />
+    <ContactWrapperComponent />
   </Layout>
 )
 

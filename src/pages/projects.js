@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/layout/layout'
-import ProjectComponent from '../components/project/project'
+import ProjectCardComponent from '../components/project/project-card'
 import SEO from '../components/seo/seo'
 import GridComponent from '../components/grid/grid'
 
@@ -22,34 +22,17 @@ const Projects = ({
           {projects.map((project, index) => {
             const {
               archiveImage,
-              colourScheme,
-              contributors,
               excerpt,
-              featuredImage,
-              linkToProject,
-              state,
               title,
-              toolsUsed,
               typeOfProject
             } = project.frontmatter
 
             return (
               <div className='grid-panel p-4' key={index}>
-                <ProjectComponent
+                <ProjectCardComponent
                   archiveImage={archiveImage}
-                  colours={{
-                    primary: colourScheme?.primary,
-                    secondary: colourScheme?.secondary,
-                    tertiary: colourScheme?.tertiary
-                  }}
-                  contributors={contributors || null}
                   excerpt={excerpt}
-                  featuredImage={featuredImage}
-                  isPostArchive
-                  link={linkToProject || null}
-                  state={state || null}
                   title={title}
-                  toolsUsed={toolsUsed || null}
                   type={typeOfProject}
                   uri={project.slug}
                 />

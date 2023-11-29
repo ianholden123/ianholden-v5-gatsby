@@ -2,9 +2,7 @@ import React from 'react'
 import { StaticQuery, graphql, Link } from 'gatsby'
 import GridComponent from '../grid/grid'
 import Button from '../button/button'
-
-
-import PostComponent from '../post/post'
+import PostCardComponent from '../post/post-card'
 
 const BlogPosts = () => {
 
@@ -35,17 +33,15 @@ const BlogPosts = () => {
         allMdx: { nodes: postItems }
       }) => {
         return (
-          <article id='projectsWrapper' className='not-full-width block-center px-4 pt-0 py-6'>
-            <h2 className='text-center mt-6'>Blog Posts</h2>
-            <GridComponent className="py-5">
+          <article id='projectsWrapper' className='block-center px-4 py-5 bg-light-grey'>
+            <h2 className='text-center mt-5'>Latest Blog Posts</h2>
+            <GridComponent className="py-5 not-full-width">
               {postItems.map((post, index) => (
-                <PostComponent
-                  author={post.frontmatter.author}
+                <PostCardComponent
                   categories={post.frontmatter.categories}
                   classes="highlight"
                   date={post.frontmatter.date}
                   excerpt={post.frontmatter.excerpt}
-                  isPostArchive
                   key={index}
                   modified={post.frontmatter.modified}
                   tags={post.frontmatter.tags}
