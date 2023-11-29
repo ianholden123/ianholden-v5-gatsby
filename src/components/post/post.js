@@ -6,7 +6,6 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 import { MDXProvider } from "@mdx-js/react"
 import MetaComponent from './meta'
 import CodeBlock from './codeBlock'
-import config from '../../config'
 import ContactWrapperComponent from '../contact/contact'
 
 const PostComponent = ({

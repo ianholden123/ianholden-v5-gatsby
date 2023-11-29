@@ -4,7 +4,6 @@ import theme from '../../config/theme';
 import GlobalStyle from '../../GlobalStyles'
 import MainMenu from '../mainMenu/mainMenu'
 import FooterComponent from '../footer/footer'
-import CookieNotice from '../cookieNotice/cookieNotice'
 
 const Layout = ({ children }) => {
   return (
@@ -17,7 +16,6 @@ const Layout = ({ children }) => {
         {children}
       </main>
       <FooterComponent />
-      <CookieNotice />
     </ThemeProvider>
   )
 }
