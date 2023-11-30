@@ -8,7 +8,7 @@ const Pagination = ({
   nextLabel = 'Next',
   pageNumber,
   pageType,
-  prevLabel = 'Previous'
+  prevLabel = 'Previous',
 }) => {
   let prevLink = null
   if (pageNumber === 2) {
@@ -25,12 +25,12 @@ const Pagination = ({
   return (
     <nav className={navClasses}>
       {prevLink && (
-        <Button className='mr-4 uppercase'>
+        <Button className="mr-4 uppercase">
           <Link to={prevLink}>{prevLabel}</Link>
         </Button>
       )}
       {nextLink && (
-        <Button className='uppercase'>
+        <Button className="uppercase">
           <Link to={nextLink}>{nextLabel}</Link>
         </Button>
       )}

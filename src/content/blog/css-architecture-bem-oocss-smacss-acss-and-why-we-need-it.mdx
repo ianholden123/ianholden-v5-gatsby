@@ -1,25 +1,12 @@
 ---
-author: "Ian Holden"
-categories: [
-  "Tools"
-]
-date: "2021-01-11"
-excerpt: "Have you ever worked on a large project where there is a clear structure in place for the JavaScript source files, but when you need to make a change to the CSS, you are greeted with a mess of unstructured CSS?"
-featuredImage: {
-  alt: "",
-  src: ""
-}
-modified: ""
-tags: [
-  "ACSS",
-  "Architecture",
-  "BEM",
-  "CSS",
-  "OOCSS",
-  "PostCSS",
-  "SMACSS"
-]
-title: "CSS Architecture (BEM, OOCSS, SMACSS & ACSS) and why we need it"
+author: 'Ian Holden'
+categories: ['Tools']
+date: '2021-01-11'
+excerpt: 'Have you ever worked on a large project where there is a clear structure in place for the JavaScript source files, but when you need to make a change to the CSS, you are greeted with a mess of unstructured CSS?'
+featuredImage: { alt: '', src: '' }
+modified: ''
+tags: ['ACSS', 'Architecture', 'BEM', 'CSS', 'OOCSS', 'PostCSS', 'SMACSS']
+title: 'CSS Architecture (BEM, OOCSS, SMACSS & ACSS) and why we need it'
 ---
 
 Have you ever worked on a large project where there is a clear structure in place for the JavaScript source files, but when you need to make a change to the CSS, you are greeted with a mess of unstructured CSS?
@@ -73,12 +60,12 @@ OOCSS would encourage you to change the following example from something like th
 
 ```css
 .button {
-    padding: 10px 16px;
-    color: blue;
+  padding: 10px 16px;
+  color: blue;
 }
 .h1 {
-    font-size: 2em;
-    color: blue;
+  font-size: 2em;
+  color: blue;
 }
 ```
 
@@ -86,13 +73,13 @@ OOCSS would encourage you to change the following example from something like th
 
 ```css
 .button {
-    padding: 10px 16px;
+  padding: 10px 16px;
 }
 .h1 {
-    font-size: 2em;
+  font-size: 2em;
 }
 .primary {
-    color: blue;
+  color: blue;
 }
 ```
 
@@ -120,14 +107,26 @@ Here is an example of some style rules that you might find in a project that use
 
 ```css
 /* Colours */
-.color-primary { color: blue; }
-.color-secondary { color: purple; }
+.color-primary {
+  color: blue;
+}
+.color-secondary {
+  color: purple;
+}
 
 /* Margins */
-.mt-1 { margin-top: 5px; }
-.mt-2 { margin-top: 10px; }
-.mb-1 { margin-bottom: 5px; }
-.mb-2 { margin-bottom: 10px; }
+.mt-1 {
+  margin-top: 5px;
+}
+.mt-2 {
+  margin-top: 10px;
+}
+.mb-1 {
+  margin-bottom: 5px;
+}
+.mb-2 {
+  margin-bottom: 10px;
+}
 ```
 
 ACSS is also different to OOCSS in that it recommends the use of CSS properties in the naming convention of CSS selectors. For example, in OOCSS, you might target a selector named .primaryto change the colour of your elements to a nice shade of blue. In ACSS, you might target a selector named .color-primary.

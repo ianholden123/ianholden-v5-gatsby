@@ -26,7 +26,7 @@ function SEO({ description, lang, meta, title, pathName }) {
   return (
     <Helmet
       htmlAttributes={{
-        lang
+        lang,
       }}
       title={htmlDecode(title)}
       defaultTitle="Ian Holden | Software Engineer"
@@ -35,40 +35,40 @@ function SEO({ description, lang, meta, title, pathName }) {
       meta={[
         {
           name: 'description',
-          content: htmlDecode(metaDescription)
+          content: htmlDecode(metaDescription),
         },
         {
           property: 'og:title',
-          content: title
+          content: title,
         },
         {
           property: 'og:description',
-          content: htmlDecode(metaDescription)
+          content: htmlDecode(metaDescription),
         },
         {
           property: 'og:type',
-          content: 'website'
+          content: 'website',
         },
         {
           property: 'og:image',
-          content: ogImage
+          content: ogImage,
         },
         {
           name: 'twitter:card',
-          content: 'summary'
+          content: 'summary',
         },
         {
           name: 'twitter:creator',
-          content: site.siteMetadata.author
+          content: site.siteMetadata.author,
         },
         {
           name: 'twitter:title',
-          content: title
+          content: title,
         },
         {
           name: 'twitter:description',
-          content: htmlDecode(metaDescription)
-        }
+          content: htmlDecode(metaDescription),
+        },
       ].concat(meta)}
     />
   )
@@ -77,7 +77,7 @@ function SEO({ description, lang, meta, title, pathName }) {
 SEO.defaultProps = {
   lang: 'en',
   meta: [],
-  description: ''
+  description: '',
 }
 
 export default SEO

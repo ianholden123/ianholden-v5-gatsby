@@ -9,43 +9,45 @@
 
 1. **Install Dependencies**
 
-    Clone this repository and navigate to the directory where it was cloned to.
-    
-    Install the NPM modules that are required to run this project.
-    ```shell
-    npm install
-    ```
+   Clone this repository and navigate to the directory where it was cloned to.
 
-2.  **Start developing**
+   Install the NPM modules that are required to run this project.
 
-    Navigate into your new site’s directory and start it up.
+   ```shell
+   npm install
+   ```
 
-    ```shell
-    gatsby develop
-    ```
+2. **Start developing**
 
-3.  **Open the source code and start editing!**
+   Navigate into your new site’s directory and start it up.
 
-    Your site is now running at `http://localhost:8000`!
+   ```shell
+   gatsby develop
+   ```
 
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
+3. **Open the source code and start editing!**
 
-    Open the `ianholden-v5-gatsby` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+   Your site is now running at `http://localhost:8000`!
+
+   _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
+
+   Open the `ianholden-v5-gatsby` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
 
 ## 🔧 Building for hosting on a custom directory
 
 If you would like to build and host this project on a custom S3 bucket that does not sit at the root of it's domain, you would need to use a `pathPrefix` variable in the `gatsby-config.js` to specify where our resources can be found when we are ready to build the project. To do this, do the following:
 
 1. **Configure path prefix**
-    
-    Change the `pathPrefix` value in `gatsby-config.js` to match the URL where your Gatsby site will be hosted.
+
+   Change the `pathPrefix` value in `gatsby-config.js` to match the URL where your Gatsby site will be hosted.
 
 2. **Run build command**
 
-    Run the following in your terminal:
-    ```shell
-    gatsby build --prefix-paths
-    ```
+   Run the following in your terminal:
+
+   ```shell
+   gatsby build --prefix-paths
+   ```
 
 ## 🚀 Deploy
 

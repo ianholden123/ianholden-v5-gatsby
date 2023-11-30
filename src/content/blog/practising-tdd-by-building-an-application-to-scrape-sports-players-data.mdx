@@ -1,20 +1,12 @@
 ---
-author: "Ian Holden"
-categories: [
-  "Tools"
-]
-date: "2020-07-22"
-excerpt: "Have you ever wanted to gather and expose data via an API or use your gathered data in your own application? For a long while, I have wanted to build my own application that uses web scrapers to do this and I have finally made a start."
-featuredImage: {
-  alt: "",
-  src: ""
-}
-modified: ""
-tags: [
-  "Scraping",
-  "Test Driven Development"
-]
-title: "Practising TDD by building an application to scrape sports players data"
+author: 'Ian Holden'
+categories: ['Tools']
+date: '2020-07-22'
+excerpt: 'Have you ever wanted to gather and expose data via an API or use your gathered data in your own application? For a long while, I have wanted to build my own application that uses web scrapers to do this and I have finally made a start.'
+featuredImage: { alt: '', src: '' }
+modified: ''
+tags: ['Scraping', 'Test Driven Development']
+title: 'Practising TDD by building an application to scrape sports players data'
 ---
 
 Have you ever wanted to gather and expose data via an API or use your gathered data in your own application? For a long while, I have wanted to build my own application that uses web scrapers to do this and I have finally made a start.
@@ -26,8 +18,15 @@ I wanted to scrape data from rugby teams that I follow. Being an avid rugby fan,
 I started by getting a basic example of a scraper working using [Axios](https://github.com/axios/axios) and [Cheerio](https://github.com/cheeriojs/cheerio). After doing so, I was able to establish an idea of the type of data that I would be able to capture from my first webpage – Wasps RFC.
 
 <figure>
-  <img src="https://s3-eu-west-2.amazonaws.com/ianholden.co.uk-wordpress-media/wp-content/uploads/2020/07/22142026/Screenshot-2020-07-22-at-15.19.50-1024x466.png" alt="The Wasps RFC Senior Squad page" />
-  <figcaption> The Wasps RFC Senior Squad page. Here you can see that we have player’s names, positions, images and links to player profile pages available to us.</figcaption>
+  <img
+    src="https://s3-eu-west-2.amazonaws.com/ianholden.co.uk-wordpress-media/wp-content/uploads/2020/07/22142026/Screenshot-2020-07-22-at-15.19.50-1024x466.png"
+    alt="The Wasps RFC Senior Squad page"
+  />
+  <figcaption>
+    {' '}
+    The Wasps RFC Senior Squad page. Here you can see that we have player’s names,
+    positions, images and links to player profile pages available to us.
+  </figcaption>
 </figure>
 
 Once I loaded the [Wasps rugby team webpage](https://www.wasps.co.uk/players-staff/senior-squad/), I was able to see that I could extract player names, player images, links to player profile pages and player positions. This gave me a good indication of how my player object would look.
@@ -71,7 +70,7 @@ describe('formPlayerObject', () => {
     expect(formPlayerObject({ position: {} })).toEqual(expectedResult);
     expect(formPlayerObject({ playerLink: {} })).toEqual(expectedResult);
     expect(formPlayerObject({ image: {} })).toEqual(expectedResult);
-    
+
     expect(formPlayerObject({ team: [] })).toEqual(expectedResult);
     expect(formPlayerObject({ name: [] })).toEqual(expectedResult);
     expect(formPlayerObject({ position: [] })).toEqual(expectedResult);
@@ -90,7 +89,7 @@ describe('formPlayerObject', () => {
     expect(formPlayerObject({ playerLink: undefined })).toEqual(expectedResult);
     expect(formPlayerObject({ image: undefined })).toEqual(expectedResult);
   });
-  
+
   test('supplying correct object values should return that object\'s value', () => {
     expect(formPlayerObject({ team: 'Wasps' })).toMatchObject({ team: 'Wasps' });
     expect(formPlayerObject({ name: 'Joe Launchbury' })).toMatchObject({ name: 'Joe Launchbury' });
@@ -125,7 +124,7 @@ formPlayerObject = ({
   name = null,
   position = null,
   playerLink = null,
-  image = null
+  image = null,
 } = {}) => {
   if (typeof team !== 'string') team = null
   if (typeof name !== 'string') name = null
@@ -138,13 +137,13 @@ formPlayerObject = ({
     name,
     position,
     playerLink,
-    image
-  };
-};
+    image,
+  }
+}
 ```
 
 I continued using this process throughout this project and subsequently, the benefits of this process became more evident as my functions became more complex. I feel that my code benefited by becoming more robust and well-thought-out. As a practice, it is something that I would like to continue.
 
-----
+---
 
 If you would like to see this project in its fullest form, you can check out the repository on GitHub. I will continue to work on this project as and when. If you feel that there is something that you could add, please feel free to submit an Issue or Pull Request. I would love to see your suggestions.

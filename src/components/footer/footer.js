@@ -7,7 +7,7 @@ import Icon from '../icons'
 const footerLinks = [
   { name: 'Email', url: `mailto:${config.email}`, icon: 'email' },
   { name: 'LinkedIn', url: config.linkedInUrl, icon: 'linkedin' },
-  { name: 'GitHub', url: config.githubUrl, icon: 'github' }
+  { name: 'GitHub', url: config.githubUrl, icon: 'github' },
 ]
 
 const FooterComponent = () => (

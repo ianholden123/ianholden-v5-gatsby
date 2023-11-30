@@ -5,7 +5,9 @@ import ProjectComponent from '../components/project/project'
 import SEO from '../components/seo/seo'
 
 const Projects = ({ data }) => {
-  const { mdx: { frontmatter, body, slug } } = data
+  const {
+    mdx: { frontmatter, body, slug },
+  } = data
   const {
     colourScheme,
     contributors,
@@ -15,16 +17,13 @@ const Projects = ({ data }) => {
     state,
     title,
     toolsUsed,
-    typeOfProject
+    typeOfProject,
   } = frontmatter
 
   return (
     <Layout>
-      <SEO
-        title={`${title} | Projects | Ian Holden`}
-        pathName={slug}
-      />
-      <article className='post not-full-width block-center px-4 pb-5 pt-6'>
+      <SEO title={`${title} | Projects | Ian Holden`} pathName={slug} />
+      <article className="post not-full-width block-center px-4 pb-5 pt-6">
         <ProjectComponent
           title={title}
           content={body}
@@ -37,11 +36,11 @@ const Projects = ({ data }) => {
           colours={{
             primary: colourScheme?.primary,
             secondary: colourScheme?.secondary,
-            tertiary: colourScheme?.tertiary
+            tertiary: colourScheme?.tertiary,
           }}
           type={typeOfProject}
         />
-        <hr/>
+        <hr />
       </article>
     </Layout>
   )
@@ -50,7 +49,7 @@ const Projects = ({ data }) => {
 export default Projects
 
 export const pageQuery = graphql`
-  query($slug: String!) {
+  query ($slug: String!) {
     mdx(slug: { eq: $slug }) {
       body
       frontmatter {
@@ -70,7 +69,7 @@ export const pageQuery = graphql`
         title
         toolsUsed
         typeOfProject
-      },
+      }
       slug
     }
   }
