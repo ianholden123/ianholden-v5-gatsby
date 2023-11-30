@@ -1,19 +1,12 @@
 ---
-author: "Ian Holden"
-categories: [
-  "Tutorials"
-]
-date: "2013-11-24"
-excerpt: "WordPress is the biggest blogging platform in the world today. Users like it because it is easy to use, highly expansive and best of all, it’s free! This tutorial should help you with the basics of building a custom WordPress theme. When you see how easy it is, you will be making themes in no time at all!"
-featuredImage: {
-  alt: "",
-  src: ""
-}
-modified: ""
-tags: [
-  "wordpress"
-]
-title: "How to make a WordPress theme – The Basics!"
+author: 'Ian Holden'
+categories: ['Tutorials']
+date: '2013-11-24'
+excerpt: 'WordPress is the biggest blogging platform in the world today. Users like it because it is easy to use, highly expansive and best of all, it’s free! This tutorial should help you with the basics of building a custom WordPress theme. When you see how easy it is, you will be making themes in no time at all!'
+featuredImage: { alt: '', src: '' }
+modified: ''
+tags: ['wordpress']
+title: 'How to make a WordPress theme – The Basics!'
 ---
 
 WordPress is the biggest blogging platform in the world today. Users like it because it is easy to use, highly expansive and best of all, it’s free! This tutorial should help you with the basics of building a custom WordPress theme. When you see how easy it is, you will be making themes in no time at all!
@@ -123,6 +116,7 @@ To explain the following code sample, I have started a body tag and in this, I h
 You may have noticed that we have closed all our tags except for the `<body>` tag. This is important as we will close this in the footer.php file later! Don’t forget, the body of the webpage will always follow the header file and this forms part of the body of the site.
 
 ### Footer.php
+
 Our next step is to create a file called ‘footer.php’. This can be a fairly short file depending on the information you want to put here.
 
 For now, we are going to keep our header short and sweet, by adding the following code:
@@ -149,7 +143,7 @@ Go to your index.php file (which should still be blank) and add the following co
 <?php get_footer(); ?>
 ```
 
-You should notice a list of the current webpages that are set up in the back-end. If you have not added or removed any pages since the install of WordPress, you should be left with a page called “Sample Page”.  This represents everything that is currently in our header.php file.
+You should notice a list of the current webpages that are set up in the back-end. If you have not added or removed any pages since the install of WordPress, you should be left with a page called “Sample Page”. This represents everything that is currently in our header.php file.
 
 Below this you should see a horizontal line dividing the page with a copyright notice below. This represents the contents of the footer.php file.
 
@@ -157,7 +151,7 @@ At this stage of the project, it is a good idea to test that your css file is co
 
 ```css
 body {
-    margin-left: 300px;
+  margin-left: 300px;
 }
 ```
 
@@ -196,7 +190,7 @@ There are two common ways to implement a custom home page in order to offer some
 
 ### Front-page.php
 
-First, we will need to create a new file called front-page.php.  Once you have created this, you should immediately notice that when you now link to your test site URL, the home page will now be blank. This is because the site is now showing the contents of your front-page.php file which should still be empty (unless you have jumped ahead a few steps). Now you can simply add any code here that you wish to display for the home page of the site.
+First, we will need to create a new file called front-page.php. Once you have created this, you should immediately notice that when you now link to your test site URL, the home page will now be blank. This is because the site is now showing the contents of your front-page.php file which should still be empty (unless you have jumped ahead a few steps). Now you can simply add any code here that you wish to display for the home page of the site.
 
 ### Static Front Page
 
@@ -214,7 +208,7 @@ This is a very important step so that you can utilise WordPress as a CMS and use
 
 The `get_post()` function can take three parameters or none at all. We will not be using any parameters for this tutorial as we want to focus on the current post by default. When you use this function, it will return an object including data relevant to the current post/page.
 
-Note: To use this method, you must set a static front page and a static posts page. This is very simple and you may have already done this in the section above. Make sure you have two pages set up in the back-end of WordPress and assign each of these as the front page and posts page of your site. By  doing this, your static front page will now execute the code in your front-page.php file and your static posts page will execute the code in your index.php file.
+Note: To use this method, you must set a static front page and a static posts page. This is very simple and you may have already done this in the section above. Make sure you have two pages set up in the back-end of WordPress and assign each of these as the front page and posts page of your site. By doing this, your static front page will now execute the code in your front-page.php file and your static posts page will execute the code in your index.php file.
 
 In your front-page.php file, write the following:
 

@@ -3,7 +3,7 @@ import StyledButton from './styledButton'
 
 const ButtonComponent = ({ className, children, onClick }) => (
   <StyledButton className={className} onClick={onClick}>
-    { children }
+    {children}
   </StyledButton>
 )
 

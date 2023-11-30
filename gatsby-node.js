@@ -11,16 +11,22 @@ const createPagesForListing = ({ actions, graphql }, pageType) => {
         totalCount
       }
     }
-  `).then(result => {
+  `).then((result) => {
     if (result.errors) {
       return Promise.reject(result.errors)
     }
 
     const totalCount = result?.data?.allMdx?.totalCount
     const numberOfItemsPerPage = 10
-    const numberOfPagesToCreate = totalCount ? Math.ceil(totalCount / numberOfItemsPerPage) : 0
+    const numberOfPagesToCreate = totalCount
+      ? Math.ceil(totalCount / numberOfItemsPerPage)
+      : 0
 
-    for(let pageNumber = 1; pageNumber <= numberOfPagesToCreate; pageNumber++) {
+    for (
+      let pageNumber = 1;
+      pageNumber <= numberOfPagesToCreate;
+      pageNumber++
+    ) {
       const pagePath = `${pageType}/page/${pageNumber}`
       createPage({
         path: pagePath,
@@ -29,7 +35,7 @@ const createPagesForListing = ({ actions, graphql }, pageType) => {
           limit: numberOfItemsPerPage,
           skip: (pageNumber - 1) * numberOfItemsPerPage,
           pageNumber,
-          hasNextPage: pageNumber < numberOfPagesToCreate
+          hasNextPage: pageNumber < numberOfPagesToCreate,
         },
       })
       console.log(`Page created: ${pagePath}`)
@@ -54,7 +60,7 @@ const createPagesForContent = ({ actions, graphql }, pageType) => {
         }
       }
     }
-  `).then(result => {
+  `).then((result) => {
     if (result.errors) {
       return Promise.reject(result.errors)
     }

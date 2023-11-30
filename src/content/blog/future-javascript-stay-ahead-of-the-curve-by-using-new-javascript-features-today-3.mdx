@@ -1,19 +1,12 @@
 ---
-author: "Ian Holden"
-categories: [
-  "Tutorials"
-]
-date: "2021-02-14"
-excerpt: "In this post, I am going to show you some of the future JavaScript features that you can use today. Our focus will be on language features that were outlined as less commonly used in 2020’s State of JS survey."
-featuredImage: {
-  alt: "",
-  src: ""
-}
-modified: ""
-tags: [
-  "JavaScript",
-]
-title: "Future JavaScript – Stay ahead of the curve by using new JavaScript features today (3/4 – Language)"
+author: 'Ian Holden'
+categories: ['Tutorials']
+date: '2021-02-14'
+excerpt: 'In this post, I am going to show you some of the future JavaScript features that you can use today. Our focus will be on language features that were outlined as less commonly used in 2020’s State of JS survey.'
+featuredImage: { alt: '', src: '' }
+modified: ''
+tags: ['JavaScript']
+title: 'Future JavaScript – Stay ahead of the curve by using new JavaScript features today (3/4 – Language)'
 ---
 
 In this post, I am going to show you some of the future JavaScript features that you can use today. Our focus will be on language features that were outlined as less commonly used in [2020’s State of JS survey](https://2020.stateofjs.com/en-US/features/language/).
@@ -43,19 +36,19 @@ Let’s start with a code example:
 
 ```javascript
 const target = {
-  message1: "hello",
-  message2: "everyone"
-};
+  message1: 'hello',
+  message2: 'everyone',
+}
 
 const handler = {
   get: function (target, prop, receiver) {
-    if (prop === "message2") {
-      return "world";
+    if (prop === 'message2') {
+      return 'world'
     }
-  }
-};
+  },
+}
 
-const proxy = new Proxy(target, handler);
+const proxy = new Proxy(target, handler)
 
 console.log(proxy.message1) // undefined
 console.log(proxy.message2) // "world"
@@ -69,20 +62,20 @@ We can return all other properties unchanged by using the global `Reflect` objec
 
 ```javascript
 const target = {
-  message1: "hello",
-  message2: "everyone"
-};
+  message1: 'hello',
+  message2: 'everyone',
+}
 
 const handler = {
   get: function (target, prop, receiver) {
-    if (prop === "message2") {
-      return "world";
+    if (prop === 'message2') {
+      return 'world'
     }
-    return Reflect.get(...arguments); // <-- This is our addition
-  }
-};
+    return Reflect.get(...arguments) // <-- This is our addition
+  },
+}
 
-const proxy = new Proxy(target, handler);
+const proxy = new Proxy(target, handler)
 
 console.log(proxy.message1) // "hello"
 console.log(proxy.message2) // "world"
@@ -97,6 +90,7 @@ This is proxies in a nutshell. There are many more features available to us and 
 Decorators are a JavaScript feature that allows you to decorate existing class functionality by adding additional functionality to it. We can identify decorators by using the `@` prefix before a class or its methods.
 
 ### Babel config
+
 Currently (as of February 2021 – at the time of writing this post), I needed to install a couple of plugins for Babel and update its config to use this feature.
 
 Let’s start by installing the required plugins:
@@ -109,17 +103,13 @@ Next, we can update our `.babelrc` config file to include these new plugins. Her
 
 ```json
 {
-  "presets": [
-    "@babel/env"
-  ],
+  "presets": ["@babel/env"],
   "plugins": [
-    ["@babel/plugin-proposal-decorators", {"legacy": true}],
-    ["@babel/plugin-proposal-class-properties", {"loose": true}]
+    ["@babel/plugin-proposal-decorators", { "legacy": true }],
+    ["@babel/plugin-proposal-class-properties", { "loose": true }]
   ],
   "parserOpts": {
-    "plugins": [
-      "dynamicImport"
-    ]
+    "plugins": ["dynamicImport"]
   }
 }
 ```
@@ -132,13 +122,13 @@ Take a look at the following example for a demonstration of how we can add some 
 
 ```javascript
 function setSomeProperty(target) {
-  target.prototype.someProperty = "I am set by the decorator.";
+  target.prototype.someProperty = 'I am set by the decorator.'
 }
 
 @setSomeProperty
 class MyClass {}
 
-const test = new MyClass();
+const test = new MyClass()
 
 console.log(test.someProperty) // "I am set by the decorator"
 ```
@@ -154,9 +144,9 @@ With `allSettled`, we can ensure that we continue code execution when all our as
 Here is how it can be used:
 
 ```javascript
-const promise1 = Promise.resolve("FOO");
-const promise2 = Promise.reject("BAR");
-const promises = [promise1, promise2];
+const promise1 = Promise.resolve('FOO')
+const promise2 = Promise.reject('BAR')
+const promises = [promise1, promise2]
 
 Promise.allSettled(promises).then((results) => {
   console.log(results[0]) // { status: 'fulfilled', value: 'FOO' }

@@ -1,6 +1,4 @@
-import {
-  htmlDecode
-} from './index'
+import { htmlDecode } from './index'
 
 describe('htmlDecode', () => {
   test('it should convert the "&" ASCII string into a human-readable character', () => {

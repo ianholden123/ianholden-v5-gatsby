@@ -1,21 +1,12 @@
 ---
-author: "Ian Holden"
-categories: [
-  "Tutorials"
-]
-date: "2020-05-15"
-excerpt: "Automate the deployment of your static websites with Amazon S3 and NPM scripts. I have created a simple script to help you quickly upload your site to Amazon S3 by running one simple command in your project terminal."
-featuredImage: {
-  alt: "",
-  src: ""
-}
-modified: ""
-tags: [
-  "AWS",
-  "CLI",
-  "S3"
-]
-title: "Upload to Amazon S3 using AWS CLI and NPM scripts"
+author: 'Ian Holden'
+categories: ['Tutorials']
+date: '2020-05-15'
+excerpt: 'Automate the deployment of your static websites with Amazon S3 and NPM scripts. I have created a simple script to help you quickly upload your site to Amazon S3 by running one simple command in your project terminal.'
+featuredImage: { alt: '', src: '' }
+modified: ''
+tags: ['AWS', 'CLI', 'S3']
+title: 'Upload to Amazon S3 using AWS CLI and NPM scripts'
 ---
 
 Static websites are a brilliant way to create performant sites. My website is built using Gatsby and hosted on Amazon S3. I have created a simple script to help you quickly upload your site to S3 by running one simple command in your project terminal.
@@ -50,11 +41,7 @@ Using the JSON editor, we can paste the following policy. You must **replace ‘
     {
       "Sid": "VisualEditor0",
       "Effect": "Allow",
-      "Action": [
-        "s3:PutObject",
-        "s3:ListBucket",
-        "s3:DeleteObject"
-      ],
+      "Action": ["s3:PutObject", "s3:ListBucket", "s3:DeleteObject"],
       "Resource": [
         "arn:aws:s3:::ianholden.co.uk/",
         "arn:aws:s3:::ianholden.co.uk"
@@ -74,11 +61,11 @@ Doing this will require us to specify the user that we want to use when we use t
 
 ## Create a script
 
-This part of the guide will occur in our project’s directory. This method will work for any NPM project that uses a *package.json* file to control project dependencies and NPM scripts. Examples of these are React, Angular and Vue projects, to name a few.
+This part of the guide will occur in our project’s directory. This method will work for any NPM project that uses a _package.json_ file to control project dependencies and NPM scripts. Examples of these are React, Angular and Vue projects, to name a few.
 
 ### Create script file
 
-Open your web project in a code editor and create a file at the root of this project called *upload-to-s3.sh*. Enter the following code, replacing ‘ianholden.co.uk’ with the name of your S3 bucket. Replace ‘project-files’ with the relative directory that you want to upload to your S3 bucket:
+Open your web project in a code editor and create a file at the root of this project called _upload-to-s3.sh_. Enter the following code, replacing ‘ianholden.co.uk’ with the name of your S3 bucket. Replace ‘project-files’ with the relative directory that you want to upload to your S3 bucket:
 
 ```bash
 #!/bin/bash
@@ -90,7 +77,7 @@ aws s3 cp project-files/ s3://ianholden.co.uk --recursive --profile testUser
 Update package.json file
 ```
 
-In your project’s *package.json* file, add the following attribute to your ‘scripts’ object:
+In your project’s _package.json_ file, add the following attribute to your ‘scripts’ object:
 
 ```json
 scripts: {

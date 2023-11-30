@@ -1,19 +1,12 @@
 ---
-author: "Ian Holden"
-categories: [
-  "Tutorials"
-]
-date: "2021-02-07"
-excerpt: "In this post, I would like to walk you through some of the future JavaScript features that you are able to use today. The focus of this post will be given to syntactical features that were outlined as less commonly used in 2020’s State of JS survey."
-featuredImage: {
-  alt: "",
-  src: ""
-}
-modified: ""
-tags: [
-  "JavaScript",
-]
-title: "Future JavaScript – Stay ahead of the curve by using new JavaScript features today (2/4 – Syntax)"
+author: 'Ian Holden'
+categories: ['Tutorials']
+date: '2021-02-07'
+excerpt: 'In this post, I would like to walk you through some of the future JavaScript features that you are able to use today. The focus of this post will be given to syntactical features that were outlined as less commonly used in 2020’s State of JS survey.'
+featuredImage: { alt: '', src: '' }
+modified: ''
+tags: ['JavaScript']
+title: 'Future JavaScript – Stay ahead of the curve by using new JavaScript features today (2/4 – Syntax)'
 ---
 
 In this post, I am going to show you some of the future JavaScript features that you can use today. Our focus will be on syntactical features that were outlined as less commonly used in [2020’s State of JS survey](https://2020.stateofjs.com/en-US/features/syntax/).
@@ -43,15 +36,15 @@ This operator will return the left-hand side operand if it is not `null` or `und
 Remember, the nullish coalescing operator will only return values that are not `null` or `undefined`. Therefore, the following examples work like so:
 
 ```javascript
-undefined ?? "return me" // "return me"
-null ?? "return me" // "return me"
+undefined ?? 'return me' // "return me"
+null ?? 'return me' // "return me"
 ```
 
 However, what do you think would happen if we try the same examples with booleans? Take a look:
 
 ```javascript
-true ?? "do not return me - return true" // true
-false ?? "do not return me - return false" // false
+true ?? 'do not return me - return true' // true
+false ?? 'do not return me - return false' // false
 ```
 
 Surprised? The last example actually returns a false boolean value, which is quite unusual if you were expecting this operator to work as a standard `if ... else` conditional would.
@@ -59,15 +52,15 @@ Surprised? The last example actually returns a false boolean value, which is qui
 If you are looking for an operator that does not return falsey values, you should use the logical OR (`||`) operator. To compare this with the nullish coalescing example above, see the following:
 
 ```javascript
-false ?? "do not return me - return false" // false
-false || "return me" // "return me"
+false ?? 'do not return me - return false' // false
+false || 'return me' // "return me"
 ```
 
 This makes the nullish coalescing operator very useful. If you are using numbers that are initialised as `0`, or strings that are initialised as `''`, you may want to return these because they are valid values for your variables. See the example below:
 
 ```javascript
-0 ?? "do not return me - return 0" // 0
-"" ?? "do not return me - return an empty string" // ""
+0 ?? 'do not return me - return 0' // 0
+'' ?? 'do not return me - return an empty string' // ""
 ```
 
 ### Object examples
@@ -76,15 +69,15 @@ For these next two examples, we will look at how nullish coalescing affects obje
 
 ```javascript
 const obj = {
-  key: "value"
-};
+  key: 'value',
+}
 ```
 
 We can check the existence of an object’s nested property using this technique really easily:
 
 ```javascript
-obj.key ?? "do not return me - return value" // "value"
-obj.key.nestedKey ?? "return me" // "return me"
+obj.key ?? 'do not return me - return value' // "value"
+obj.key.nestedKey ?? 'return me' // "return me"
 ```
 
 In our next feature, we will see how optional chaining can help us work with objects in a similar, but slightly different manner.
@@ -99,8 +92,8 @@ We will start our examples by defining an object (the same object as before in f
 
 ```javascript
 const obj = {
-  key: "value"
-};
+  key: 'value',
+}
 ```
 
 Currently, we know that objects in JavaScript work in the following way:
@@ -142,17 +135,13 @@ Once these have been installed, we can add them to our `.babelrcfile`. To see an
 
 ```json
 {
-  "presets": [
-    "@babel/env"
-  ],
+  "presets": ["@babel/env"],
   "plugins": [
     "@babel/plugin-proposal-class-properties",
     "@babel/plugin-proposal-private-methods"
   ],
   "parserOpts": {
-    "plugins": [
-      "dynamicImport"
-    ]
+    "plugins": ["dynamicImport"]
   }
 }
 ```
@@ -165,15 +154,15 @@ For these examples, we are going to assume that we have defined the following cl
 
 ```javascript
 class Test {
-  #privateField = 1;
-  publicField = 2;
+  #privateField = 1
+  publicField = 2
 
   sum() {
-    return this.#privateField + this.publicField;
+    return this.#privateField + this.publicField
   }
 }
 
-const test = new Test();
+const test = new Test()
 ```
 
 Now to illustrate how private fields work in this example, look at the following code:
@@ -192,7 +181,8 @@ When we call the class method `sum()` however, we can see that it returns 3 whic
 
 If you want a more interactive experience of the features in this post, I have created a corresponding Code Sandbox for you to play with. It is a Node sandbox that uses the Console to log the examples given in this post. To view these logs, you may need to run yarn startin the Code Sandbox console.
 
-<iframe src="https://codesandbox.io/embed/future-javascript-2020-syntax-xlq0m?fontsize=14&hidenavigation=1&theme=dark"
+<iframe
+  src="https://codesandbox.io/embed/future-javascript-2020-syntax-xlq0m?fontsize=14&hidenavigation=1&theme=dark"
   style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
   title="Future JavaScript 2020 - Syntax"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
